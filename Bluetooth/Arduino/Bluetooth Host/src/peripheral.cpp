@@ -16,13 +16,13 @@
 #include <ArduinoBLE.h>
 #include <functions.h>
       
-enum {
-  GESTURE_NONE  = -1,
-  GESTURE_UP    = 0,
-  GESTURE_DOWN  = 1,
-  GESTURE_LEFT  = 2,
-  GESTURE_RIGHT = 3
-};
+// enum {
+//   GESTURE_NONE  = -1,
+//   GESTURE_UP    = 0,
+//   GESTURE_DOWN  = 1,
+//   GESTURE_LEFT  = 2,
+//   GESTURE_RIGHT = 3
+// };
 
 const char* deviceServiceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";
 const char* deviceServiceCharacteristicUuid = "19b10001-e8f2-537e-4f6c-d104768a1214";
@@ -87,46 +87,46 @@ void loop() {
 }
 
 void writeGesture(int gesture) {
-  Serial.println("- Characteristic <gesture_type> has changed!");
+  // Serial.println("- Characteristic <gesture_type> has changed!");
   
-   switch (gesture) {
-      case GESTURE_UP:
-        Serial.println("* Actual value: UP (red LED on)");
-        Serial.println(" ");
-        digitalWrite(LEDR, LOW);
-        digitalWrite(LEDG, HIGH);
-        digitalWrite(LEDB, HIGH);
-        digitalWrite(LED_BUILTIN, LOW);
-        break;
-      case GESTURE_DOWN:
-        Serial.println("* Actual value: DOWN (green LED on)");
-        Serial.println(" ");
-        digitalWrite(LEDR, HIGH);
-        digitalWrite(LEDG, LOW);
-        digitalWrite(LEDB, HIGH);
-        digitalWrite(LED_BUILTIN, LOW);
-        break;
-      case GESTURE_LEFT:
-        Serial.println("* Actual value: LEFT (blue LED on)");
-        Serial.println(" ");
-        digitalWrite(LEDR, HIGH);
-        digitalWrite(LEDG, HIGH);
-        digitalWrite(LEDB, LOW);
-        digitalWrite(LED_BUILTIN, LOW);
-        break;
-      case GESTURE_RIGHT:
-        Serial.println("* Actual value: RIGHT (built-in LED on)");
-        Serial.println(" ");
-        digitalWrite(LEDR, HIGH);
-        digitalWrite(LEDG, HIGH);
-        digitalWrite(LEDB, HIGH);
-        digitalWrite(LED_BUILTIN, HIGH);
-        break;
-      default:
-        digitalWrite(LEDR, HIGH);
-        digitalWrite(LEDG, HIGH);
-        digitalWrite(LEDB, HIGH);
-        digitalWrite(LED_BUILTIN, LOW);
-        break;
-    }      
+  //  switch (gesture) {
+  //     case GESTURE_UP:
+  //       Serial.println("* Actual value: UP (red LED on)");
+  //       Serial.println(" ");
+  //       digitalWrite(LEDR, LOW);
+  //       digitalWrite(LEDG, HIGH);
+  //       digitalWrite(LEDB, HIGH);
+  //       digitalWrite(LED_BUILTIN, LOW);
+  //       break;
+  //     case GESTURE_DOWN:
+  //       Serial.println("* Actual value: DOWN (green LED on)");
+  //       Serial.println(" ");
+  //       digitalWrite(LEDR, HIGH);
+  //       digitalWrite(LEDG, LOW);
+  //       digitalWrite(LEDB, HIGH);
+  //       digitalWrite(LED_BUILTIN, LOW);
+  //       break;
+  //     case GESTURE_LEFT:
+  //       Serial.println("* Actual value: LEFT (blue LED on)");
+  //       Serial.println(" ");
+  //       digitalWrite(LEDR, HIGH);
+  //       digitalWrite(LEDG, HIGH);
+  //       digitalWrite(LEDB, LOW);
+  //       digitalWrite(LED_BUILTIN, LOW);
+  //       break;
+  //     case GESTURE_RIGHT:
+  //       Serial.println("* Actual value: RIGHT (built-in LED on)");
+  //       Serial.println(" ");
+  //       digitalWrite(LEDR, HIGH);
+  //       digitalWrite(LEDG, HIGH);
+  //       digitalWrite(LEDB, HIGH);
+  //       digitalWrite(LED_BUILTIN, HIGH);
+  //       break;
+  //     default:
+  //       digitalWrite(LEDR, HIGH);
+  //       digitalWrite(LEDG, HIGH);
+  //       digitalWrite(LEDB, HIGH);
+  //       digitalWrite(LED_BUILTIN, LOW);
+  //       break;
+  //   }  
 }

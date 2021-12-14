@@ -83,43 +83,43 @@ void controlPeripheral(BLEDevice peripheral) {
     return;
   }
 
-  Serial.println("- Discovering peripheral device attributes...");
-  if (peripheral.discoverAttributes()) {
-    Serial.println("* Peripheral device attributes discovered!");
-    Serial.println(" ");
-  } else {
-    Serial.println("* Peripheral device attributes discovery failed!");
-    Serial.println(" ");
-    peripheral.disconnect();
-    return;
-  }
+  // Serial.println("- Discovering peripheral device attributes...");
+  // if (peripheral.discoverAttributes()) {
+  //   Serial.println("* Peripheral device attributes discovered!");
+  //   Serial.println(" ");
+  // } else {
+  //   Serial.println("* Peripheral device attributes discovery failed!");
+  //   Serial.println(" ");
+  //   peripheral.disconnect();
+  //   return;
+  // }
 
-  BLECharacteristic gestureCharacteristic = peripheral.characteristic(deviceServiceCharacteristicUuid);
+  // BLECharacteristic gestureCharacteristic = peripheral.characteristic(deviceServiceCharacteristicUuid);
     
-  if (!gestureCharacteristic) {
-    Serial.println("* Peripheral device does not have gesture_type characteristic!");
-    peripheral.disconnect();
-    return;
-  } else if (!gestureCharacteristic.canWrite()) {
-    Serial.println("* Peripheral does not have a writable gesture_type characteristic!");
-    peripheral.disconnect();
-    return;
-  }
+  // if (!gestureCharacteristic) {
+  //   Serial.println("* Peripheral device does not have gesture_type characteristic!");
+  //   peripheral.disconnect();
+  //   return;
+  // } else if (!gestureCharacteristic.canWrite()) {
+  //   Serial.println("* Peripheral does not have a writable gesture_type characteristic!");
+  //   peripheral.disconnect();
+  //   return;
+  // }
   
-  while (peripheral.connected()) {
-    gesture = gestureDetectection();
+  // while (peripheral.connected()) {
+  //   //gesture = gestureDetectection();
 
-    if (oldGestureValue != gesture) {  
-      oldGestureValue = gesture;
-      Serial.print("* Writing value to gesture_type characteristic: ");
-      Serial.println(gesture);
-      gestureCharacteristic.writeValue((byte)gesture);
-      Serial.println("* Writing value to gesture_type characteristic done!");
-      Serial.println(" ");
-    }
+  //   // if (oldGestureValue != gesture) {  
+  //   //   oldGestureValue = gesture;
+  //   //   Serial.print("* Writing value to gesture_type characteristic: ");
+  //   //   Serial.println(gesture);
+  //   //   gestureCharacteristic.writeValue((byte)gesture);
+  //   //   Serial.println("* Writing value to gesture_type characteristic done!");
+  //   //   Serial.println(" ");
+  //   // }
   
-  }
-  Serial.println("- Peripheral device disconnected!");
+  // }
+  // Serial.println("- Peripheral device disconnected!");
 }
   
 int gestureDetectection() {
@@ -131,23 +131,23 @@ int gestureDetectection() {
   // {
   //   gesture = -1; 
   // }
-    switch (gesture) {
-      case 0:
-        Serial.println("- UP gesture detected");
-        break;
-      case 1:
-        Serial.println("- DOWN gesture detected");
-        break;
-      case 2:
-        Serial.println("- LEFT gesture detected");
-        break;
-      case 3:
-        Serial.println("- RIGHT gesture detected");
-        break;
-      default:
-        Serial.println("- No gesture detected");
-        break;
-      }
+    // switch (gesture) {
+    //   case 0:
+    //     Serial.println("- UP gesture detected");
+    //     break;
+    //   case 1:
+    //     Serial.println("- DOWN gesture detected");
+    //     break;
+    //   case 2:
+    //     Serial.println("- LEFT gesture detected");
+    //     break;
+    //   case 3:
+    //     Serial.println("- RIGHT gesture detected");
+    //     break;
+    //   default:
+    //     Serial.println("- No gesture detected");
+    //     break;
+    //   }
     
     return gesture;
 }
