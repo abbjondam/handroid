@@ -20,9 +20,13 @@
 
 const char* deviceServiceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";
 const char* deviceServiceCharacteristicUuid = "19b10001-e8f2-537e-4f6c-d104768a1214";
+BLEService handService(deviceServiceUuid); 
+BLECharacteristic fingerCharacteristic(deviceServiceCharacteristicUuid, BLERead | BLEWrite | BLENotify, 14);
 
 int gesture = -1;
-int oldGestureValue = -1;   
+int oldGestureValue = -1;
+int connected = 0;   
+char* val = "0100,0100,0100";
 
 void setup() {
   Serial.begin(9600);
@@ -36,118 +40,63 @@ void setup() {
   }
   
   BLE.setLocalName("Nano 33 BLE (Central)"); 
-  BLE.advertise();
+  BLE.setConnectionInterval(1,1);
+  BLE.setAdvertisedService(handService);
+  handService.addCharacteristic(fingerCharacteristic);
+  BLE.addService(handService);
+  //fingerCharacteristic.writeValue(0);
 
   Serial.println("Arduino Nano 33 BLE Sense (Central Device)");
   Serial.println(" ");
 }
 
-void loop() {
-  connectToPeripheral();
-}
-
-void connectToPeripheral(){
-  BLEDevice peripheral;
-  
-  Serial.println("- Discovering peripheral device...");
-
-  do
+void writeValues() {
+  Serial.println("---");
+  fingerCharacteristic.writeValue(val);
+  Serial.println("___");
+  if (val == "0100,0100,0100")
   {
-    BLE.scanForUuid(deviceServiceUuid);
-    peripheral = BLE.available();
-  } while (!peripheral);
-  
-  if (peripheral) {
-    Serial.println("* Peripheral device found!");
-    Serial.print("* Device MAC address: ");
-    Serial.println(peripheral.address());
-    Serial.print("* Device name: ");
-    Serial.println(peripheral.localName());
-    Serial.print("* Advertised service UUID: ");
-    Serial.println(peripheral.advertisedServiceUuid());
-    Serial.println(" ");
-    BLE.stopScan();
-    controlPeripheral(peripheral);
+    val = "1000,1000,1000";
+  }
+  else 
+  {
+    val = "0100,0100,0100";
+  }
+  delay(1000);
+}
+
+void loop() {
+  Serial.println("---");
+  while (!fingerCharacteristic.subscribed())
+  {
+  Serial.println("- Discovering peripheral device...");
+  BLE.scanForUuid(deviceServiceUuid);
+    
+  BLE.advertise();
+  }
+  // Serial.println(val);
+  // fingerCharacteristic.writeValue(val);
+  // Serial.println("___");
+  // if (val == "0100,0100,0100")
+  // {
+  //   val = "1000,1000,1000";
+  // }
+  // else 
+  // {
+  //   val = "0100,0100,0100";
+  // }
+  if (!fingerCharacteristic.subscribed())
+  {  
+  Serial.println("- Discovering peripheral device...");
+  BLE.scanForUuid(deviceServiceUuid);
+    
+  BLE.advertise();
+  }
+  else
+  {
+  writeValues();
   }
 }
 
-void controlPeripheral(BLEDevice peripheral) {
-  Serial.println("- Connecting to peripheral device...");
 
-  if (peripheral.connect()) {
-    Serial.println("* Connected to peripheral device!");
-    Serial.println(" ");
-  } else {
-    Serial.println("* Connection to peripheral device failed!");
-    Serial.println(" ");
-    return;
-  }
 
-  // Serial.println("- Discovering peripheral device attributes...");
-  // if (peripheral.discoverAttributes()) {
-  //   Serial.println("* Peripheral device attributes discovered!");
-  //   Serial.println(" ");
-  // } else {
-  //   Serial.println("* Peripheral device attributes discovery failed!");
-  //   Serial.println(" ");
-  //   peripheral.disconnect();
-  //   return;
-  // }
-
-  // BLECharacteristic gestureCharacteristic = peripheral.characteristic(deviceServiceCharacteristicUuid);
-    
-  // if (!gestureCharacteristic) {
-  //   Serial.println("* Peripheral device does not have gesture_type characteristic!");
-  //   peripheral.disconnect();
-  //   return;
-  // } else if (!gestureCharacteristic.canWrite()) {
-  //   Serial.println("* Peripheral does not have a writable gesture_type characteristic!");
-  //   peripheral.disconnect();
-  //   return;
-  // }
-  
-  // while (peripheral.connected()) {
-  //   //gesture = gestureDetectection();
-
-  //   // if (oldGestureValue != gesture) {  
-  //   //   oldGestureValue = gesture;
-  //   //   Serial.print("* Writing value to gesture_type characteristic: ");
-  //   //   Serial.println(gesture);
-  //   //   gestureCharacteristic.writeValue((byte)gesture);
-  //   //   Serial.println("* Writing value to gesture_type characteristic done!");
-  //   //   Serial.println(" ");
-  //   // }
-  
-  // }
-  // Serial.println("- Peripheral device disconnected!");
-}
-  
-int gestureDetectection() {
-  // if (gesture >= 3)
-  // {
-  //   gesture += 1;
-  // }
-  // else
-  // {
-  //   gesture = -1; 
-  // }
-    // switch (gesture) {
-    //   case 0:
-    //     Serial.println("- UP gesture detected");
-    //     break;
-    //   case 1:
-    //     Serial.println("- DOWN gesture detected");
-    //     break;
-    //   case 2:
-    //     Serial.println("- LEFT gesture detected");
-    //     break;
-    //   case 3:
-    //     Serial.println("- RIGHT gesture detected");
-    //     break;
-    //   default:
-    //     Serial.println("- No gesture detected");
-    //     break;
-    //   }
-    
-    return gesture;
-}
