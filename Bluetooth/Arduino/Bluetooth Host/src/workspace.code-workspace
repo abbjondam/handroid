@@ -8,9 +8,5 @@
 			"path": ".."
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"string": "cpp"
-		}
-	}
+	"settings": {}
 }
