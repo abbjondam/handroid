@@ -1,6 +1,11 @@
 \documentclass[a4paper]{article}
 
 \usepackage[english, swedish]{babel}
+\usepackage{float}
+\usepackage[style=ieee]{biblatex}
+\usepackage{csquotes}
+
+\addbibresource{references.bib}
 
 \begin{document}
 
@@ -8,9 +13,9 @@
 
 
 \begin{abstract}
-       
+
 \end{abstract}
-   
+
 \begin{otherlanguage}{english}
     \begin{abstract}
     \end{abstract}
@@ -20,16 +25,23 @@
 
 \section{Inledning}
 \subsection{Syfte}
-Syftet med projektet är att utveckla ett system som kan detektera fingerrörelserna på en människohand. 
-De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram. 
+Syftet med projektet är att utveckla ett system som kan detektera fingerrörelserna på en människohand.
+De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
 \subsection{Bakgrund}
-Vi ser ett ökande intresse och en ökande efterfrågan på olika sätt för människan att interagera med datorer och robotar. Bland annat hur människokroppen kan användas för att skapa input till datorprogram och som fjärrkontroll till olika maskiner och robotar. 
-Den här tekniken är som mest utvecklad och har idag störst användning inom virtual reality och augmented reality. 
+Vi ser ett ökande intresse och en ökande efterfrågan på olika sätt för människan att interagera med datorer och robotar. Bland annat hur människokroppen kan användas för att skapa input till datorprogram och som fjärrkontroll till olika maskiner och robotar.
+Den här tekniken är som mest utvecklad och har idag störst användning inom virtual reality och augmented reality.
 % Vi ser ett ökande intresse för andra applikationer där människan agerar fjärrkontroll.   
 
 \subsection{Frågeställning}
 
 \section{Teori}
+För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
+Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, och idéer för tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand} vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
+
+\subsection{Elektromagnetism}
+\subsubsection{Magnetfält}
+Detta är elektromagnetism
+\subsubsection{Induktion}
 
 \section{Metod}
 
@@ -44,5 +56,6 @@ Den här tekniken är som mest utvecklad och har idag störst användning inom v
 \section{Avslutning}
 
 \section{Källor}
+\printbibliography[heading=none]
 
 \end{document}
