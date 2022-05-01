@@ -4,6 +4,20 @@
 \usepackage{float}
 \usepackage[style=ieee]{biblatex}
 \usepackage{csquotes}
+\usepackage[toc,title]{appendix}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\renewcommand\appendixtocname{Bilagor}
+
 
 \addbibresource{references.bib}
 
@@ -23,39 +37,78 @@
 
 \tableofcontents
 
-\section{Inledning}
-\subsection{Syfte}
-Syftet med projektet är att utveckla ett system som kan detektera fingerrörelserna på en människohand.
-De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
-\subsection{Bakgrund}
-Vi ser ett ökande intresse och en ökande efterfrågan på olika sätt för människan att interagera med datorer och robotar. Bland annat hur människokroppen kan användas för att skapa input till datorprogram och som fjärrkontroll till olika maskiner och robotar.
-Den här tekniken är som mest utvecklad och har idag störst användning inom virtual reality och augmented reality.
-% Vi ser ett ökande intresse för andra applikationer där människan agerar fjärrkontroll.   
+\begin{sloppypar}
 
-\subsection{Frågeställning}
+    \section{Inledning}
+    \subsection{Syfte}
+    Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
+    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser på en människohand.
+    De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
+    % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
+    \subsection{Bakgrund}
+    Det finns ett ökat intresse och en ökad efterfrågan på olika sätt för människan att interagera med datorer och robotar.
+    Bland annat hur människokroppen kan användas för inmatning till datorprogram och till olika maskiner.
+    Den här tekniken är som mest utvecklad inom virtual reality och augmented reality och det är inom dessa områden som tekniken i nuläget har störst användning.
+    Tekniken är dock fortfarande relativt begränsad och använder mestadels grövre motorik som inmatning och förlorar den precision som kan ges av finmotoriska rörelser.
 
-\section{Teori}
-För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
-Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, och idéer för tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand} vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
+    % Vi ser ett ökande intresse för andra applikationer där människan agerar fjärrkontroll.   
 
-\subsection{Elektromagnetism}
-\subsubsection{Magnetfält}
-Detta är elektromagnetism
-\subsubsection{Induktion}
+    \subsection{Frågeställning}
 
-\section{Metod}
+    \section{Teori}
+    För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
+    Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, och
+    idéer för tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
+    vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
 
-\section{Material}
+    \subsection{Elektromagnetism}
+    \subsubsection{Magnetfält}
+    Detta är elektromagnetism
+    \subsubsection{Induktion}
 
-\section{Resultat}
+    \subsection{Elektronik}
+    \subsubsection{Filter}
+    \subsubsection{Oscillatorer}
+    \subsubsection{Flexsensorer}
+    \subsubsection{Accelerometer}
+    \subsubsection{Mikrokontroller}
 
-\section{Diskussion}
+    \subsection{Bluetooth Low Energy}
+    \subsubsection{Peripheral}
+    \subsubsection{Central}
 
-\section{Slutsats}
+    \subsection{Rendering}
 
-\section{Avslutning}
+    \section{Metod och material}
+    \subsection{Konstruktion}
+    \subsubsection{Spolar}
+    \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
 
-\section{Källor}
+
+    \section{Resultat}
+    \section{Diskussion och Slutsats}
+    \subsection{Diskussion}
+
+    \subsection{Slutsats}
+
+    \section{Avslutning}
+
+
+
+
+    \section{Källor}
+
+    \appendices
+    \titleformat{\section}[display]
+    {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
+    \section{Renderingskod}
+
+    \section{Oscillatorkrets}
+
+    \section{Filterkrets}
+
+
+\end{sloppypar}
 \printbibliography[heading=none]
 
 \end{document}
