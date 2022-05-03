@@ -3,12 +3,12 @@
 /*
   BLE_Peripheral.ino
 
-  This program uses the ArduinoBLE library to set-up an Arduino Nano 33 BLE 
-  as a peripheral device and specifies a service and a characteristic. Depending 
-  of the value of the specified characteristic, an on-board LED gets on. 
+  This program uses the ArduinoBLE library to set-up an Arduino Nano 33 BLE
+  as a peripheral device and specifies a service and a characteristic. Depending
+  of the value of the specified characteristic, an on-board LED gets on.
 
   The circuit:
-  - Arduino Nano 33 BLE. 
+  - Arduino Nano 33 BLE.
 
   This example code is in the public domain.
 */
@@ -16,25 +16,29 @@
 #include <ArduinoBLE.h>
 #include <functions.h>
 
-const char* deviceServiceUuid = "190H";
-const char* deviceServiceCharacteristicUuid = "190F";
+const char *deviceServiceUuid = "190H";
+const char *deviceServiceCharacteristicUuid = "190F";
 
 String value;
 
 String val = "0100,0100,0100";
+unsigned long prevTime;
 int advertising;
 
-BLEService handService(deviceServiceUuid); 
-BLEStringCharacteristic fingerCharacteristic(deviceServiceCharacteristicUuid,  BLERead | BLEWrite| BLENotify, 14);
+BLEService handService(deviceServiceUuid);
+BLEStringCharacteristic fingerCharacteristic(deviceServiceCharacteristicUuid, BLERead | BLEWrite | BLENotify, 14);
 
-
-void setup() {
+void setup()
+{
   Serial.begin(9600);
-  while (!Serial);  
-    
-  if (!BLE.begin()) {
+  while (!Serial)
+    ;
+
+  if (!BLE.begin())
+  {
     Serial.println("- Starting BLE module failed!");
-    while (1);
+    while (1)
+      ;
   }
 
   BLE.setLocalName("Arduino Handroid");
@@ -48,39 +52,49 @@ void setup() {
   Serial.println(" ");
 }
 
-void loop() {
+void loop()
+{
   BLEDevice central = BLE.central();
   Serial.println("- Discovering central device...");
   // delay(500);
 
-  if (central) {
+  if (central)
+  {
     Serial.println("* Connected to central device!");
     Serial.print("* Device MAC address: ");
     Serial.println(central.address());
     Serial.println(" ");
 
-    while (central.connected()) {
+    prevTime = millis();
+    while (central.connected())
+    {
       writeValues();
-      if (fingerCharacteristic.written()) {
+      if (fingerCharacteristic.written())
+      {
         //  value = fingerCharacteristic.c);
         //  Serial.println(value);
-       }
+      }
     }
-    
+
     Serial.println("* Disconnected to central device!");
   }
 }
 
-void writeValues() {
+void writeValues()
+{
   Serial.println("---");
   fingerCharacteristic.writeValue(val);
   Serial.println("___");
-  if (val == "0100,0100,0100")
+  if (millis() - prevTime > 5000)
   {
-    val = "1000,1000,1000";
-  }
-  else 
-  {
-    val = "0100,0100,0100";
+    if (val == "0100,0100,0100")
+    {
+      val = "1000,1000,1000";
+    }
+    else
+    {
+      val = "0100,0100,0100";
+    }
+    prevTime = millis();
   }
 }

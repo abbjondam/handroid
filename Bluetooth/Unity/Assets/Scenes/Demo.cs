@@ -22,7 +22,7 @@ public class Demo : MonoBehaviour
     public Text characteristicScanStatusText;
     public Dropdown characteristicDropdown;
     public Button subscribeButton;
-    public Text subcribeText;
+    public Text subscribeText;
     public Button writeButton;
     public InputField writeInput;
     public Text errorText;
@@ -40,6 +40,7 @@ public class Demo : MonoBehaviour
     {
         scanResultRoot = deviceScanResultProto.transform.parent;
         deviceScanResultProto.transform.SetParent(null);
+        subscribeText.text = "000,000,000";
     }
 
     // Update is called once per frame
@@ -130,8 +131,8 @@ public class Demo : MonoBehaviour
             BleApi.BLEData res = new BleApi.BLEData();
             while (BleApi.PollData(out res, false))
             {
-                subcribeText.text = BitConverter.ToString(res.buf, 0, res.size);
-                // subcribeText.text = Encoding.ASCII.GetString(res.buf, 0, res.size);
+                // subscribeText.text = BitConverter.ToString(res.buf, 0, res.size);
+                subscribeText.text = Encoding.ASCII.GetString(res.buf, 0, res.size);
             }
         }
         {
