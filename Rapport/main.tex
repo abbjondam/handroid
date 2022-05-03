@@ -61,12 +61,16 @@
     idéer för tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
     vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
 
+
     \subsection{Elektromagnetism}
     \subsubsection{Magnetfält}
     Detta är elektromagnetism
     \subsubsection{Induktion}
 
     \subsection{Elektronik}
+    \subsubsection{Spolar}
+    \subsubsection{Kondensatorer}
+    \subsubsection{Operationsförstärkare}
     \subsubsection{Filter}
     \subsubsection{Oscillatorer}
     \subsubsection{Flexsensorer}
@@ -78,11 +82,46 @@
     \subsubsection{Central}
 
     \subsection{Rendering}
+    \subsubsection{Unity}
 
     \section{Metod och material}
+
+
+
     \subsection{Konstruktion}
+
+    \subsubsection{3D-hand}
     \subsubsection{Spolar}
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
+
+    \subsection{Kretsar}
+    \subsubsection{Filter}
+    Filterkretsen är ett aktivt bandpassfilter.
+    Filterkretsen designades först med hjälp av formler för att bestämma värden på kondensatorer och resistorer.
+    Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
+    dock användes en ideal operationsförstärkare under simuleringen.
+    När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
+    Det visades sig att formlerna för kondensatorer och resistorer
+    antog att operationsförstärkare var ideal för att kretsen skulle fungera.
+    Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
+    och fungerade i simulering med en icke-ideal operationsförstärkare.
+    \subsubsection{Oscillator}
+    \subsubsection{Servo}
+
+
+    \subsection{Rendering}
+    \subsubsection{Mikrokontroller}
+    Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
+    Mikrokontrollen väntar på renderingsprogrammet att ansluta och
+    läser sedan av värdena från de olika sensorerna och publicerar dessa till ett Bluetooth characteristics.
+    För att åstadkomma kommunikation används biblioteket ArduinoBLE.
+
+    \subsubsection{Renderingsprogram}
+    Renderingsprogrammet som används är Unity. 
+    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps UnityPlugin.
+
+
+
 
 
     \section{Resultat}
