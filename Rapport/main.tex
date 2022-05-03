@@ -22,6 +22,7 @@
 \addbibresource{references.bib}
 
 \begin{document}
+\pagenumbering{gobble}
 
 \input{titlepage.tex}
 
@@ -36,6 +37,9 @@
 \end{otherlanguage}
 
 \tableofcontents
+
+\newpage
+\pagenumbering{arabic}
 
 \begin{sloppypar}
 
@@ -74,15 +78,19 @@
     \subsubsection{Filter}
     \subsubsection{Oscillatorer}
     \subsubsection{Flexsensorer}
+    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
+    Flexsensorer kan användas för att mätta gur mycket ett finger är böjd och de har använts i projekt och produkter som ... .
     \subsubsection{Accelerometer}
     \subsubsection{Mikrokontroller}
 
     \subsection{Bluetooth Low Energy}
+    Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
     \subsubsection{Peripheral}
     \subsubsection{Central}
 
     \subsection{Rendering}
     \subsubsection{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \section{Metod och material}
 
@@ -91,12 +99,16 @@
     \subsection{Konstruktion}
 
     \subsubsection{3D-hand}
+    En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
+    Designen bestod av servon som med hjälp av trådar styr fingrarna
+    och 3d-modeler av fingersegment som kunde skrivas ut med en 3D-skrivare.
+
     \subsubsection{Spolar}
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
 
     \subsection{Kretsar}
     \subsubsection{Filter}
-    Filterkretsen är ett aktivt bandpassfilter.
+    Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
     Filterkretsen designades först med hjälp av formler för att bestämma värden på kondensatorer och resistorer.
     Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
@@ -106,19 +118,19 @@
     Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
     och fungerade i simulering med en icke-ideal operationsförstärkare.
     \subsubsection{Oscillator}
-    \subsubsection{Servo}
 
 
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
     Mikrokontrollen väntar på renderingsprogrammet att ansluta och
-    läser sedan av värdena från de olika sensorerna och publicerar dessa till ett Bluetooth characteristics.
+    läser sedan av värdena från de olika sensorerna och publicerar dessa till en Bluetooth characteristics.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE.
 
     \subsubsection{Renderingsprogram}
-    Renderingsprogrammet som används är Unity. 
-    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps UnityPlugin.
+    Renderingsprogrammet som används är Unity.
+    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
+    Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
 
 
 
