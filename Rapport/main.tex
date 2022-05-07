@@ -72,6 +72,7 @@
     \subsubsection{Induktion}
 
     \subsection{Elektronik}
+    \subsubsection{Arduino Nano och PlatformIO}
     \subsubsection{Spolar}
     \subsubsection{Kondensatorer}
     \subsubsection{Operationsförstärkare}
@@ -101,9 +102,22 @@
     \subsubsection{3D-hand}
     En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
     Designen bestod av servon som med hjälp av trådar styr fingrarna
-    och 3d-modeler av fingersegment som kunde skrivas ut med en 3D-skrivare.
+    och 3d-modeller av fingersegment som kunde skrivas ut med en 3D-skrivare.
 
     \subsubsection{Spolar}
+    Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation. 
+    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar
+    För att få lämplig storlek och funktion från spolarna valdes ett varvtal på 1000 varv. 
+    Spolarna konstruerades genom att limma fast hattar i ändarna på järnkärnan. 
+    Sedan lindades spolarna med koppartråd. 
+    Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
+    var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden. 
+    Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
+    koppartråd som hade lindats runt spolen. 
+    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av.  
+
+
+
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
 
     \subsection{Kretsar}
