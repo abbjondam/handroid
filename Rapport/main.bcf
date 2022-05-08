@@ -2350,8 +2350,13 @@
   <bcf:section number="0">
     <bcf:citekey order="1">KTHhand</bcf:citekey>
     <bcf:citekey order="2">EthoHand</bcf:citekey>
-    <bcf:citekey order="3">KTHhand</bcf:citekey>
-    <bcf:citekey order="4">EthoHand</bcf:citekey>
+    <bcf:citekey order="3">digilar</bcf:citekey>
+    <bcf:citekey order="4">digilar</bcf:citekey>
+    <bcf:citekey order="5">digilar</bcf:citekey>
+    <bcf:citekey order="6">digilar</bcf:citekey>
+    <bcf:citekey order="7">KTHhand</bcf:citekey>
+    <bcf:citekey order="8">EthoHand</bcf:citekey>
+    <bcf:citekey order="9">digilar</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

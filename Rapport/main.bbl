@@ -87,6 +87,45 @@
       \verb 10.1109/BIOROB.2016.7523787
       \endverb
     \endentry
+    \entry{digilar}{book}{}
+      \name{author}{4}{}{%
+        {{hash=b11f5b42640d5cb83cda3af103eaaeb3}{%
+           family={Kullander\bibnamedelima Sjöberg},
+           familyi={K\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6264c6760b0959ba5a9f2943b7b4a35f}{%
+           family={Nilsson},
+           familyi={N\bibinitperiod},
+           given={Susanna},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a1539bebd029db25fe562cbc1013da3a}{%
+           family={Boström},
+           familyi={B\bibinitperiod},
+           given={Lennart},
+           giveni={L\bibinitperiod}}}%
+        {{hash=93024c6cab0f84210c1d15c4b5f87b01}{%
+           family={Ekstig},
+           familyi={E\bibinitperiod},
+           given={Börje},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Natur \& Kultur}%
+      }
+      \strng{namehash}{eb2f8375eff7e956c6ce37c179c60cd7}
+      \strng{fullhash}{d688b046b00c34eba96bc2ced527a8c3}
+      \strng{bibnamehash}{d688b046b00c34eba96bc2ced527a8c3}
+      \strng{authorbibnamehash}{d688b046b00c34eba96bc2ced527a8c3}
+      \strng{authornamehash}{eb2f8375eff7e956c6ce37c179c60cd7}
+      \strng{authorfullhash}{d688b046b00c34eba96bc2ced527a8c3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fysik för gymnasieskolan 1 och 2 Digital}
+      \field{year}{2019}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
