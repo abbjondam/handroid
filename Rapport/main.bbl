@@ -164,6 +164,19 @@
       \field{howpublished}{\url{http://www.learningaboutelectronics.com/Articles/Sine-wave-generator-circuit-with-a-555-timer.php}}
       \field{title}{How to Build a Sine Wave Generator with a 555 Timer Chip}
     \endentry
+    \entry{Arduino:ABX00030}{manual}{}
+      \list{organization}{1}{%
+        {Arduino}%
+      }
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Rev. 1}
+      \field{number}{ABX00030}
+      \field{title}{Arduino® Nano 33 BLE}
+      \field{year}{2021}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
