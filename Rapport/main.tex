@@ -7,6 +7,7 @@
 \usepackage[toc,title]{appendix}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{url}
 
 \hypersetup{
     colorlinks,
@@ -92,7 +93,13 @@
     \subsubsection{Operationsförstärkare}
     \subsubsection{Filter}
     \subsubsection{Oscillatorer}
-    LIKSTRÖM -> VÄXELSTRÖM.
+    En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
+    På grund av spolars och kondensatorers upp- och urladdningsförmåga kan dessa användas, i olika kombinationer för att göra en krets där strömmen och spänningen svänger (blir svagare/starkare, och byter riktning) med en viss frekvens.
+    Oscillatorer är användbara om man vill skapa växelström med en likströmskälla, vilket för det här projektet är mycket relevant för att kunna alstra ett varierande magnetfält i spolarna.
+
+    En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
+    En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
+
 
     \subsubsection{Flexsensorer}
     En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
@@ -179,6 +186,7 @@
 
 
     \section{Källor}
+    \printbibliography[heading=none]
 
     \appendices
     \titleformat{\section}[display]
@@ -186,11 +194,14 @@
     \section{Renderingskod}
 
     \section{Oscillatorkrets}
+    images/555-117kHz (Bild läggs in senare)
+    bild på själva breadborden kanske?
+
 
     \section{Filterkrets}
 
 
 \end{sloppypar}
-\printbibliography[heading=none]
+
 
 \end{document}
