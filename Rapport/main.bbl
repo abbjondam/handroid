@@ -126,6 +126,19 @@
       \field{title}{Fysik för gymnasieskolan 1 och 2 Digital}
       \field{year}{2019}
     \endentry
+    \entry{Arduino:ABX00030}{manual}{}
+      \list{organization}{1}{%
+        {Arduino}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Rev. 1}
+      \field{number}{ABX00030}
+      \field{title}{Arduino® Nano 33 BLE}
+      \field{year}{2021}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
