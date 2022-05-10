@@ -123,7 +123,7 @@
     kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\\
     Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
     datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
-    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++. 
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++.
 
     \begin{table}[h]
         \begin{center}
@@ -190,7 +190,8 @@
         \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
         \label{fig:Spolsnurrare}
     \end{figure}
-    
+
+    De färdiga spolarna mättes sedan med oscilloskop och funktionsgenerator för att säkerställa dess induktans, för att användas i oscillatorkretsen.
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
@@ -221,8 +222,14 @@
     antog att operationsförstärkare var ideal för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
     och fungerade i simulering med en icke-ideal operationsförstärkare.
-    \subsubsection{Oscillator}
 
+    \subsubsection{Oscillator}
+    För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
+    Ursprungligen planerades att använda oscillatorer som bygger på wienbryggor (Wien-bryggesoscillator).
+    Till detta skulle behövas resitorer, kondensatorer och operationsförstärkare. Resistorer och kondensatorer dimensionerades och kretsen simulerades i program för att kontrollera att allt stämde.
+    Efter förslag utifrån om att integrera spolarna i kretsen som en resonanskälla byttes oscillatorerna mot 555-oscillatorer.
+    Här dimensionerades istället två olika kretsar i en: en med resistorer och kondensatorer, och en med kondensatorer och spolen.
+    Istället för att använda ett 555-chip användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt.
 
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
@@ -236,11 +243,12 @@
     För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
     Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
 
-
-
-
-
     \section{Resultat}
+
+    \subsection{Oscillator}
+    \subsubsection{Spolar}
+    \subsubsection{Oscillatorkrets}
+
     \section{Diskussion och Slutsats}
     \subsection{Diskussion}
 
