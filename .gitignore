@@ -6,3 +6,9 @@ Rapport/main.log
 Rapport/main.synctex.gz
 Rapport/main.toc
 Rapport/main.xdv
+*.bbl
+*.bcf
+*.blg
+*.out
+*.xml
+*.fls
