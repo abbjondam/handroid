@@ -8,6 +8,9 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
 
 \hypersetup{
     colorlinks,
@@ -86,6 +89,11 @@
     En spole är en ledare som lindats i varv på ett sådant sätt att magnetfältet som skapas när ström flödar igenom har en nord- och en sydpol.
     Spolar kan lindas runt ett material, en \textit{kärna} som förstärker magnetfältet, eller bara med luft i mitten.
     På grund av att spolen inducerar spänning kommer den motverka strömmen i kretsen den ingår, enligt Lenz lag, vilket bland annat ger en förskjutning mellan spänning och ström, i en växelströmskrets.~\cite{digilar}
+    \subsubsection{Mätning av spolar}
+    För att dimensionera en krets kan det vara viktigt att veta vilka värden ens komponenter har.
+    Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
+    Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
+    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man med hjälp av matematiska formler approximera spolens induktans.~\cite{MeasureInductor}
 
     \subsubsection{Kondensatorer}
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
@@ -173,8 +181,25 @@
     var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
     koppartråd som hade lindats runt spolen.
-    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av.
+    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\textwidth]{spolsnurrare1.png}
+        \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
+        \label{fig:Spolsnurrare}
+    \end{figure}
+    
+    För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
+    Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = 0.75\textwidth]{spole-vs-spole.jpg}
+        \caption{En spole med endast hatt, kärna och lindning (överst) och en spole med kablar fastlödda (underst).}
+        \label{fig:SpoleVsSpole}
+    \end{figure}
 
 
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
