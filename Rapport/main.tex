@@ -2,12 +2,14 @@
 
 \usepackage[english, swedish]{babel}
 \usepackage{float}
+\usepackage{minted}
 \usepackage[style=ieee]{biblatex}
 \usepackage{csquotes}
 \usepackage[toc,title]{appendix}
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{url}
+
 
 \hypersetup{
     colorlinks,
@@ -81,7 +83,6 @@
     ~\cite{digilar}
 
     \subsection{Elektronik}
-    \subsubsection{Arduino Nano och PlatformIO}
     \subsubsection{Spolar}
     En spole är en ledare som lindats i varv på ett sådant sätt att magnetfältet som skapas när ström flödar igenom har en nord- och en sydpol.
     Spolar kan lindas runt ett material, en \textit{kärna} som förstärker magnetfältet, eller bara med luft i mitten.
@@ -111,13 +112,12 @@
     Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
     och en NINA B306 BLE-modul som möjliggör kommunikation med Bluetooth Low Energy. Arduino Nano 33 BLE har 8 analoga
     ingångar och kan drivas av spänning mellan 4,5 och 21 volt. Annan viktig hårdvaruinformation om mikrokontrollern
-    kan ses i tabell~\ref{table:ArduinoNano} på sida \pageref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\
-
+    kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\\
     Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
     datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
-    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++. \subsubsection{555-timer}
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++. 
 
-    \begin{table}
+    \begin{table}[h]
         \begin{center}
             \caption{Viktiga specifikationer Arduino Nano 33 BLE ~\cite{Arduino:ABX00030}}
             \label{table:ArduinoNano}
@@ -142,7 +142,7 @@
             \end{tabular}
         \end{center}
     \end{table}
-
+    \subsubsection{555-timer}
     \subsection{Bluetooth Low Energy}
     Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
     \subsubsection{Peripheral}
@@ -241,7 +241,9 @@
 
     \section{Filterkrets}
 
-
+    \section{Kod Spolsnurrare}
+    \inputminted[]{cpp}{./Code/Spolsnurrare.cpp}
+    \newpage
 \end{sloppypar}
 
 
