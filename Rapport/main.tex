@@ -7,6 +7,7 @@
 \usepackage[toc,title]{appendix}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{url}
 
 \hypersetup{
     colorlinks,
@@ -68,21 +69,79 @@
 
     \subsection{Elektromagnetism}
     \subsubsection{Magnetfält}
-    Detta är elektromagnetism
+    Magnetfält är fält som rör sig i en riktning från nord- till sydpolen på en magnet eller runt en strömförande elektrisk ledare.
+    Den magnetiska flödestätheten, ekvivalent med magnetfältets \textit{styrka}, kring en ledare med ström, avtar med avstånd från ledaren,
+    vilket är relevant för detta projekt.~\cite{digilar}
     \subsubsection{Induktion}
+    Inducerad spänning är spänning som alstras när en ledare befinner sig i ett magnetfält, på grund av att de laddade partiklarna hamnar på motsatta sidor av ledaren.
+    Det skapar en skillnad i laddning, vilket korrelerar med spänning.
+    Enligt Lenz lag ger denna spänning upphov till en ström, i en sluten krets, och att strömmens riktning motverkar förändringen av det magnetiska flödet.
+    Denna princip kan användas för att alstra ström ur ett magnetfält, exempelvis i en generator.
+    Induktion fungerar också åt motsatt håll: ström och spänning i en krets ger upphov till magnetfält runt ledaren.
+    ~\cite{digilar}
 
     \subsection{Elektronik}
+    \subsubsection{Arduino Nano och PlatformIO}
     \subsubsection{Spolar}
+    En spole är en ledare som lindats i varv på ett sådant sätt att magnetfältet som skapas när ström flödar igenom har en nord- och en sydpol.
+    Spolar kan lindas runt ett material, en \textit{kärna} som förstärker magnetfältet, eller bara med luft i mitten.
+    På grund av att spolen inducerar spänning kommer den motverka strömmen i kretsen den ingår, enligt Lenz lag, vilket bland annat ger en förskjutning mellan spänning och ström, i en växelströmskrets.~\cite{digilar}
+
     \subsubsection{Kondensatorer}
+    Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
+
     \subsubsection{Operationsförstärkare}
     \subsubsection{Filter}
     \subsubsection{Oscillatorer}
+    En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
+    På grund av spolars och kondensatorers upp- och urladdningsförmåga kan dessa användas, i olika kombinationer för att göra en krets där strömmen och spänningen svänger (blir svagare/starkare, och byter riktning) med en viss frekvens.
+    Oscillatorer är användbara om man vill skapa växelström med en likströmskälla, vilket för det här projektet är mycket relevant för att kunna alstra ett varierande magnetfält i spolarna.
+
+    En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
+    En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
+
+
     \subsubsection{Flexsensorer}
     En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
     Flexsensorer kan användas för att mätta gur mycket ett finger är böjd och de har använts i projekt och produkter som ... .
     \subsubsection{Accelerometer}
     \subsubsection{Mikrokontroller}
-    \subsubsection{555-timer}
+    \subsubsection{Arduino Nano 33 BLE}
+    Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
+    Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
+    och en NINA B306 BLE-modul som möjliggör kommunikation med Bluetooth Low Energy. Arduino Nano 33 BLE har 8 analoga
+    ingångar och kan drivas av spänning mellan 4,5 och 21 volt. Annan viktig hårdvaruinformation om mikrokontrollern
+    kan ses i tabell~\ref{table:ArduinoNano} på sida \pageref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\
+
+    Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
+    datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++. \subsubsection{555-timer}
+
+    \begin{table}
+        \begin{center}
+            \caption{Viktiga specifikationer Arduino Nano 33 BLE ~\cite{Arduino:ABX00030}}
+            \label{table:ArduinoNano}
+            \begin{tabular}{ | l | l | }
+                \hline
+                Mikrokontroller            & nRF52840 \\
+                \hline
+                Driftspänning              & 3,3V     \\
+                \hline
+                Inspänning (min)           & 4,5V     \\
+                \hline
+                Inspänning (max)           & 21V      \\
+                \hline
+                Digitala ingångar/utgångar & 14 st    \\
+                \hline
+                Analoga ingångar           & 8 st     \\
+                \hline
+                Längd                      & 45 mm    \\
+                \hline
+                Bredd                      & 18 mm    \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
 
     \subsection{Bluetooth Low Energy}
     Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
@@ -102,10 +161,29 @@
     \subsubsection{3D-hand}
     En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
     Designen bestod av servon som med hjälp av trådar styr fingrarna
-    och 3d-modeler av fingersegment som kunde skrivas ut med en 3D-skrivare.
+    och 3d-modeller av fingersegment som kunde skrivas ut med en 3D-skrivare.
 
     \subsubsection{Spolar}
+    Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
+    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar
+    För att få lämplig storlek och funktion från spolarna valdes ett varvtal på 1000 varv.
+    Spolarna konstruerades genom att limma fast hattar i ändarna på järnkärnan.
+    Sedan lindades spolarna med koppartråd.
+    Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
+    var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
+    Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
+    koppartråd som hade lindats runt spolen.
+    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av.
+
+
+
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
+    För att montera spolar på handen monterades de tre mottagarspolarna på ett kretskort som agerade spolhubb.
+    De tre spolarna monterades i varsin riktning så att de kan ta upp fingerrörelser i tre dimensioner.
+    Kretskortet modellerades i ultiboard och frästes sedan ut på skolan kretskortsfräs.
+    På kretskortet monterades spolarna genom att limmas fast i kretskorten och koppartråden löddes fast på kortets undersida.
+    För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet.
+
 
     \subsection{Kretsar}
     \subsubsection{Filter}
@@ -149,6 +227,7 @@
 
 
     \section{Källor}
+    \printbibliography[heading=none]
 
     \appendices
     \titleformat{\section}[display]
@@ -156,11 +235,14 @@
     \section{Renderingskod}
 
     \section{Oscillatorkrets}
+    images/555-117kHz (Bild läggs in senare)
+    bild på själva breadborden kanske?
+
 
     \section{Filterkrets}
 
 
 \end{sloppypar}
-\printbibliography[heading=none]
+
 
 \end{document}
