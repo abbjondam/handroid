@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{graphicx}
+\usepackage{caption}
 
 \graphicspath{{images/}}
 
@@ -192,6 +193,10 @@
     \end{figure}
 
     De färdiga spolarna mättes sedan med oscilloskop och funktionsgenerator för att säkerställa dess induktans, för att användas i oscillatorkretsen.
+    Den första spolen som färdigställdes jämfördes också med spolar som anväds i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
+    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
+    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
+
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
@@ -227,9 +232,28 @@
     För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
     Ursprungligen planerades att använda oscillatorer som bygger på wienbryggor (Wien-bryggesoscillator).
     Till detta skulle behövas resitorer, kondensatorer och operationsförstärkare. Resistorer och kondensatorer dimensionerades och kretsen simulerades i program för att kontrollera att allt stämde.
-    Efter förslag utifrån om att integrera spolarna i kretsen som en resonanskälla byttes oscillatorerna mot 555-oscillatorer.
+    Efter förslag om att integrera spolarna i kretsen som en resonanskälla byttes oscillatorerna mot 555-oscillatorer.
     Här dimensionerades istället två olika kretsar i en: en med resistorer och kondensatorer, och en med kondensatorer och spolen.
-    Istället för att använda ett 555-chip användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt.
+
+    Två oscillatorer byggdes i verkligheten: en med frekvensen 100 kHz och en med frekvensen 117 kHz.
+    I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
+
+    % Kanske ska vara bilaga istället?
+    % \begin{figure}[h]
+    %     \centering
+    %     \begin{minipage}{.5\textwidth}
+    %         \centering
+    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
+    %         \captionof{figure}{Schema över 100kHz-kretsen.}
+    %         \label{fig:circuit-100k}
+    %     \end{minipage}%
+    %     \begin{minipage}{.5\textwidth}
+    %         \centering
+    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
+    %         \captionof{figure}{Schema äver 117kHz-kretsen.}
+    %         \label{fig:circuit-117k}
+    %     \end{minipage}
+    % \end{figure}
 
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
@@ -247,10 +271,41 @@
 
     \subsection{Oscillator}
     \subsubsection{Spolar}
+    De egentillverkade spolarna hade samma funktion som andra fabrikstillverkade spolar, enligt den jämförelse som gjordes.
+    Signalen var något förändrad vad gäller amplitud, men hela signalen kunde tas emot.
+    Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.
+
+    Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
+    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om.
+
+    Under testning gick vissa spolar sönder, och lödningen släppte på två av fyra lödda spolar under laborationer och tester.
+
     \subsubsection{Oscillatorkrets}
+    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 4~V till 5~V.
+    Kretsen som dimensionerades för 100~kHz, som använde ett 555-chip, gav signaler som endast skiljde sig från omgivningens störningar med någon millivolt, och vars frekvens rimligtvis kunde antas vara ungefär 10 gånger större än 100 kilohertz.
+    Då spolen som ingick i kretsen gick sönder kunde fler tester inte utföras.
+
+
+    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz. Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = 0.9\textwidth]{signal-555-117kHz.jpg}
+        \caption{Oscillatorbild av signal från 117~kHz-oscillatorkretsen. Nere till vänster kan man se spänningens maxvärde, och hur stor frekvens signalen har (med störningar).}
+        \label{fig:signal-117kHz}
+    \end{figure}
 
     \section{Diskussion och Slutsats}
-    \subsection{Diskussion}
+    %\subsection{Diskussion}
+    \subsection{Spårning}
+    \subsubsection{Oscillator}
+    \subsubsection{Filter}
+
+    \subsection{Visualisering}
+    \subsubsection{3D-utskriven hand}
+    \subsubsection{Digital hand}
+
+    \subsection{Planering}
 
     \subsection{Slutsats}
 
