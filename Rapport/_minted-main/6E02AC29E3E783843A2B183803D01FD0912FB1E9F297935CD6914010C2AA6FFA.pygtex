@@ -1,0 +1,61 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}Arduino.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define hastighetssensor 12 }\PYG{c+c1}{//D6}
+\PYG{c+cp}{\PYGZsh{}define motorPinDir 0 }\PYG{c+c1}{//D2}
+\PYG{c+cp}{\PYGZsh{}define motorPinSpeed 5 }\PYG{c+c1}{//D1}
+
+
+\PYG{k+kt}{unsigned} \PYG{k+kt}{long} \PYG{n}{n\PYGZus{}pulses} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{unsigned} \PYG{k+kt}{long} \PYG{n}{time1} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{unsigned} \PYG{k+kt}{long} \PYG{n}{time2} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{n\PYGZus{}turns} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{bool} \PYG{n}{one} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+
+\PYG{n}{ICACHE\PYGZus{}RAM\PYGZus{}ATTR} \PYG{k+kt}{void} \PYG{n+nf}{sensorCallback}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{n}{n\PYGZus{}pulses}\PYG{o}{++}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{setup}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{// put your setup code here, to run once:}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{l+m+mi}{115200}\PYG{p}{);}
+
+    \PYG{n}{attachInterrupt}\PYG{p}{(}\PYG{n}{digitalPinToInterrupt}\PYG{p}{(}\PYG{n}{hastighetssensor}\PYG{p}{),} \PYG{n}{sensorCallback}\PYG{p}{,} \PYG{n}{RISING}\PYG{p}{);}
+
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n+nf}{loop}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+ 
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{n\PYGZus{}pulses} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{96} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{one}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{n\PYGZus{}turns}\PYG{o}{++}\PYG{p}{;}
+    \PYG{n}{one} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(}\PYG{n}{n\PYGZus{}turns}\PYG{p}{);}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{} Since last: 0.\PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{((}\PYG{n}{millis}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{n}{time1}\PYG{p}{));}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{} ms ETA: \PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(((}\PYG{n}{millis}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{n}{time1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{o}{\PYGZhy{}}\PYG{n}{n\PYGZus{}turns}\PYG{p}{))}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{o}{*}\PYG{l+m+mi}{60}\PYG{p}{));}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{} min \PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{print}\PYG{p}{(((}\PYG{n}{millis}\PYG{p}{()} \PYG{o}{\PYGZhy{}} \PYG{n}{time1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{o}{\PYGZhy{}}\PYG{n}{n\PYGZus{}turns}\PYG{p}{))}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{60}\PYG{p}{);}
+    \PYG{n}{Serial}\PYG{p}{.}\PYG{n}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{} s\PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{time1} \PYG{o}{=} \PYG{n}{millis}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{n\PYGZus{}pulses} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{96} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{n}{one} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+  \PYG{k}{if} \PYG{p}{(}\PYG{n}{n\PYGZus{}turns} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{1000}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    
+    \PYG{n}{digitalWrite}\PYG{p}{(}\PYG{n}{motorPinDir}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{analogWrite}\PYG{p}{(}\PYG{n}{motorPinSpeed}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+   \PYG{k}{else} \PYG{p}{\PYGZob{}}
+    \PYG{n}{digitalWrite}\PYG{p}{(}\PYG{n}{motorPinDir}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{analogWrite}\PYG{p}{(}\PYG{n}{motorPinSpeed}\PYG{p}{,} \PYG{l+m+mi}{512}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+  \PYG{c+c1}{// put your main code here, to run repeatedly:}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

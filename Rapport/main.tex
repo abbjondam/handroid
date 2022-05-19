@@ -106,7 +106,6 @@
     En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
     Flexsensorer kan användas för att mätta gur mycket ett finger är böjd och de har använts i projekt och produkter som ... .
     \subsubsection{Accelerometer}
-    \subsubsection{Mikrokontroller}
     \subsubsection{Arduino Nano 33 BLE}
     Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
     Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
@@ -152,9 +151,31 @@
     \subsubsection{Unity}
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
+    
     \section{Metod och material}
 
-
+    \subsection{Val av metod}
+    Metoden som valdes var att spåra fingrarna med hjälp av spolar på finertopparna som
+    sänder ut ett magnetfält som genom att läsas av skulle kunna ge finrarnas rotation
+    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält 
+    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller 
+    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan 
+    ge data på hur hela handen rör på sig. 
+    Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
+    dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
+    sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
+    igång bedömdes den icke-länplig för projektet. 
+    Metoden med flexsenorer var den metod som bedömdes som lättast att genomföra. Metoden
+    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna 
+    endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
+    skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
+    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare. 
+    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att 
+    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.   
+    Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
+    används till största delen för att spåra grövre rörelser men bedömdes ha potential 
+    att mäta även finare röresler. Metoden var även den som var minst beprövad vilket
+    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning. 
 
     \subsection{Konstruktion}
 
@@ -173,7 +194,8 @@
     var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
     koppartråd som hade lindats runt spolen.
-    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av.
+    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. 
+    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare} 
 
 
 
@@ -242,6 +264,7 @@
     \section{Filterkrets}
 
     \section{Kod Spolsnurrare}
+    \label{bilaga:Kod_Spolsnurrare}
     \inputminted[]{cpp}{./Code/Spolsnurrare.cpp}
     \newpage
 \end{sloppypar}
