@@ -95,7 +95,14 @@
     För att dimensionera en krets kan det vara viktigt att veta vilka värden ens komponenter har.
     Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
     Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
-    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man med hjälp av matematiska formler approximera spolens induktans.~\cite{MeasureInductor}
+    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man approximera spolens induktans.
+    En sinusformad spänning med amplituden 0,5~V utan något annat inkopplat kommer minska när en spole kopplas parallellt med mätverktyget. Genom att ändra frekvensen kan man uppnå signalen med 0,5~V amplitud. Denna frekvens $f$ tillsammans med resistansen $R$, som mäts med multimeter när ingen spänning ligger över den, kan användas för att räkna ut induktansen $L$ enligt formel \ref{eq-inductance}.~\cite{MeasureInductor}
+
+    \begin{equation}
+        \label{eq-inductance}
+        L = \frac{\sqrt{\frac{2500+100R-3R^2}{3(2\pi)^2}}}{f}
+    \end{equation}
+
 
     \subsubsection{Kondensatorer}
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
@@ -150,7 +157,6 @@
             \end{tabular}
         \end{center}
     \end{table}
-    \subsubsection{555-timer}
     \subsection{Bluetooth Low Energy}
     Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
     \subsubsection{Peripheral}
@@ -181,25 +187,25 @@
     \subsection{Val av metod}
     Metoden som valdes var att spåra fingrarna med hjälp av spolar på finertopparna som
     sänder ut ett magnetfält som genom att läsas av skulle kunna ge finrarnas rotation
-    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält 
-    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller 
-    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan 
-    ge data på hur hela handen rör på sig. 
+    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
+    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
+    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan
+    ge data på hur hela handen rör på sig.
     Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
     dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
     sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
-    igång bedömdes den icke-länplig för projektet. 
+    igång bedömdes den icke-länplig för projektet.
     Metoden med flexsenorer var den metod som bedömdes som lättast att genomföra. Metoden
-    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna 
+    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna
     endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
     skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
-    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare. 
-    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att 
-    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.   
+    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare.
+    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att
+    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.
     Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
-    används till största delen för att spåra grövre rörelser men bedömdes ha potential 
+    används till största delen för att spåra grövre rörelser men bedömdes ha potential
     att mäta även finare röresler. Metoden var även den som var minst beprövad vilket
-    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning. 
+    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning.
 
     \subsection{Konstruktion}
 
@@ -217,13 +223,13 @@
     Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
     var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
-    koppartråd som hade lindats runt spolen.    
+    koppartråd som hade lindats runt spolen.
     När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
-    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare} 
+    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\textwidth]{spolsnurrare1.png}
+        \includegraphics[width=0.6\textwidth]{spolsnurrare1.png}
         \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
         \label{fig:Spolsnurrare}
     \end{figure}
@@ -236,9 +242,9 @@
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.75\textwidth]{spole-vs-spole.jpg}
+        \includegraphics[width = 0.6\textwidth]{spole-vs-spole.jpg}
         \caption{En spole med endast hatt, kärna och lindning (överst) och en spole med kablar fastlödda (underst).}
         \label{fig:SpoleVsSpole}
     \end{figure}
@@ -314,17 +320,36 @@
     Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
     Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om.
 
+    \begin{table}
+        \centering
+        \label{table:inductance}
+        \caption{Uppmätta induktanser i egensnurrade spolar. Värdena från första mätningarna är runt 3,3~mH och de från andra mätningen är runt 7,0~mH.}
+        \begin{tabular}{| l | l |}
+            \hline
+        \end{tabular}
+    \end{table}
+
     Under testning gick vissa spolar sönder, och lödningen släppte på två av fyra lödda spolar under laborationer och tester.
 
     \subsubsection{Oscillatorkrets}
-    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 4~V till 5~V.
+    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 3~V till 5~V. Se figur \ref{fig:sim-117kHz}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{multisim-signal-555-117kHz.png}
+        \caption{Bild av simulerad oscillator med dimensionerad frekvens 117 kHz, tagen i Multisim.}
+        \label{fig:sim-117kHz}
+    \end{figure}
+
     Kretsen som dimensionerades för 100~kHz, som använde ett 555-chip, gav signaler som endast skiljde sig från omgivningens störningar med någon millivolt, och vars frekvens rimligtvis kunde antas vara ungefär 10 gånger större än 100 kilohertz.
     Då spolen som ingick i kretsen gick sönder kunde fler tester inte utföras.
 
+    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz.
+    Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
 
-    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz. Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
+    De komponenter som användes hade inte exakta värden enligt mätningar som gjordes vid kopplingen. Resistorerna hade felmarginaler mellan 1 och 5\%, medan kondensatorerna hade felmarginaler från 10 till 30\%.
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width = 0.9\textwidth]{signal-555-117kHz.jpg}
         \caption{Oscillatorbild av signal från 117~kHz-oscillatorkretsen. Nere till vänster kan man se spänningens maxvärde, och hur stor frekvens signalen har (med störningar).}
@@ -335,6 +360,19 @@
     %\subsection{Diskussion}
     \subsection{Spårning}
     \subsubsection{Oscillator}
+    % Lägg till mer
+    Oscillatorerna fungerade inte som planerat, och gav andra resultat än de som hade simulerats.
+    100~kHz-oscillatorns svaga och knappt urskiljbara signaler var svåra att tolka, då de påminde om kondensatorers upp- och urladdnigscykler när systemet var av (ingen matningsspänning) och blev mer fyrkantsformade när kretsen hade matningsspänning.
+    Den svaga signalen antogs kunna filtrerats och sedan förstärkts, när filterkretsen väl hade blivit byggd.
+    Felet kan ha berott på många faktorer, exempelvis att komponenterna var tvungna att ha mer exakta värden.
+    I simuleringar behövde kondensatorerna vara väldigt exakta för att spänningen i kretsen skulle ge upphov till resonans och bli starkare.
+    Att kondesatorerna hade så stora felmarginaler kan ha gjort att kretsen inte fungerade som den skulle, men enligt nya simuleringar bör det inte ha påverkat resultatet så mycket.
+
+    En annan felkälla kan vara att spolarnas induktans mättes felaktigt. Resultaten från mätningarna har ännu inte verifierats med andra verktyg eller metoder, vilket innebär att mätningarna kan vara felaktiga.
+    Detta upptäckte vi redan vid den andra gångens mätningar, där induktansen drastiskt ändrades från 3,3~mH till 7~mH, trots att spolarna var mycket lika i varvtal, material och storlek. Om den första mätningen var fel finns en större risk att andra mätningen också är fel, och det skulle innebära att kretsens andra komponenter var feldimensionerade.
+
+    Ännu en potentiell felkälla som kan förklara signalens låga maxvärden jämfört med simuleringarna kan vara att respektive 555 och 556 ger för svaga spänningar. Enligt databladen, de guider som följdes och simuleringarna som gjordes skulle 555:an ha en utspänning runt 4 till 5~V, medan den här låg på bara några millivolt.
+    Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
     \subsubsection{Filter}
 
     \subsection{Visualisering}
@@ -358,9 +396,14 @@
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
     \section{Renderingskod}
 
-    \section{Oscillatorkrets}
-    images/555-117kHz (Bild läggs in senare)
-    bild på själva breadborden kanske?
+    \section{Oscillatorkretsar}
+    Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
+
+    \label{bilaga:Schema-Oscillatorkretsar}
+    \includegraphics[width = 0.8\textwidth]{555-100kHz-circuit.png}
+    \includegraphics[width = 0.8\textwidth]{555-117kHz-circuit.png}
+
+
 
 
     \section{Filterkrets}
