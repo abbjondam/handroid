@@ -9,6 +9,10 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
+\usepackage{caption}
+
+\graphicspath{{images/}}
 
 
 \hypersetup{
@@ -87,6 +91,11 @@
     En spole är en ledare som lindats i varv på ett sådant sätt att magnetfältet som skapas när ström flödar igenom har en nord- och en sydpol.
     Spolar kan lindas runt ett material, en \textit{kärna} som förstärker magnetfältet, eller bara med luft i mitten.
     På grund av att spolen inducerar spänning kommer den motverka strömmen i kretsen den ingår, enligt Lenz lag, vilket bland annat ger en förskjutning mellan spänning och ström, i en växelströmskrets.~\cite{digilar}
+    \subsubsection{Mätning av spolar}
+    För att dimensionera en krets kan det vara viktigt att veta vilka värden ens komponenter har.
+    Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
+    Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
+    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man med hjälp av matematiska formler approximera spolens induktans.~\cite{MeasureInductor}
 
     \subsubsection{Kondensatorer}
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
@@ -114,7 +123,7 @@
     kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\\
     Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
     datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
-    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++. 
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++.
 
     \begin{table}[h]
         \begin{center}
@@ -193,10 +202,31 @@
     Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
     var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
-    koppartråd som hade lindats runt spolen.
-    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. 
+    koppartråd som hade lindats runt spolen.    
+    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
     Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare} 
 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\textwidth]{spolsnurrare1.png}
+        \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
+        \label{fig:Spolsnurrare}
+    \end{figure}
+
+    De färdiga spolarna mättes sedan med oscilloskop och funktionsgenerator för att säkerställa dess induktans, för att användas i oscillatorkretsen.
+    Den första spolen som färdigställdes jämfördes också med spolar som anväds i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
+    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
+    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
+
+    För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
+    Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = 0.75\textwidth]{spole-vs-spole.jpg}
+        \caption{En spole med endast hatt, kärna och lindning (överst) och en spole med kablar fastlödda (underst).}
+        \label{fig:SpoleVsSpole}
+    \end{figure}
 
 
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
@@ -218,8 +248,33 @@
     antog att operationsförstärkare var ideal för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
     och fungerade i simulering med en icke-ideal operationsförstärkare.
-    \subsubsection{Oscillator}
 
+    \subsubsection{Oscillator}
+    För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
+    Ursprungligen planerades att använda oscillatorer som bygger på wienbryggor (Wien-bryggesoscillator).
+    Till detta skulle behövas resitorer, kondensatorer och operationsförstärkare. Resistorer och kondensatorer dimensionerades och kretsen simulerades i program för att kontrollera att allt stämde.
+    Efter förslag om att integrera spolarna i kretsen som en resonanskälla byttes oscillatorerna mot 555-oscillatorer.
+    Här dimensionerades istället två olika kretsar i en: en med resistorer och kondensatorer, och en med kondensatorer och spolen.
+
+    Två oscillatorer byggdes i verkligheten: en med frekvensen 100 kHz och en med frekvensen 117 kHz.
+    I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
+
+    % Kanske ska vara bilaga istället?
+    % \begin{figure}[h]
+    %     \centering
+    %     \begin{minipage}{.5\textwidth}
+    %         \centering
+    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
+    %         \captionof{figure}{Schema över 100kHz-kretsen.}
+    %         \label{fig:circuit-100k}
+    %     \end{minipage}%
+    %     \begin{minipage}{.5\textwidth}
+    %         \centering
+    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
+    %         \captionof{figure}{Schema äver 117kHz-kretsen.}
+    %         \label{fig:circuit-117k}
+    %     \end{minipage}
+    % \end{figure}
 
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
@@ -233,13 +288,45 @@
     För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
     Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
 
-
-
-
-
     \section{Resultat}
+
+    \subsection{Oscillator}
+    \subsubsection{Spolar}
+    De egentillverkade spolarna hade samma funktion som andra fabrikstillverkade spolar, enligt den jämförelse som gjordes.
+    Signalen var något förändrad vad gäller amplitud, men hela signalen kunde tas emot.
+    Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.
+
+    Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
+    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om.
+
+    Under testning gick vissa spolar sönder, och lödningen släppte på två av fyra lödda spolar under laborationer och tester.
+
+    \subsubsection{Oscillatorkrets}
+    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 4~V till 5~V.
+    Kretsen som dimensionerades för 100~kHz, som använde ett 555-chip, gav signaler som endast skiljde sig från omgivningens störningar med någon millivolt, och vars frekvens rimligtvis kunde antas vara ungefär 10 gånger större än 100 kilohertz.
+    Då spolen som ingick i kretsen gick sönder kunde fler tester inte utföras.
+
+
+    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz. Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width = 0.9\textwidth]{signal-555-117kHz.jpg}
+        \caption{Oscillatorbild av signal från 117~kHz-oscillatorkretsen. Nere till vänster kan man se spänningens maxvärde, och hur stor frekvens signalen har (med störningar).}
+        \label{fig:signal-117kHz}
+    \end{figure}
+
     \section{Diskussion och Slutsats}
-    \subsection{Diskussion}
+    %\subsection{Diskussion}
+    \subsection{Spårning}
+    \subsubsection{Oscillator}
+    \subsubsection{Filter}
+
+    \subsection{Visualisering}
+    \subsubsection{3D-utskriven hand}
+    \subsubsection{Digital hand}
+
+    \subsection{Planering}
 
     \subsection{Slutsats}
 
