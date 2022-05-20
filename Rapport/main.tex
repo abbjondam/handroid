@@ -162,7 +162,7 @@
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \subsection{Tidigare lösningar}
-
+    För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
     \subsubsection{Computer vision}
 
     \subsubsection{Inertial measurement unit (IMU)}
@@ -177,7 +177,13 @@
     Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
 
     \subsubsection{Magnetfält}
-
+    Att mäta avtånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
+    Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
+    Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
+    Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
+    De använder sig av både maskininlärning och en mer traditionell iterativ metod för att uppnå sin mätning.
+    Ett annat projekt, \textit{MagIK}~\cite{article:MagIK}, använder spolar på fingrarna samt en rad spolar på handryggen för att kunna räkna ut position utan AI, men använder sig av kamera för att verifiera den uppmätta positionen.
+    Detta är alltså något som inte är vanligt inom industrin, och en metod som kan tillämpas och utforskas på olika sätt.
 
     \section{Metod och material}
 
@@ -298,15 +304,27 @@
     Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.
 
     Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
-    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om.
+    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om. Se tabell \ref{table:inductance}
 
     \begin{table}
-        \centering
-        \label{table:inductance}
-        \caption{Uppmätta induktanser i egensnurrade spolar. Värdena från första mätningarna är runt 3,3~mH och de från andra mätningen är runt 7,0~mH.}
-        \begin{tabular}{| l | l |}
-            \hline
-        \end{tabular}
+        \begin{center}
+            \caption{Uppmätta induktanser i egensnurrade spolar. Värdena från första mätningarna är runt 3,3~mH och de från andra mätningen är runt 7,0~mH.}
+            \label{table:inductance}
+            \begin{tabular}{| l | l |}
+                \hline
+                Spolnummer & Induktans (mH) \\
+                \hline
+                1          & 3,3            \\
+                2          & 3,3            \\
+                3          & 3,53           \\
+                4          & 6,86           \\
+                5          & 7,03           \\
+                6          & 7,12           \\
+                7          & 7,03           \\
+                8          & 7,23           \\
+                \hline
+            \end{tabular}
+        \end{center}
     \end{table}
 
     Under testning gick vissa spolar sönder, och lödningen släppte på två av fyra lödda spolar under laborationer och tester.
