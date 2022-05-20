@@ -213,6 +213,7 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -220,6 +221,50 @@
       \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Finger\%20tracking&oldid=1041223705}}
       \field{note}{[Online; accessed 19-May-2022]}
       \field{title}{{Finger tracking} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+    \entry{wiki:Flex_sensor}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Flex\%20sensor&oldid=1080644716}}
+      \field{note}{[Online; accessed 20-May-2022]}
+      \field{title}{{Flex sensor} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+    \entry{wiki:Wired_glove}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Wired\%20glove&oldid=1088757158}}
+      \field{note}{[Online; accessed 20-May-2022]}
+      \field{title}{{Wired glove} --- {W}ikipedia{,} The Free Encyclopedia}
       \field{year}{2022}
     \endentry
   \enddatalist

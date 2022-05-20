@@ -117,11 +117,6 @@
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
 
-
-    \subsubsection{Flexsensorer}
-    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
-    Flexsensorer kan användas för att mätta gur mycket ett finger är böjd och de har använts i projekt och produkter som ... .
-    \subsubsection{Accelerometer}
     \subsubsection{Arduino Nano 33 BLE}
     Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
     Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
@@ -167,21 +162,23 @@
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \subsection{Tidigare lösningar}
-    
+
     \subsubsection{Computer vision}
 
     \subsubsection{Inertial measurement unit (IMU)}
-    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att 
-    placera sensorer på de olika fingersegmenten på handen kan rörelser i tre 
-    dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på 
-    handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer 
+    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att
+    placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
+    dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
+    handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
     där där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
 
     \subsubsection{Flexsensor}
+    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd \cite{wiki:Flex_sensor}.
+    Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
 
     \subsubsection{Magnetfält}
 
-    
+
     \section{Metod och material}
 
     \subsection{Val av metod}
@@ -279,23 +276,6 @@
 
     Två oscillatorer byggdes i verkligheten: en med frekvensen 100 kHz och en med frekvensen 117 kHz.
     I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
-
-    % Kanske ska vara bilaga istället?
-    % \begin{figure}[h]
-    %     \centering
-    %     \begin{minipage}{.5\textwidth}
-    %         \centering
-    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
-    %         \captionof{figure}{Schema över 100kHz-kretsen.}
-    %         \label{fig:circuit-100k}
-    %     \end{minipage}%
-    %     \begin{minipage}{.5\textwidth}
-    %         \centering
-    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
-    %         \captionof{figure}{Schema äver 117kHz-kretsen.}
-    %         \label{fig:circuit-117k}
-    %     \end{minipage}
-    % \end{figure}
 
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
