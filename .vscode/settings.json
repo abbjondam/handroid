@@ -4,7 +4,8 @@
         "Damsgaard",
         "Jillram",
         "Lenz",
-        "robotik"
+        "robotik",
+        "utilised"
     ],
     "latex-workshop.latex.tools": [{
         "name": "latexmk",

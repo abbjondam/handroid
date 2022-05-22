@@ -11,6 +11,8 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage[document]{ragged2e}
+
 
 \graphicspath{{images/}}
 
@@ -35,13 +37,37 @@
 
 
 \begin{abstract}
+    Det finns ett ökat intresse och en ökad efterfrågan på olika sätt för människan att interagera med datorer och robotar.
+    Bland annat hur människokroppen kan användas för inmatning till datorprogram och till olika maskiner.
+    Den här tekniken är som mest utvecklad inom virtual reality och augmented reality och det är inom dessa områden som tekniken i nuläget har störst användning.
+    Tekniken är dock fortfarande relativt begränsad och använder mestadels grövre motorik som inmatning och förlorar den precision som kan ges av finmotoriska rörelser.
+    Den här rapporten beskriver ett gymnasiearbete utfört av tre elever på ABB-Gymnasiet som har undersökt hur människokroppen
+    kan användas som inmatningsverktyg till digitala system. Projektet har framförallt fokuserat på hur människans hand och 
+    fingerrörelser kan läsas av och representeras i en digital miljö. Ursprungligen syftade projektet att läsa av 
+    människans fingerrörelser för att sedan representera det med en fysisk robothand som skulle imitera de rörelser som 
+    människan utförde. Projektet bytte sedan inriktning fokuserade på att läsa av handrörelser och representera de digitalt i 
+    spelmotorn Unity istället. Tekniken som undersöktes för att läsa av handrörelser var egenbyggda sensorer som 
+    mätte av magnetfält. 
 
 \end{abstract}
 
+\newpage
 \begin{otherlanguage}{english}
     \begin{abstract}
+        In recent time the interest and demand for different ways for the human to interact with computers and robots has increased. 
+        For example the possibility of using the human body as a tool to generate inputs for computer programs and different machines. 
+        This technology is most developed in virtual and augmented reality and it is within these sectors the technology today has most use. 
+        The technology is still relatively limited and uses mostly gross motor control as input and loses the precision that can be achieved with fine motor skill movements. 
+        This report describes a degree project executed by three student at ABB-Gymnasiet that has been investigating how the human body
+        kan be used as an input tool for digital systems. The project's main focus has been how the human hand and finger motions
+        kan be read and represented in a digital environment. Initially the projekt aimed at reading human finger motions 
+        and representing them with a mechanical model of a human hand that would imitate the finger motions carried out by the human 
+        using the sensor. The project then changed directions and focused on reading the hand an finger motions and representing them 
+        digitally in the game engine Unity. The technology used to read the hand and finger movements was self-built sensors that 
+        utilised and measured magnetic fields.  
     \end{abstract}
 \end{otherlanguage}
+\newpage
 
 \tableofcontents
 
@@ -57,14 +83,9 @@
     De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
     \subsection{Bakgrund}
-    Det finns ett ökat intresse och en ökad efterfrågan på olika sätt för människan att interagera med datorer och robotar.
-    Bland annat hur människokroppen kan användas för inmatning till datorprogram och till olika maskiner.
-    Den här tekniken är som mest utvecklad inom virtual reality och augmented reality och det är inom dessa områden som tekniken i nuläget har störst användning.
-    Tekniken är dock fortfarande relativt begränsad och använder mestadels grövre motorik som inmatning och förlorar den precision som kan ges av finmotoriska rörelser.
 
     % Vi ser ett ökande intresse för andra applikationer där människan agerar fjärrkontroll.   
 
-    \subsection{Frågeställning}
 
     \section{Teori}
     För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
@@ -130,6 +151,51 @@
 
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
+
+    \subsubsection{Arduino Nano 33 BLE}
+    Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
+    Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
+    och en NINA B306 BLE-modul som möjliggör kommunikation med Bluetooth Low Energy. Arduino Nano 33 BLE har 8 analoga
+    ingångar och kan drivas av spänning mellan 4,5 och 21 volt. Annan viktig hårdvaruinformation om mikrokontrollern
+    kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}
+    
+    Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
+    datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++.
+
+    \begin{table}[h]
+        \begin{center}
+            \caption{Viktiga specifikationer Arduino Nano 33 BLE ~\cite{Arduino:ABX00030}}
+            \label{table:ArduinoNano}
+            \begin{tabular}{ | l | l | }
+                \hline
+                Mikrokontroller            & nRF52840 \\
+                \hline
+                Driftspänning              & 3,3V     \\
+                \hline
+                Inspänning (min)           & 4,5V     \\
+                \hline
+                Inspänning (max)           & 21V      \\
+                \hline
+                Digitala ingångar/utgångar & 14 st    \\
+                \hline
+                Analoga ingångar           & 8 st     \\
+                \hline
+                Längd                      & 45 mm    \\
+                \hline
+                Bredd                      & 18 mm    \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+    \subsection{Bluetooth Low Energy}
+    Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
+    \subsubsection{Peripheral}
+    \subsubsection{Central}
+
+    \subsection{Rendering}
+    \subsubsection{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \subsection{Tidigare lösningar}
     För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
@@ -212,19 +278,16 @@
     koppartråd som hade lindats runt spolen.
     När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
     Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
-
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{spolsnurrare1.png}
         \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
         \label{fig:Spolsnurrare}
     \end{figure}
-
     De färdiga spolarna mättes sedan med oscilloskop och funktionsgenerator för att säkerställa dess induktans, för att användas i oscillatorkretsen.
     Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
     Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
     En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
-
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
@@ -372,7 +435,8 @@
     \subsubsection{Spolar}
     De egentillverkade spolarna hade samma funktion som andra fabrikstillverkade spolar, enligt den jämförelse som gjordes.
     Signalen var något förändrad vad gäller amplitud, men hela signalen kunde tas emot.
-    Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.\\\\
+    Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.
+
     Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
     Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om. Se tabell \ref{table:inductance}
 
@@ -441,6 +505,8 @@
     Ännu en potentiell felkälla som kan förklara signalens låga maxvärden jämfört med simuleringarna kan vara att respektive 555 och 556 ger för svaga spänningar. Enligt databladen, de guider som följdes och simuleringarna som gjordes skulle 555:an ha en utspänning runt 4 till 5~V, medan den här låg på bara några millivolt.
     Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
     \subsubsection{Filter}
+    Filterkretsens syfte var att isolera signalen från ett finger samtidigt som den skulle reducera störningar. Vid första testet 
+    visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar. 
 
     \subsection{Visualisering}
     \subsubsection{3D-utskriven hand}
@@ -463,6 +529,7 @@
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
     \section{Renderingskod}
 
+    \newpage
     \section{Oscillatorkretsar}
     Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
 
@@ -470,19 +537,20 @@
     \includegraphics[width = 0.8\textwidth]{555-100kHz-circuit.png}
     \includegraphics[width = 0.8\textwidth]{555-117kHz-circuit.png}
 
-
-
-
+    \newpage
     \section{Filterkrets}
 
+    \newpage
     \section{Kod Spolsnurrare}
     \label{bilaga:Kod_Spolsnurrare}
     \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
 
+    \newpage
     \section{Kod Arduino Peripheral}
     \label{bilaga:Kod_Arduino_Peripheral}
     \inputminted[breaklines]{cpp}{./Code/peripheral.cpp}
 
+    \newpage
     \section{Kod Rendering}
     \label{bilaga:Kod_Rendering}
     \inputminted[breaklines]{csharp}{./Code/handController.cs}
