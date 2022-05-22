@@ -1,11 +1,14 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'main.blg'
-[86] biber-MSWIN32:340> INFO - === 
-[113] Biber.pm:415> INFO - Reading 'main.bcf'
-[204] Biber.pm:952> INFO - Found 20 citekeys in bib section 0
-[217] Biber.pm:4340> INFO - Processing section 0
-[227] Biber.pm:4531> INFO - Looking for bibtex format file 'references.bib' for section 0
-[261] bibtex.pm:1689> INFO - LaTeX decoding ...
-[280] bibtex.pm:1494> INFO - Found BibTeX data source 'references.bib'
-[350] Utils.pm:411> ERROR - BibTeX subsystem: C:\Users\Jonathan\AppData\Local\Temp\biber_tmp_jvGz\33e59b5ca9ec342068223d604c3f8d55_30112.utf8, line 173, error: unbalanced braces: too many }'s
-[350] Biber.pm:132> INFO - ERRORS: 1
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'main.blg'
+[101] biber-MSWIN32:340> INFO - === 
+[131] Biber.pm:418> INFO - Reading 'main.bcf'
+[254] Biber.pm:972> INFO - Found 20 citekeys in bib section 0
+[271] Biber.pm:4383> INFO - Processing section 0
+[283] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
+[326] bibtex.pm:1713> INFO - LaTeX decoding ...
+[353] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
+[458] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[458] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[458] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sv-SE'
+[475] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[484] bbl.pm:757> INFO - Output to main.bbl

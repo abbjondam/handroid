@@ -333,9 +333,9 @@
     och visar att fingerspårning inte enbart kan användas i digitala applikationer utan också användas för att kontrollera något fysiskt.
     När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort,
     vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom 
-    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning. 
-    
+    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom
+    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning.
+
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
     När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga en snöret och förkorta andra snöret lika mycket kommer fingretsrotation förändras. Se figur \ref{fig:flexion-extension}.
@@ -489,7 +489,7 @@
         \label{fig:sim-117kHz-filter}
     \end{figure}
 
-    Filterkretsen gav vid test i verkligheten en oigenkänbar signal. 
+    Filterkretsen gav vid test i verkligheten en oigenkännbar signal.
 
 
     \section{Diskussion och Slutsats}
@@ -511,18 +511,22 @@
     Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
     \subsubsection{Filter}
     Filterkretsens syfte var att isolera signalen från ett finger samtidigt som den skulle reducera störningar. Vid första testet
-    visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar.
+    visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar. Signalen 
+    som passerade genom filtret var oigenkännbar och kunde inte kopplas till den insignal som filtret tog emot. En felkälla som 
+    kunde kopplas till de ökade störningarna var att vi hade en instabil matningsspänning som störde operationsförstärkaren. 
+    Försök att stabilisera matningsspänningen gjordes genom att byta strömförsörjning och koppla in frikopplingskondensatorer. 
+    Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra.  
 
     \subsection{Visualisering}
-    Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättnings från sensordata till handposition. 
+    Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättning från sensordata till handposition.
 
     \subsection{Planering}
     \subsubsection{Undersökning och val av metod}
     Som beskrivet tidigare gick vi i grupp igenom olika metoder för att mäta och spåra fingerrörelser, samt hur man kan representera rörselserna på en fysisk eller digital hand.
     Undersökningen gav gruppen insikt om vad som är möjligt, hur svåra metoderna verkade vara, och vad som används idag.
-    Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:utskrivet-finger}.
+    Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:Ringfinger}.
     Brist på tid är något genomgående i detta projekt, då många delar tog längre tid än planerat eller, som i den fysiska handens fall, inte användes för projektet, annat än i testsyfte.
-    
+
     Valet av metod kan också diskuteras, då planen var att börja med att använda flexsensorer. Denna plan ändrades fort när vi fick förslag om att försöka använda oscillerande magnetfält och filtrera ut deras signaler istället.
     Alternativet verkade väldigt spännande för oss i gruppen eftersom denna metod inte var lika beprövad som de andra metoderna, vilket gav projektet en ny riktning: istället för att bygga en robothand som kan styras med egna handrörelser, något som hobbyister gjort i flera år, skulle vi utforska om det är möjligt att mäta finare rörelser, såsom fingrar, med magnetfält.
     Visualiseringen blev mindre viktig, men fanns fortfarande kvar för att kunna visa resultatet och hjälpa oss komma till slutsatser om metoden.
@@ -544,7 +548,6 @@
     \section{Källor}
     \printbibliography[heading=none]
 
-    \newpage
     \appendices
     \titleformat{\section}[display]
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
