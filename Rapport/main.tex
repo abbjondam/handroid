@@ -144,6 +144,41 @@
     För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas.
     Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$~dB.~\cite{wiki:Band-pass-filter}
 
+    \begin{equation}
+        \label{eq-Q}
+        Q = \frac{f_{c}}{BW}
+    \end{equation}
+
+    \begin{equation}
+        \label{eq-R1}
+        R_{1} =  \frac{Q}{2 \pi f_{c} C A_{f}}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R2}
+        R_{2} =  \frac{Q}{2 \pi f_{c} C (2 Q^{2}- A_{f})}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R3}
+        R_{3} =  \frac{Q}{\pi f_{c} C }
+    \end{equation}
+    \begin{equation}
+        \label{eq-Af}
+        A_{f} =  \frac{R_{3}}{2R_{1}}
+    \end{equation}
+    \begin{equation}
+        \label{eq-Af-limit}
+        A_{f} < 2 Q^{2}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R2new}
+        R_{2}^{'} = R_{2} (\frac{f_{c}}{f_{c}^{'}})^{2}
+    \end{equation}
+
+    Ett bandpassfilter kan dimensioneras genom att välja en centerfrekvens $f_{c}$, en bandbredd $BW$ och ett värde på två kondensatorer $C$.
+    Tre resistorer kan sedan dimensioneras med formel \ref{eq-R1}, \ref{eq-R2} och \ref{eq-R3} där formel \ref{eq-Q} bestämmer filtrets kvalitetsfaktor.
+    Amplifikationen vid centerfrekvensen kan räknas ut med formel \ref{eq-Af} som dessutom måste uppfylla villkoret \ref{eq-Af-limit}.
+    För att välja nya centerfrekvenser kan formel \ref{eq-R2new} användas.~\cite{Band-Pass-Filter}
+
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
     På grund av spolars och kondensatorers upp- och urladdningsförmåga kan dessa användas, i olika kombinationer för att göra en krets där strömmen och spänningen svänger (blir svagare/starkare, och byter riktning) med en viss frekvens.
@@ -263,17 +298,63 @@
 
 
     \subsubsection{Filter}
+    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens.
     Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
-    Filterkretsen designades först genom att räkna ut värden på kondensatorer och resistorer genom att välja en bandbredd och center frekvens.
+    Filterkretsen designades genom att räkna ut värden på resistorer genom att välja en bandbredd och centerfrekvens med ett avstånd på cirka $15$~kHz från fingret innan där första fingrets centerfrekvens var $100$~kHz.
+    Se bilaga \ref{bilaga:Kretsschema-filter} för kretsdesign.
+
+    \begin{table}[h]
+        \begin{center}
+            \caption{Värden på resistorer som räknats ut.}
+            \label{table:FilterV1}
+            \begin{tabular}{ | c | c | c | c |  }
+                \hline
+                $f_c$ (kHz) & $R_1$ (k$\Omega$) & $R_2$ ($\Omega$) & $R_3$ (k$\Omega$) \\
+                \hline
+                $100$       & $49.7$            & $11.0$           & $198.9$           \\
+                \hline
+                $115$       & $49.7$            & $8.0$            & $198.9$           \\
+                \hline
+                $133$       & $49.7$            & $5.7$            & $198.9$           \\
+                \hline
+                $147$       & $49.7$            & $4.3$            & $198.9$           \\
+                \hline
+                $162$       & $49.7$            & $3.3$            & $198.9$           \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
     Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
-    Det visade sig att formlerna för kondensatorer och resistorer
-    antog att operationsförstärkare var ideal för att kretsen skulle fungera.
-    Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
-    och fungerade i simulering med en icke-ideal operationsförstärkare.
+    Det visade sig att formlerna för resistorerna
+    antog att operationsförstärkare var ideal för att kretsen skulle fungera, vilket inte hade räknats med.
+    Kretsen designades sedan om med hjälp av ett filterdesignverktyg av Texas Instruments
+    eftersom verktyget också räknade med icke-ideala operationsförstärkare. Avståndet mellan varje finger ökades också.
 
-    Se bilaga \ref{bilaga:Kretsschema-filter}.
+    \begin{table}[h]
+        \begin{center}
+            \caption{Värden på resistorer som räknats ut med hjälp av Texas Instruments.}
+            \label{table:FilterV1}
+            \begin{tabular}{ | c | c | c | c |  }
+                \hline
+                $f_c$ (kHz) & $R_1$ (k$\Omega$) & $R_2$ ($\Omega$) & $R_3$ (k$\Omega$) \\
+                \hline
+                $100$       & $270$             & $316$            & $806$             \\
+                \hline
+                $117$       & $220$             & $220$            & $806$             \\
+                \hline
+                $141$       & $180$             & $150$            & $806$             \\
+                \hline
+                $170$       & $150$             & $100$            & $806$             \\
+                \hline
+                $203$       & $120$             & $68$             & $806$             \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
 
     \subsubsection{Oscillator}
     För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
@@ -333,7 +414,7 @@
     \subsection{Unity}
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
-    \subsubsection{Arduino Nano 33 BLE}
+    \subsection{Arduino Nano 33 BLE}
 
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
     Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
@@ -375,7 +456,7 @@
     läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
 
-    \subsubsection{Digital visualisering}
+    \subsection{Digital visualisering}
     Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
     Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
@@ -454,7 +535,7 @@
         \label{fig:sim-117kHz-filter}
     \end{figure}
 
-    Filterkretsen gav vid test i verkligheten en oigenkännbar signal.
+    Filterkretsen gav vid test i verkligheten en oigenkänbar signal.
 
 
     \section{Diskussion och Slutsats}
@@ -476,16 +557,20 @@
     Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
     \subsubsection{Filter}
     Filterkretsens syfte var att isolera signalen från ett finger samtidigt som den skulle reducera störningar. Vid första testet
-    visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar.
+    visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar. Signalen
+    som passerade genom filtret var oigenkännbar och kunde inte kopplas till den insignal som filtret tog emot. En felkälla som
+    kunde kopplas till de ökade störningarna var att vi hade en instabil matningsspänning som störde operationsförstärkaren.
+    Försök att stabilisera matningsspänningen gjordes genom att byta strömförsörjning och koppla in frikopplingskondensatorer.
+    Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra.
 
     \subsection{Visualisering}
-    Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättning från sensordata till handposition.
+    Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättnings från sensordata till handposition.
 
     \subsection{Planering}
     \subsubsection{Undersökning och val av metod}
     Som beskrivet tidigare gick vi i grupp igenom olika metoder för att mäta och spåra fingerrörelser, samt hur man kan representera rörselserna på en fysisk eller digital hand.
     Undersökningen gav gruppen insikt om vad som är möjligt, hur svåra metoderna verkade vara, och vad som används idag.
-    Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:Ringfinger}.
+    Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:utskrivet-finger}.
     Brist på tid är något genomgående i detta projekt, då många delar tog längre tid än planerat eller, som i den fysiska handens fall, inte användes för projektet, annat än i testsyfte.
 
     Valet av metod kan också diskuteras, då planen var att börja med att använda flexsensorer. Denna plan ändrades fort när vi fick förslag om att försöka använda oscillerande magnetfält och filtrera ut deras signaler istället.
@@ -512,22 +597,31 @@
     \subsubsection{Tid}
     Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytt metod och syfte. Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
 
+    \subsubsection{Framtida undersökningar}
+    Om det här projektet skulle tas vidare skulle man fortsätta att arbeta för att få en helhetslösning som kan spåra
+    rörelser för ett finger. För att uppnå detta skulle filter och oscillatorkrets behöva förbättras. Komponenter med
+    bättre precision skulle behöva användas för att eliminera flera störningar. Om projektet ska föras vidare bör även
+    spolarna som agerar sändare optimeras för att skapa en så stark och störningsfri signal som möjligt.
+
+    När signalerna från sensorerna är ordnade skulle de behöva översättas från en spänning till data som kan representeras
+    av den digitala handen i Unity-programmet. Metoden är generellt skalbar vilket innebär att om spårning av ett finger
+    fungerar kan det enkelt skalas upp till spårning av samtliga fingrar. Om fullständig spårning av en hand ska uppnås bör
+    även system för att spåra handledens rörelser. Exempelvis rotation.
+
     \subsection{Slutsats}
 
     \section{Avslutning}
 
-
-
-
     \section{Källor}
     \printbibliography[heading=none]
 
+    \newpage
     \appendices
     \titleformat{\section}[display]
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
 
 
-    \newpage
+
     \section{Kod Spolsnurrare}
     \label{bilaga:Kod_Spolsnurrare}
     \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
