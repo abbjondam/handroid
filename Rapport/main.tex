@@ -228,8 +228,6 @@
 
     \subsection{Process 1 - Sensor}
 
-    \subsubsection{Material}
-
     \subsubsection{Val av metod}
     Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna som
     sänder ut ett magnetfält som genom att läsas av skulle kunna ge fingrarnas rotation
@@ -328,8 +326,8 @@
     Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
-    Det visade sig att formlerna för resistorerna
-    antog att operationsförstärkare var ideal för att kretsen skulle fungera, vilket inte hade räknats med.
+    Det visade sig att dimensioneringen av resistorerna
+    krävde en ideal, eller i alla fall näst intill ideal, operationsförstärkare för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filterdesignverktyg av Texas Instruments
     eftersom verktyget också räknade med icke-ideala operationsförstärkare. Avståndet mellan varje finger ökades också.
 
@@ -592,7 +590,7 @@
     Filterkretsarna hade också sina problem och svårigheter. Att hitta ett filter som samtidigt kan förstärka signalen den filtrerar var svårt, men lyckades efter mycket kort tid. Något som upptäcktes förhållandevis sent in i projektets gång var, som tidigare nämnt, att den operationsförstärkare som använts i kretsen varit ideal, och att hela kretsen endast fungerar med en ideal operationsförstärkare.
     Även här lyckades vi ändå lösa problemet genom Texas Instruments egna verktyg, och kunde utgå från kretsen vi fick därifrån istället.
 
-    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att de formler man räknar med också fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
+    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att dimensioneringen också ska fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
 
     \subsubsection{Tid}
     Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytt metod och syfte. Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
