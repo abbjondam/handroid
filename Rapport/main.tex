@@ -93,7 +93,7 @@
     På grund av att spolen inducerar spänning kommer den motverka strömmen i kretsen den ingår, enligt Lenz lag, vilket bland annat ger en förskjutning mellan spänning och ström, i en växelströmskrets.~\cite{digilar}
     \subsubsection{Mätning av spolar}
     För att dimensionera en krets kan det vara viktigt att veta vilka värden ens komponenter har.
-    Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
+    Till resistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
     Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
     För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man approximera spolens induktans.
     En sinusformad spänning med amplituden 0,5~V utan något annat inkopplat kommer minska när en spole kopplas parallellt med mätverktyget. Genom att ändra frekvensen kan man uppnå signalen med 0,5~V amplitud. Denna frekvens $f$ tillsammans med resistansen $R$, som mäts med multimeter när ingen spänning ligger över den, kan användas för att räkna ut induktansen $L$ enligt formel \ref{eq-inductance}.~\cite{MeasureInductor}
@@ -177,7 +177,7 @@
     Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
 
     \subsubsection{Magnetfält}
-    Att mäta avtånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
+    Att mäta avstånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
     Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
     Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
     Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
@@ -198,17 +198,17 @@
     \subsubsection{Material}
 
     \subsubsection{Val av metod}
-    Metoden som valdes var att spåra fingrarna med hjälp av spolar på finertopparna som
-    sänder ut ett magnetfält som genom att läsas av skulle kunna ge finrarnas rotation
+    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna som
+    sänder ut ett magnetfält som genom att läsas av skulle kunna ge fingrarnas rotation
     och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
     från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
-    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan
+    flertalet IMU-sensorer som genom att mäta rörelserna på olika delar av handen kan
     ge data på hur hela handen rör på sig.
     Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
     dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
     sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
-    igång bedömdes den icke-länplig för projektet.
-    Metoden med flexsenorer var den metod som bedömdes som lättast att genomföra. Metoden
+    igång bedömdes den icke-lämplig för projektet.
+    Metoden med flexsensorer var den metod som bedömdes som lättast att genomföra. Metoden
     valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna
     endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
     skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
@@ -217,8 +217,8 @@
     precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.
     Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
     används till största delen för att spåra grövre rörelser men bedömdes ha potential
-    att mäta även finare röresler. Metoden var även den som var minst beprövad vilket
-    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning.
+    att mäta även finare rörelser. Metoden var även den som var minst beprövad vilket
+    innebar att gruppen skulle behöva ägna sig åt mera testning och utforskning.
 
 
    
@@ -244,7 +244,7 @@
     \end{figure}
 
     De färdiga spolarna mättes sedan med oscilloskop och funktionsgenerator för att säkerställa dess induktans, för att användas i oscillatorkretsen.
-    Den första spolen som färdigställdes jämfördes också med spolar som anväds i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
+    Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
     Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
     En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
 
@@ -262,7 +262,7 @@
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
     För att montera spolar på handen monterades de tre mottagarspolarna på ett kretskort som agerade spolhubb.
     De tre spolarna monterades i varsin riktning så att de kan ta upp fingerrörelser i tre dimensioner.
-    Kretskortet modellerades i ultiboard och frästes sedan ut på skolan kretskortsfräs.
+    Kretskortet modellerades i Ultiboard och frästes sedan ut på skolan kretskortsfräs.
     På kretskortet monterades spolarna genom att limmas fast i kretskorten och koppartråden löddes fast på kortets undersida.
     För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet.
 
@@ -281,7 +281,7 @@
     \subsubsection{Oscillator}
     För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
     Ursprungligen planerades att använda oscillatorer som bygger på wienbryggor (Wien-bryggesoscillator).
-    Till detta skulle behövas resitorer, kondensatorer och operationsförstärkare. Resistorer och kondensatorer dimensionerades och kretsen simulerades i program för att kontrollera att allt stämde.
+    Till detta skulle behövas resistorer, kondensatorer och operationsförstärkare. Resistorer och kondensatorer dimensionerades och kretsen simulerades i program för att kontrollera att allt stämde.
     Efter förslag om att integrera spolarna i kretsen som en resonanskälla byttes oscillatorerna mot 555-oscillatorer.
     Här dimensionerades istället två olika kretsar i en: en med resistorer och kondensatorer, och en med kondensatorer och spolen.
 
@@ -378,7 +378,7 @@
     Den svaga signalen antogs kunna filtrerats och sedan förstärkts, när filterkretsen väl hade blivit byggd.
     Felet kan ha berott på många faktorer, exempelvis att komponenterna var tvungna att ha mer exakta värden.
     I simuleringar behövde kondensatorerna vara väldigt exakta för att spänningen i kretsen skulle ge upphov till resonans och bli starkare.
-    Att kondesatorerna hade så stora felmarginaler kan ha gjort att kretsen inte fungerade som den skulle, men enligt nya simuleringar bör det inte ha påverkat resultatet så mycket.
+    Att kondensatorerna hade så stora felmarginaler kan ha gjort att kretsen inte fungerade som den skulle, men enligt nya simuleringar bör det inte ha påverkat resultatet så mycket.
 
     En annan felkälla kan vara att spolarnas induktans mättes felaktigt. Resultaten från mätningarna har ännu inte verifierats med andra verktyg eller metoder, vilket innebär att mätningarna kan vara felaktiga.
     Detta upptäckte vi redan vid den andra gångens mätningar, där induktansen drastiskt ändrades från 3,3~mH till 7~mH, trots att spolarna var mycket lika i varvtal, material och storlek. Om den första mätningen var fel finns en större risk att andra mätningen också är fel, och det skulle innebära att kretsens andra komponenter var feldimensionerade.
@@ -420,6 +420,8 @@
 
     \section{Filterkrets}
 
+    \section{Kod Spolsnurrare}
+    \label{bilaga:Kod_Spolsnurrare}
     \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
 
     \section{Kod Arduino Peripheral}
