@@ -334,7 +334,7 @@
     \begin{table}[h]
         \begin{center}
             \caption{Värden på resistorer som räknats ut med hjälp av Texas Instruments.}
-            \label{table:FilterV1}
+            \label{table:FilterV2}
             \begin{tabular}{ | c | c | c | c |  }
                 \hline
                 $f_c$ (kHz) & $R_1$ (k$\Omega$) & $R_2$ ($\Omega$) & $R_3$ (k$\Omega$) \\
@@ -568,7 +568,7 @@
     \subsubsection{Undersökning och val av metod}
     Som beskrivet tidigare gick vi i grupp igenom olika metoder för att mäta och spåra fingerrörelser, samt hur man kan representera rörselserna på en fysisk eller digital hand.
     Undersökningen gav gruppen insikt om vad som är möjligt, hur svåra metoderna verkade vara, och vad som används idag.
-    Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:utskrivet-finger}.
+    Vi valde till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:Ringfinger}.
     Brist på tid är något genomgående i detta projekt, då många delar tog längre tid än planerat eller, som i den fysiska handens fall, inte användes för projektet, annat än i testsyfte.
 
     Valet av metod kan också diskuteras, då planen var att börja med att använda flexsensorer. Denna plan ändrades fort när vi fick förslag om att försöka använda oscillerande magnetfält och filtrera ut deras signaler istället.
@@ -590,7 +590,7 @@
     Filterkretsarna hade också sina problem och svårigheter. Att hitta ett filter som samtidigt kan förstärka signalen den filtrerar var svårt, men lyckades efter mycket kort tid. Något som upptäcktes förhållandevis sent in i projektets gång var, som tidigare nämnt, att den operationsförstärkare som använts i kretsen varit ideal, och att hela kretsen endast fungerar med en ideal operationsförstärkare.
     Även här lyckades vi ändå lösa problemet genom Texas Instruments egna verktyg, och kunde utgå från kretsen vi fick därifrån istället.
 
-    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att dimensioneringen också ska fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
+    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att dimensioneringen också fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
 
     \subsubsection{Tid}
     Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytt metod och syfte. Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
