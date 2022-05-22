@@ -268,7 +268,7 @@
     Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
-    Det visades sig att formlerna för kondensatorer och resistorer
+    Det visade sig att formlerna för kondensatorer och resistorer
     antog att operationsförstärkare var ideal för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
     och fungerade i simulering med en icke-ideal operationsförstärkare.
@@ -498,6 +498,19 @@
 
     \subsubsection{Dimensionering av kretsar}
     % Problem att dimensionera kretsar, ideala komponenter, mätfel osv.
+    Flera kretsar dimensionerades under projektet, och de kretsar som arbetades mest på var filter- och oscillatorkretsarna.
+    Som tidigare diskuterat dimensionerades flera olika oscillatorkretsar, först wienbryggor, sen 555 med induktanser runt 3,3~mH, och till sist 555 med induktanser runt 7~mH.
+    Problem med dimensioneringen där handlade om att hitta rätt kondensator och resistorvärden för att kretsen skulle uppnå resonans, vilket tog mycket tid att räkna ut.
+    När spolarnas induktans korrigerades dimensionerades alla 5 kretsar om med helt nya värden, vilket i sin tur tog mycket tid, som i annat fall kunde använts för att bygga kretsarna på riktigt för att hitta och korrigera fel.
+    Detta till trots lyckades alla kretsar dimensioneras, men väldigt mycket senare än planerat.
+
+    Filterkretsarna hade också sina problem och svårigheter. Att hitta ett filter som samtidigt kan förstärka signalen den filtrerar var svårt, men lyckades efter mycket kort tid. Något som upptäcktes förhållandevis sent in i projektets gång var, som tidigare nämnt, att den operationsförstärkare som använts i kretsen varit ideal, och att hela kretsen endast fungerar med en ideal operationsförstärkare.
+    Även här lyckades vi ändå lösa problemet genom Texas Instruments egna verktyg, och kunde utgå från kretsen vi fick därifrån istället.
+
+    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att de formler man räknar med också fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
+
+    \subsubsection{Tid}
+    Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytt metod och syfte. Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
 
     \subsection{Slutsats}
 
@@ -530,8 +543,8 @@
     Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
 
     \label{bilaga:Schema-Oscillatorkretsar}
-    \includegraphics[width = 0.8\textwidth]{555-100kHz-circuit.png}
-    \includegraphics[width = 0.8\textwidth]{555-117kHz-circuit.png}
+    \includegraphics[width = \textwidth]{555-100kHz-circuit.png}
+    \includegraphics[width = \textwidth]{555-117kHz-circuit.png}
 
     \newpage
     \section{Servokrets}
