@@ -515,7 +515,7 @@
     som passerade genom filtret var oigenkännbar och kunde inte kopplas till den insignal som filtret tog emot. En felkälla som 
     kunde kopplas till de ökade störningarna var att vi hade en instabil matningsspänning som störde operationsförstärkaren. 
     Försök att stabilisera matningsspänningen gjordes genom att byta strömförsörjning och koppla in frikopplingskondensatorer. 
-    Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra.  
+    Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra. 
 
     \subsection{Visualisering}
     Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättning från sensordata till handposition.
@@ -538,22 +538,30 @@
     \subsubsection{Dimensionering av kretsar}
     % Problem att dimensionera kretsar, ideala komponenter, mätfel osv.
 
+    \subsubsection{Framtida undersökningar}
+    Om det här projektet skulle tas vidare skulle man fortsätta att arbeta för att få en helhetslösning som kan spåra 
+    rörelser för ett finger. För att uppnå detta skulle filter och oscillatorkrets behöva förbättras. Komponenter med 
+    bättre precision skulle behöva användas för att eliminera flera störningar. Om projektet ska föras vidare bör även 
+    spolarna som agerar sändare optimeras för att skapa en så stark och störningsfri signal som möjligt. 
+    
+    När signalerna från sensorerna är ordnade skulle de behöva översättas från en spänning till data som kan representeras 
+    av den digitala handen i Unity-programmet. Metoden är generellt skalbar vilket innebär att om spårning av ett finger 
+    fungerar kan det enkelt skalas upp till spårning av samtliga fingrar. Om fullständig spårning av en hand ska uppnås bör 
+    även system för att spåra handledens rörelser. Exempelvis rotation. 
+
     \subsection{Slutsats}
 
     \section{Avslutning}
 
-
-
-
     \section{Källor}
     \printbibliography[heading=none]
-
+    \newpage
     \appendices
     \titleformat{\section}[display]
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
 
 
-    \newpage
+    
     \section{Kod Spolsnurrare}
     \label{bilaga:Kod_Spolsnurrare}
     \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
