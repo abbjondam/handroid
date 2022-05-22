@@ -241,7 +241,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Flex\%20sensor&oldid=1080644716}}
-      \field{note}{[Online; accessed 20-May-2022]}
+      \field{note}{[Hämtad 2022-05-22]}
       \field{title}{{Flex sensor} --- {W}ikipedia{,} The Free Encyclopedia}
       \field{year}{2022}
     \endentry
@@ -263,9 +263,131 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Wired\%20glove&oldid=1088757158}}
-      \field{note}{[Online; accessed 20-May-2022]}
+      \field{note}{[Hämtad 2022-05-22]}
       \field{title}{{Wired glove} --- {W}ikipedia{,} The Free Encyclopedia}
       \field{year}{2022}
+    \endentry
+    \entry{article:sci-rep-mag-ind}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6c0c7485a9da6ddfda5943b8296cc377}{%
+           family={Golestani},
+           familyi={G\bibinitperiod},
+           given={Negar},
+           giveni={N\bibinitperiod}}}%
+        {{hash=c0e9253e8ad639720465234eab62397b}{%
+           family={Moghaddam},
+           familyi={M\bibinitperiod},
+           given={Mahta},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \strng{fullhash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \strng{bibnamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \strng{authorbibnamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \strng{authornamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \strng{authorfullhash}{9e10fa8dc10c4f15e5aaca882706cbbb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sci Rep}
+      \field{number}{18905}
+      \field{title}{Wearable magnetic induction-based approach toward 3D motion tracking}
+      \field{volume}{11}
+      \field{year}{2021}
+    \endentry
+    \entry{article:AuraRing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9cfd9773a61e0a048ca99ba4ecc345e4}{%
+           family={Parizi},
+           familyi={P\bibinitperiod},
+           given={Farshid\bibnamedelima Salemi},
+           giveni={F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=4e6406d9684efd62716aa59b86f2bad2}{%
+           family={Whitmire},
+           familyi={W\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=ebe0c564e6a6dc116ed7f2ddc74788e4}{%
+           family={Patel},
+           familyi={P\bibinitperiod},
+           given={Shwetak},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{1a592909bda6343c90ff7b0b402fead0}
+      \strng{fullhash}{1a592909bda6343c90ff7b0b402fead0}
+      \strng{bibnamehash}{1a592909bda6343c90ff7b0b402fead0}
+      \strng{authorbibnamehash}{1a592909bda6343c90ff7b0b402fead0}
+      \strng{authornamehash}{1a592909bda6343c90ff7b0b402fead0}
+      \strng{authorfullhash}{1a592909bda6343c90ff7b0b402fead0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{AuraRing: Precise Electromagnetic Finger Tracking}
+      \field{volume}{3}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1145/3369831
+      \endverb
+      \verb{urlraw}
+      \verb https://doi-org.offcampus.lib.washington.edu/10.1145/3369831
+      \endverb
+      \verb{url}
+      \verb https://doi-org.offcampus.lib.washington.edu/10.1145/3369831
+      \endverb
+    \endentry
+    \entry{article:MagIK}{article}{}
+      \name{author}{4}{}{%
+        {{hash=7b48c00499b4f876bb5ab268c13da454}{%
+           family={Santoni},
+           familyi={S\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=de9191fe5e914e0d76acd54697492922}{%
+           family={De\bibnamedelima Angelis},
+           familyi={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a9f646949b1d3be6e559ca132e8007a8}{%
+           family={Moschitta},
+           familyi={M\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4a2454388e7185da294540671559156b}{%
+           family={Carbone},
+           familyi={C\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{85f05a508c5aaeb9cc8bbd92f725ff52}
+      \strng{fullhash}{59d752442392b3cd8219b8e5e5e305bf}
+      \strng{bibnamehash}{59d752442392b3cd8219b8e5e5e305bf}
+      \strng{authorbibnamehash}{59d752442392b3cd8219b8e5e5e305bf}
+      \strng{authornamehash}{85f05a508c5aaeb9cc8bbd92f725ff52}
+      \strng{authorfullhash}{59d752442392b3cd8219b8e5e5e305bf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Instrumentation and Measurement}
+      \field{title}{MagIK: A Hand-Tracking Magnetic Positioning System Based on a Kinematic Model of the Hand}
+      \field{volume}{70}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/TIM.2021.3065761
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

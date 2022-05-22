@@ -53,7 +53,7 @@
     \section{Inledning}
     \subsection{Syfte}
     Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
-    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser på en människohand.
+    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
     De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
     \subsection{Bakgrund}
@@ -213,9 +213,8 @@
     \subsection{Konstruktion}
 
     \subsubsection{3D-hand}
-    En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
-    Designen bestod av servon som med hjälp av trådar styr fingrarna
-    och 3d-modeller av fingersegment som kunde skrivas ut med en 3D-skrivare.
+    En 3D-printad fysisk hand designades som skulle imitera den rörelse som spårats med sensorsystemet.
+    Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna.
 
     \subsubsection{Spolar}
     Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
@@ -284,6 +283,7 @@
     I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
 
     \subsection{Rendering}
+
     \subsubsection{Mikrokontroller}
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
     Mikrokontrollen väntar på renderingsprogrammet att ansluta och
@@ -291,9 +291,12 @@
     För att åstadkomma kommunikation används biblioteket ArduinoBLE.
 
     \subsubsection{Renderingsprogram}
-    Renderingsprogrammet som används är Unity.
-    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
-    Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
+    Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
+    Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
+    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
+    och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
+    Unity programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
+    Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
 
     \section{Resultat}
 
@@ -406,9 +409,15 @@
 
     \section{Filterkrets}
 
-    \section{Kod Spolsnurrare}
-    \label{bilaga:Kod_Spolsnurrare}
-    \inputminted[]{cpp}{./Code/Spolsnurrare.cpp}
+    \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
+
+    \section{Kod Arduino Peripheral}
+    \label{bilaga:Kod_Arduino_Peripheral}
+    \inputminted[breaklines]{cpp}{./Code/peripheral.cpp}
+
+    \section{Kod Rendering}
+    \label{bilaga:Kod_Rendering}
+    \inputminted[breaklines]{csharp}{./Code/handController.cs}
     \newpage
 \end{sloppypar}
 
