@@ -1,16 +1,11 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'main.blg'
-[102] biber-MSWIN32:340> INFO - === 
-[134] Biber.pm:418> INFO - Reading 'main.bcf'
-[256] Biber.pm:972> INFO - Found 20 citekeys in bib section 0
-[273] Biber.pm:4383> INFO - Processing section 0
-[286] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
-[323] bibtex.pm:1713> INFO - LaTeX decoding ...
-[348] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
-[455] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[455] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[455] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sv-SE'
-[472] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[480] bbl.pm:757> INFO - Output to main.bbl
-[480] Biber.pm:130> WARN - BibTeX subsystem: C:\Users\Gabriel\AppData\Local\Temp\biber_tmp_a0IU\33e59b5ca9ec342068223d604c3f8d55_13832.utf8, line 159, warning: 304 characters of junk seen at toplevel
-[480] Biber.pm:132> INFO - WARNINGS: 1
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'main.blg'
+[86] biber-MSWIN32:340> INFO - === 
+[113] Biber.pm:415> INFO - Reading 'main.bcf'
+[204] Biber.pm:952> INFO - Found 20 citekeys in bib section 0
+[217] Biber.pm:4340> INFO - Processing section 0
+[227] Biber.pm:4531> INFO - Looking for bibtex format file 'references.bib' for section 0
+[261] bibtex.pm:1689> INFO - LaTeX decoding ...
+[280] bibtex.pm:1494> INFO - Found BibTeX data source 'references.bib'
+[350] Utils.pm:411> ERROR - BibTeX subsystem: C:\Users\Jonathan\AppData\Local\Temp\biber_tmp_jvGz\33e59b5ca9ec342068223d604c3f8d55_30112.utf8, line 173, error: unbalanced braces: too many }'s
+[350] Biber.pm:132> INFO - ERRORS: 1

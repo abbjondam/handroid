@@ -143,6 +143,41 @@
     Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper.~\cite{wiki:Active-filter}
     För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas.
     Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$~dB.~\cite{wiki:Band-pass-filter}
+    
+    \begin{equation}
+        \label{eq-Q}
+        Q = \frac{f_{c}}{BW}
+    \end{equation}
+
+    \begin{equation}
+        \label{eq-R1}
+        R_{1} =  \frac{Q}{2 \pi f_{c} C A_{f}}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R2}
+        R_{2} =  \frac{Q}{2 \pi f_{c} C (2 Q^{2}- A_{f})}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R3}
+        R_{3} =  \frac{Q}{\pi f_{c} C }
+    \end{equation}
+    \begin{equation}
+        \label{eq-Af}
+        A_{f} =  \frac{R_{3}}{2R_{1}}
+    \end{equation}
+    \begin{equation}
+        \label{eq-Af-limit}
+        A_{f} < 2 Q^{2}
+    \end{equation}
+    \begin{equation}
+        \label{eq-R2new}
+        R_{2}^{'} = R_{2} (\frac{f_{c}}{f_{c}^{'}})^{2}
+    \end{equation}
+  
+    Ett bandpassfilter kan dimensioneras genom att välja en centerfrekvens $f_{c}$, en bandbredd $BW$ och ett värde på två kondensatorer $C$. 
+    Tre resistorer kan sedan dimensioneras med formel \ref{eq-R1}, \ref{eq-R2} och \ref{eq-R3} där formel \ref{eq-Q} bestämmer filtrets kvalitetsfaktor.
+    Amplifikationen vid centerfrekvensen kan räknas ut med formel \ref{eq-Af} som dessutom måste uppfylla villkoret \ref{eq-eq-Af-limit}.
+    För att välja nya center frekvenser kan formel \ref{eq-R2new}
 
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
@@ -333,7 +368,7 @@
     \subsection{Unity}
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
-    \subsubsection{Arduino Nano 33 BLE}
+    \subsection{Arduino Nano 33 BLE}
 
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
     Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
@@ -375,7 +410,7 @@
     läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
 
-    \subsubsection{Digital visualisering}
+    \subsection{Digital visualisering}
     Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
     Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
