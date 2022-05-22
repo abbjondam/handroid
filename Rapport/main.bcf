@@ -2361,16 +2361,16 @@
     <bcf:citekey order="11">wiki:Band-pass-filter</bcf:citekey>
     <bcf:citekey order="12">WienBridge</bcf:citekey>
     <bcf:citekey order="13">555_sine</bcf:citekey>
-    <bcf:citekey order="14">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="15">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="16">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="17">google:Hand_Tracking</bcf:citekey>
-    <bcf:citekey order="18">wiki:Finger_tracking</bcf:citekey>
-    <bcf:citekey order="19">wiki:Flex_sensor</bcf:citekey>
-    <bcf:citekey order="20">wiki:Wired_glove</bcf:citekey>
-    <bcf:citekey order="21">article:sci-rep-mag-ind</bcf:citekey>
-    <bcf:citekey order="22">article:AuraRing</bcf:citekey>
-    <bcf:citekey order="23">article:MagIK</bcf:citekey>
+    <bcf:citekey order="14">google:Hand_Tracking</bcf:citekey>
+    <bcf:citekey order="15">wiki:Finger_tracking</bcf:citekey>
+    <bcf:citekey order="16">wiki:Flex_sensor</bcf:citekey>
+    <bcf:citekey order="17">wiki:Wired_glove</bcf:citekey>
+    <bcf:citekey order="18">article:sci-rep-mag-ind</bcf:citekey>
+    <bcf:citekey order="19">article:AuraRing</bcf:citekey>
+    <bcf:citekey order="20">article:MagIK</bcf:citekey>
+    <bcf:citekey order="21">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="22">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="23">Arduino:ABX00030</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

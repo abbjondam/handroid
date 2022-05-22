@@ -69,7 +69,7 @@
     \section{Teori}
     För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
     Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, och
-    idéer för tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
+    idéer för rotation av fingrar och tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
     vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
 
 
@@ -130,41 +130,7 @@
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
 
-    \subsubsection{Arduino Nano 33 BLE}
-    Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
-    Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
-    och en NINA B306 BLE-modul som möjliggör kommunikation med Bluetooth Low Energy. Arduino Nano 33 BLE har 8 analoga
-    ingångar och kan drivas av spänning mellan 4,5 och 21 volt. Annan viktig hårdvaruinformation om mikrokontrollern
-    kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\\
-    Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
-    datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
-    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++.
-
-    \begin{table}[h]
-        \begin{center}
-            \caption{Viktiga specifikationer Arduino Nano 33 BLE ~\cite{Arduino:ABX00030}}
-            \label{table:ArduinoNano}
-            \begin{tabular}{ | l | l | }
-                \hline
-                Mikrokontroller            & nRF52840 \\
-                \hline
-                Driftspänning              & 3,3V     \\
-                \hline
-                Inspänning (min)           & 4,5V     \\
-                \hline
-                Inspänning (max)           & 21V      \\
-                \hline
-                Digitala ingångar/utgångar & 14 st    \\
-                \hline
-                Analoga ingångar           & 8 st     \\
-                \hline
-                Längd                      & 45 mm    \\
-                \hline
-                Bredd                      & 18 mm    \\
-                \hline
-            \end{tabular}
-        \end{center}
-    \end{table}
+    
     \subsection{Bluetooth Low Energy}
     Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
     \subsubsection{Peripheral}
@@ -314,8 +280,6 @@
     För att verifiera att sensorsystemet fungerar och för att kunna visa att systemet går att använda till någon form av applikation.
     Målet var att visualisera sensordata på ett sätt som gör det lätt att se om systemet fungerar och för att sedan kunna utvärdera hur väl sensorerna har lyckats mäta fingerrörelser.
 
-
-    \subsubsection{Material}
     
     \subsubsection{Fysisk hand}
     Ursprungligen valdes det att en fysisk hand skulle designas för att visualisera data från sensorerna.
@@ -323,24 +287,87 @@
     och visar att fingerspårning inte enbart kan användas i digitala applikationer utan också användas för att kontrollera något fysiskt. 
     När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort, 
     vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom
-     endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning. 
-    En 3D-printad fysisk hand designades som skulle imitera den rörelse som spårats med sensorsystemet.
+    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom 
+    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning. 
+    
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna.
+    Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
+    När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga en snöret och förkorta andra snöret lika mycket kommer fingretsrotation förändras. Se figur \ref{fig:flexion-extension}.
+    Tummens böjning skulle på ett liknande sätt kontrolleras men skulle också med hjälp av ett kullager och två par snören kontrollera rotation kring tummens fäste. 
 
-    \subsubsection{Mikrokontroller}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{Skiss-flexion-och-extension.png}
+        \caption{Skiss av flexion och extension av finger med hjälp av två snören.}
+        \label{fig:flexion-extension}
+    \end{figure}
+
+    Själva handen designades i segment liknande hur människohanden ser ut och skulle sedan monteras ihop med stänger i lederna. Se figur \ref{fig:Ringfinger}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{Ringfinger.jpg}
+        \caption{Skiss av flexion och extension av finger med hjälp av två snören.}
+        \label{fig:Ringfinger}
+    \end{figure}
+
+    Att bygga en fysisk hand valdes sedan bort, i och med att en annan spårningsmetod valdes, delvist eftersom konstruktionen blir mer komplicerad när fler riktningar skulle mätas 
+    men framförallt eftersom sensor metod inte är lika beprövad som flexsensorer och att eliminera möjlig felkällor med den fysiska handen och istället skapa en digital hand underlättar testning av sensorsystemet.
+
+
+    \subsubsection{Arduino Nano 33 BLE}
+
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
-    Mikrokontrollen väntar på renderingsprogrammet att ansluta och
-    läser sedan av värdena från de olika sensorerna och publicerar dessa till en Bluetooth characteristics.
-    För att åstadkomma kommunikation används biblioteket ArduinoBLE.
+    Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
+    Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
+    och en NINA B306 BLE-modul som möjliggör kommunikation med Bluetooth Low Energy. Arduino Nano 33 BLE har 8 analoga
+    ingångar och kan drivas av spänning mellan 4,5 och 21 volt. Annan viktig hårdvaruinformation om mikrokontrollern
+    kan ses i tabell~\ref{table:ArduinoNano}. ~\cite{Arduino:ABX00030}\\\
+    Mikrokontrollern används för att läsa av mätvärden från sensorerna och för att skicka vidare mätvärdena till
+    datorn där renderingen sker. Den programmeras i C++ med hjälp av platformIO, en tillbyggnad i utvecklingsmiljön
+    Visual Studio Code som möjliggör programmering av mikrokontrollers i C++.
 
-    \subsubsection{Renderingsprogram}
+    \begin{table}[h]
+        \begin{center}
+            \caption{Viktiga specifikationer Arduino Nano 33 BLE ~\cite{Arduino:ABX00030}}
+            \label{table:ArduinoNano}
+            \begin{tabular}{ | l | l | }
+                \hline
+                Mikrokontroller            & nRF52840 \\
+                \hline
+                Driftspänning              & 3,3V     \\
+                \hline
+                Inspänning (min)           & 4,5V     \\
+                \hline
+                Inspänning (max)           & 21V      \\
+                \hline
+                Digitala ingångar/utgångar & 14 st    \\
+                \hline
+                Analoga ingångar           & 8 st     \\
+                \hline
+                Längd                      & 45 mm    \\
+                \hline
+                Bredd                      & 18 mm    \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet att ansluta och
+    läser sedan av värdena från de olika sensorerna och publicerar dessa till en Bluetooth characteristics.
+    För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
+
+    \subsubsection{Digital visualisering}
     Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
     Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
     och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
     Unity programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
     Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
+    Kod för test av BLE kommunikation finns i bilaga \ref{bilaga:Kod_Rendering}.
+
+
 
     \section{Resultat}
 

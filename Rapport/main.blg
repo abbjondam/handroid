@@ -1,16 +1,16 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'main.blg'
-[101] biber-MSWIN32:340> INFO - === 
-[139] Biber.pm:415> INFO - Reading 'main.bcf'
-[251] Biber.pm:952> INFO - Found 18 citekeys in bib section 0
-[266] Biber.pm:4340> INFO - Processing section 0
-[277] Biber.pm:4531> INFO - Looking for bibtex format file 'references.bib' for section 0
-[324] bibtex.pm:1689> INFO - LaTeX decoding ...
-[347] bibtex.pm:1494> INFO - Found BibTeX data source 'references.bib'
-[412] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\Jonathan\AppData\Local\Temp\biber_tmp_gnJ2\33e59b5ca9ec342068223d604c3f8d55_2216.utf8, line 159, warning: 304 characters of junk seen at toplevel
-[428] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[428] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[428] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sv-SE'
-[442] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[449] bbl.pm:757> INFO - Output to main.bbl
-[449] Biber.pm:128> INFO - WARNINGS: 1
+[84] biber-MSWIN32:340> INFO - === 
+[112] Biber.pm:415> INFO - Reading 'main.bcf'
+[207] Biber.pm:952> INFO - Found 18 citekeys in bib section 0
+[219] Biber.pm:4340> INFO - Processing section 0
+[229] Biber.pm:4531> INFO - Looking for bibtex format file 'references.bib' for section 0
+[261] bibtex.pm:1689> INFO - LaTeX decoding ...
+[278] bibtex.pm:1494> INFO - Found BibTeX data source 'references.bib'
+[340] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\Jonathan\AppData\Local\Temp\biber_tmp_GVBX\33e59b5ca9ec342068223d604c3f8d55_3056.utf8, line 159, warning: 304 characters of junk seen at toplevel
+[355] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[355] UCollate.pm:68> INFO - Overriding locale 'sv-SE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[356] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sv-SE'
+[368] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[374] bbl.pm:757> INFO - Output to main.bbl
+[374] Biber.pm:128> INFO - WARNINGS: 1

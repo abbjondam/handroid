@@ -276,19 +276,6 @@
       \field{note}{Hämtad 2022-05-10}
       \field{title}{How to Build a Sine Wave Generator with a 555 Timer Chip}
     \endentry
-    \entry{Arduino:ABX00030}{manual}{}
-      \list{organization}{1}{%
-        {Arduino}%
-      }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{month}{4}
-      \field{note}{Rev. 1}
-      \field{number}{ABX00030}
-      \field{title}{Arduino® Nano 33 BLE}
-      \field{year}{2021}
-    \endentry
     \entry{google:Hand_Tracking}{misc}{}
       \name{author}{1}{}{%
         {{hash=ead83cd68f4fe23b48d555e53603ca22}{%
@@ -376,8 +363,8 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Wired\%20glove&oldid=1088757158}}
@@ -404,8 +391,8 @@
       \strng{authorbibnamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
       \strng{authornamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
       \strng{authorfullhash}{9e10fa8dc10c4f15e5aaca882706cbbb}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Sci Rep}
@@ -444,8 +431,8 @@
       \strng{authorbibnamehash}{1a592909bda6343c90ff7b0b402fead0}
       \strng{authornamehash}{1a592909bda6343c90ff7b0b402fead0}
       \strng{authorfullhash}{1a592909bda6343c90ff7b0b402fead0}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.}
@@ -506,6 +493,19 @@
       \verb{doi}
       \verb 10.1109/TIM.2021.3065761
       \endverb
+    \endentry
+    \entry{Arduino:ABX00030}{manual}{}
+      \list{organization}{1}{%
+        {Arduino}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Rev. 1}
+      \field{number}{ABX00030}
+      \field{title}{Arduino® Nano 33 BLE}
+      \field{year}{2021}
     \endentry
   \enddatalist
 \endrefsection
