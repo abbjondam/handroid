@@ -148,6 +148,94 @@
       \field{note}{Hämtad 2022-05-10}
       \field{title}{A Simple Method to Measure Unknown Inductors}
     \endentry
+    \entry{wiki:Operational-amplifier}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Operational_amplifier&oldid=1086669232}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Operational amplifier --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+    \entry{wiki:Electronic-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Electronic_filter&oldid=1052998098}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Electronic filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2021}
+    \endentry
+    \entry{wiki:Active-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Active_filter&oldid=1014412101}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Active filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2021}
+    \endentry
+    \entry{wiki:Band-pass-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Band-pass_filter&oldid=1079536663}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Band-pass filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
     \entry{WienBridge}{misc}{}
       \name{author}{1}{}{%
         {{hash=927288e7f8923f2bf03395643e0cd255}{%
@@ -160,8 +248,8 @@
       \strng{authorbibnamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authornamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authorfullhash}{927288e7f8923f2bf03395643e0cd255}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.electronics-tutorials.ws/oscillator/wien_bridge.html}}
@@ -180,26 +268,43 @@
       \strng{authorbibnamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authornamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authorfullhash}{d4150b67e3e556d7867e84cc0ed89b54}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.learningaboutelectronics.com/Articles/Sine-wave-generator-circuit-with-a-555-timer.php}}
       \field{note}{Hämtad 2022-05-10}
       \field{title}{How to Build a Sine Wave Generator with a 555 Timer Chip}
     \endentry
-    \entry{Arduino:ABX00030}{manual}{}
-      \list{organization}{1}{%
-        {Arduino}%
+    \entry{google:Hand_Tracking}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ead83cd68f4fe23b48d555e53603ca22}{%
+           family={Valentin\bibnamedelima Bazarevsky},
+           familyi={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Fan\bibnamedelima Zhang},
+           giveni={F\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
       }
+      \list{organization}{1}{%
+        {Google}%
+      }
+      \strng{namehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{fullhash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{bibnamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authorbibnamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authornamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authorfullhash}{ead83cd68f4fe23b48d555e53603ca22}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{4}
-      \field{note}{Rev. 1}
-      \field{number}{ABX00030}
-      \field{title}{Arduino® Nano 33 BLE}
-      \field{year}{2021}
+      \field{title}{On-Device, Real-Time Hand Tracking with MediaPipe}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://ai.googleblog.com/2019/08/on-device-real-time-hand-tracking-with.html
+      \endverb
+      \verb{url}
+      \verb https://ai.googleblog.com/2019/08/on-device-real-time-hand-tracking-with.html
+      \endverb
     \endentry
     \entry{wiki:Finger_tracking}{misc}{}
       \name{author}{1}{}{%
@@ -375,8 +480,8 @@
       \strng{authorbibnamehash}{59d752442392b3cd8219b8e5e5e305bf}
       \strng{authornamehash}{85f05a508c5aaeb9cc8bbd92f725ff52}
       \strng{authorfullhash}{59d752442392b3cd8219b8e5e5e305bf}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Instrumentation and Measurement}
@@ -388,6 +493,61 @@
       \verb{doi}
       \verb 10.1109/TIM.2021.3065761
       \endverb
+    \endentry
+    \entry{Bluetooth}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7deff39593c9cecd401b795d6e1ae04b}{%
+           family={{Bluetooth}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{fullhash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{bibnamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authorbibnamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authornamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authorfullhash}{7deff39593c9cecd401b795d6e1ae04b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.bluetooth.com/learn-about-bluetooth/tech-overview/}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Bluetooth Wireless Technology}
+      \field{year}{2022}
+    \endentry
+    \entry{Unity}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=82dd98f1d663acc318e6a8ec4ab69b7a}{%
+           family={{Unity}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{fullhash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{bibnamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authorbibnamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authornamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authorfullhash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://unity.com/our-company}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Wondering what Unity is? Find out who we are, where we've been and where we're going}
+      \field{year}{2022}
+    \endentry
+    \entry{Arduino:ABX00030}{manual}{}
+      \list{organization}{1}{%
+        {Arduino}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Rev. 1}
+      \field{number}{ABX00030}
+      \field{title}{Arduino® Nano 33 BLE}
+      \field{year}{2021}
     \endentry
   \enddatalist
 \endrefsection
