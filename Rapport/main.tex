@@ -142,7 +142,7 @@
     En typ av elektroniskt filter är aktiva filter, där aktiva komponenter används såsom operationsförstärkare används för att förbättra prestanda och förutsägbarhet för filtret samt för att sänka priset.
     Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper.~\cite{wiki:Active-filter}
     För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas.
-    Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$ dB.~\cite{wiki:Band-pass-filter}
+    Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$~dB.~\cite{wiki:Band-pass-filter}
 
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
@@ -151,15 +151,6 @@
 
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
-
-    \subsection{Bluetooth Low Energy}
-    Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
-    \subsubsection{Peripheral}
-    \subsubsection{Central}
-
-    \subsection{Rendering}
-    \subsubsection{Unity}
-    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \subsection{Tidigare lösningar}
     För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
@@ -453,6 +444,19 @@
         \label{fig:signal-117kHz}
     \end{figure}
 
+
+    \subsection{Filterkrets}
+    I simuleringar i Multisim filtrerade filtret bort signaler $17$~kHz ifrån center frekvensen med cirka $-15$~dB. Se figur \ref{fig:sim-117kHz-filter}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{filter117kHz.png}
+        \caption{Bild av simulerad filter med dimensionerad frekvens 117 kHz, tagen i Multisim.}
+        \label{fig:sim-117kHz-filter}
+    \end{figure}
+
+    Filterkretsen gav vid test i verkligheten en oigenkänbar signal. 
+
+
     \section{Diskussion och Slutsats}
     %\subsection{Diskussion}
     \subsection{Spårning}
@@ -475,8 +479,7 @@
     visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar.
 
     \subsection{Visualisering}
-    \subsubsection{3D-utskriven hand}
-    \subsubsection{Digital hand}
+    Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättnings från sensordata till handposition. 
 
     \subsection{Planering}
     \subsubsection{Undersökning och val av metod}
