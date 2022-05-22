@@ -117,10 +117,11 @@
     
 
     \subsubsection{Filter}
-    Ett elektroniskt filter är en elektrisk komponent som används för att filtrera bort oönskade frekvenser från signaler. ~\cite{wiki:Electronic-filter} 
+    Ett elektroniskt filter är en elektrisk komponent som används för att filtrera bort oönskade frekvenser från signaler.~\cite{wiki:Electronic-filter} 
     En typ av elektroniskt filter är aktiva filter, där aktiva komponenter används såsom operationsförstärkare används för att förbättra prestanda och förutsägbarhet för filtret samt för att sänka priset. 
-    Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper. ~\cite{wiki:Active-filter}
-    För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas. ~\cite{wiki:Band-pass-filter}
+    Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper.~\cite{wiki:Active-filter}
+    För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas. 
+    Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$ dB.~\cite{wiki:Band-pass-filter}
 
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
@@ -129,16 +130,6 @@
 
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
-
-    
-    \subsection{Bluetooth Low Energy}
-    Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
-    \subsubsection{Peripheral}
-    \subsubsection{Central}
-
-    \subsection{Rendering}
-    \subsubsection{Unity}
-    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
     \subsection{Tidigare lösningar}
     För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
@@ -255,7 +246,7 @@
 
     \subsubsection{Filter}
     Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
-    Filterkretsen designades först med hjälp av formler för att bestämma värden på kondensatorer och resistorer.
+    Filterkretsen designades först genom att räkna ut värden på kondensatorer och resistorer genom att välja en bandbredd och center frekvens.
     Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
@@ -315,6 +306,12 @@
     Att bygga en fysisk hand valdes sedan bort, i och med att en annan spårningsmetod valdes, delvist eftersom konstruktionen blir mer komplicerad när fler riktningar skulle mätas 
     men framförallt eftersom sensor metod inte är lika beprövad som flexsensorer och att eliminera möjlig felkällor med den fysiska handen och istället skapa en digital hand underlättar testning av sensorsystemet.
 
+        
+    \subsection{Bluetooth Low Energy}
+    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
+    
+    \subsection{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
     \subsubsection{Arduino Nano 33 BLE}
 
@@ -354,8 +351,8 @@
         \end{center}
     \end{table}
 
-    Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet att ansluta och
-    läser sedan av värdena från de olika sensorerna och publicerar dessa till en Bluetooth characteristics.
+    Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
+    läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
 
     \subsubsection{Digital visualisering}

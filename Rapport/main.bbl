@@ -494,6 +494,48 @@
       \verb 10.1109/TIM.2021.3065761
       \endverb
     \endentry
+    \entry{Bluetooth}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7deff39593c9cecd401b795d6e1ae04b}{%
+           family={{Bluetooth}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{fullhash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{bibnamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authorbibnamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authornamehash}{7deff39593c9cecd401b795d6e1ae04b}
+      \strng{authorfullhash}{7deff39593c9cecd401b795d6e1ae04b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.bluetooth.com/learn-about-bluetooth/tech-overview/}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Bluetooth Wireless Technology}
+      \field{year}{2022}
+    \endentry
+    \entry{Unity}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=82dd98f1d663acc318e6a8ec4ab69b7a}{%
+           family={{Unity}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{fullhash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{bibnamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authorbibnamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authornamehash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \strng{authorfullhash}{82dd98f1d663acc318e6a8ec4ab69b7a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://unity.com/our-company}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Wondering what Unity is? Find out who we are, where we've been and where we're going}
+      \field{year}{2022}
+    \endentry
     \entry{Arduino:ABX00030}{manual}{}
       \list{organization}{1}{%
         {Arduino}%

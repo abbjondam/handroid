@@ -2368,9 +2368,11 @@
     <bcf:citekey order="18">article:sci-rep-mag-ind</bcf:citekey>
     <bcf:citekey order="19">article:AuraRing</bcf:citekey>
     <bcf:citekey order="20">article:MagIK</bcf:citekey>
-    <bcf:citekey order="21">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="22">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="21">Bluetooth</bcf:citekey>
+    <bcf:citekey order="22">Unity</bcf:citekey>
     <bcf:citekey order="23">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="24">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="25">Arduino:ABX00030</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
