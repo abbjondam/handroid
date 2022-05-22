@@ -282,6 +282,8 @@
     Kretsen designades sedan om med hjälp av ett filter designverktyg av Texas Instruments
     och fungerade i simulering med en icke-ideal operationsförstärkare.
 
+    Se bilaga \ref{bilaga:Kretsschema-filter}.
+
     \subsubsection{Oscillator}
     För de olika fingrarna bestämdes att oscillatorerna skulle ha frekvenser från 100 kHz, med ungefär 15 kHz mellanrum för att ge utrymme för filtrernas bandbredd. Fem oscillatorer behövdes, ett för varje finger.
     Ursprungligen planerades att använda oscillatorer som bygger på wienbryggor (Wien-bryggesoscillator).
@@ -290,7 +292,7 @@
     Här dimensionerades istället två olika kretsar i en: en med resistorer och kondensatorer, och en med kondensatorer och spolen.
 
     Två oscillatorer byggdes i verkligheten: en med frekvensen 100 kHz och en med frekvensen 117 kHz.
-    I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
+    I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga \ref{bilaga:Schema-Oscillatorkretsar} för kretsschema.
 
 
     \subsection{Process 2 - Representation}
@@ -305,10 +307,10 @@
     och visar att fingerspårning inte enbart kan användas i digitala applikationer utan också användas för att kontrollera något fysiskt.
     När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort,
     vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom
-    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning.
-
-    Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna.
+    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom 
+    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning. 
+    
+    Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
     När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga en snöret och förkorta andra snöret lika mycket kommer fingretsrotation förändras. Se figur \ref{fig:flexion-extension}.
     Tummens böjning skulle på ett liknande sätt kontrolleras men skulle också med hjälp av ett kullager och två par snören kontrollera rotation kring tummens fäste.
@@ -482,12 +484,12 @@
     Undersökningen gav gruppen insikt om vad som är möjligt, hur svåra metoderna verkade vara, och vad som används idag.
     Som känt valde vi till slut att använda magnetfält, och bygga våra egna sensorer för att kunna mäta handen, och att representera rörelserna med en hand i Unity, men som beskrivet i metod var den ursprungliga planen att bygga en fysisk hand, och mycket tid i början av projektet tillägnades åt att planera handens funktion och delar, vilket exempelvis kan ses i figur~\ref{fig:utskrivet-finger}.
     Brist på tid är något genomgående i detta projekt, då många delar tog längre tid än planerat eller, som i den fysiska handens fall, inte användes för projektet, annat än i testsyfte.
-    \\\\
+    
     Valet av metod kan också diskuteras, då planen var att börja med att använda flexsensorer. Denna plan ändrades fort när vi fick förslag om att försöka använda oscillerande magnetfält och filtrera ut deras signaler istället.
     Alternativet verkade väldigt spännande för oss i gruppen eftersom denna metod inte var lika beprövad som de andra metoderna, vilket gav projektet en ny riktning: istället för att bygga en robothand som kan styras med egna handrörelser, något som hobbyister gjort i flera år, skulle vi utforska om det är möjligt att mäta finare rörelser, såsom fingrar, med magnetfält.
     Visualiseringen blev mindre viktig, men fanns fortfarande kvar för att kunna visa resultatet och hjälpa oss komma till slutsatser om metoden.
     Eftersom detta var något som inte hade några tutorials eller guider online att följa innebar detta också att vi i gruppen fick använda det vi lärt oss under vår gymmnasieutbildnig angående elektronik, programmering, samt källkritik.
-    \\\\
+    
     Från ett visst perspektiv kan detta beslut ha varit lite förhastat, just eftersom metoden är så pass okänd och outnyttjad av industrin. Det innebar att vi riskerade att inte hinna klart projektet i tid, eller att konceptet inte skulle fungera alls.
     Hade vi i gruppen haft ett annat syfte i åtanke, till exempel bara att styra en hand, hade vi valt en annan, mer beprövad metod, för att få ett bra resultat.
     Att projektets syfte ändrades gjorde dock att detta inte var lika viktigt, även om gruppen fortfarande jobbade mot att få ett resultat i tid till projektets slut.
@@ -507,7 +509,21 @@
 
     \appendices
     \titleformat{\section}[display]
-    {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga 
+    {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
+
+
+    \newpage
+    \section{Kod Spolsnurrare}
+    \label{bilaga:Kod_Spolsnurrare}
+    \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
+
+    \newpage
+    \section{Filterkrets}
+    \label{bilaga:Kretsschema-filter}
+    Krets för filter 117kHz. Kretsen är gjord i Multisim.
+    \includegraphics[width = 0.8\textwidth]{filter117kHz-circuit.png}
+
+    \newpage
     \section{Oscillatorkretsar}
     Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
 
@@ -516,12 +532,10 @@
     \includegraphics[width = 0.8\textwidth]{555-117kHz-circuit.png}
 
     \newpage
-    \section{Filterkrets}
-
-    \newpage
-    \section{Kod Spolsnurrare}
-    \label{bilaga:Kod_Spolsnurrare}
-    \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
+    \section{Servokrets}
+    \label{bilaga:Kretsschema-servo}
+    Krets för servo. Kretsen är gjord i Multisim.
+    \includegraphics[width = 0.8\textwidth]{servo.png}
 
     \newpage
     \section{Kod Arduino Peripheral}
