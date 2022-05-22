@@ -148,6 +148,94 @@
       \field{note}{Hämtad 2022-05-10}
       \field{title}{A Simple Method to Measure Unknown Inductors}
     \endentry
+    \entry{wiki:Operational-amplifier}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Operational_amplifier&oldid=1086669232}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Operational amplifier --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
+    \entry{wiki:Electronic-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Electronic_filter&oldid=1052998098}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Electronic filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2021}
+    \endentry
+    \entry{wiki:Active-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Active_filter&oldid=1014412101}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Active filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2021}
+    \endentry
+    \entry{wiki:Band-pass-filter}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Band-pass_filter&oldid=1079536663}}
+      \field{note}{[Online; accessed 22-May-2022]}
+      \field{title}{Band-pass filter --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2022}
+    \endentry
     \entry{WienBridge}{misc}{}
       \name{author}{1}{}{%
         {{hash=927288e7f8923f2bf03395643e0cd255}{%
@@ -160,8 +248,8 @@
       \strng{authorbibnamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authornamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authorfullhash}{927288e7f8923f2bf03395643e0cd255}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.electronics-tutorials.ws/oscillator/wien_bridge.html}}
@@ -180,8 +268,8 @@
       \strng{authorbibnamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authornamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authorfullhash}{d4150b67e3e556d7867e84cc0ed89b54}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.learningaboutelectronics.com/Articles/Sine-wave-generator-circuit-with-a-555-timer.php}}
@@ -286,8 +374,8 @@
       \strng{authorbibnamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
       \strng{authornamehash}{9e10fa8dc10c4f15e5aaca882706cbbb}
       \strng{authorfullhash}{9e10fa8dc10c4f15e5aaca882706cbbb}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Sci Rep}
@@ -326,8 +414,8 @@
       \strng{authorbibnamehash}{1a592909bda6343c90ff7b0b402fead0}
       \strng{authornamehash}{1a592909bda6343c90ff7b0b402fead0}
       \strng{authorfullhash}{1a592909bda6343c90ff7b0b402fead0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.}
@@ -375,8 +463,8 @@
       \strng{authorbibnamehash}{59d752442392b3cd8219b8e5e5e305bf}
       \strng{authornamehash}{85f05a508c5aaeb9cc8bbd92f725ff52}
       \strng{authorfullhash}{59d752442392b3cd8219b8e5e5e305bf}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Instrumentation and Measurement}

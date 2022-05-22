@@ -96,7 +96,8 @@
     Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
     Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
     För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man approximera spolens induktans.
-    En sinusformad spänning med amplituden 0,5~V utan något annat inkopplat kommer minska när en spole kopplas parallellt med mätverktyget. Genom att ändra frekvensen kan man uppnå signalen med 0,5~V amplitud. Denna frekvens $f$ tillsammans med resistansen $R$, som mäts med multimeter när ingen spänning ligger över den, kan användas för att räkna ut induktansen $L$ enligt formel \ref{eq-inductance}.~\cite{MeasureInductor}
+    En sinusformad spänning med amplituden 0,5~V utan något annat inkopplat kommer minska när en spole kopplas parallellt med mätverktyget. Genom att ändra frekvensen kan man uppnå signalen med 0,5~V amplitud.
+     Denna frekvens $f$ tillsammans med resistansen $R$, som mäts med multimeter när ingen spänning ligger över den, kan användas för att räkna ut induktansen $L$ enligt formel \ref{eq-inductance}.~\cite{MeasureInductor}
 
     \begin{equation}
         \label{eq-inductance}
@@ -108,7 +109,19 @@
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
 
     \subsubsection{Operationsförstärkare}
+    En operationsförstärkare är en förstärkare som förstärker spänningsskillnaden mellan operationsförstärkarens ingångar enligt formel \ref{eq-Op-Amp} där $A_{OL}$ är amplifikationen i en öppen loop.~\cite{wiki:Operational-amplifier}
+    \begin{equation}
+        \label{eq-Op-Amp}
+        V_{out} = A_{OL}(V_+ - V_-)
+    \end{equation}
+    
+
     \subsubsection{Filter}
+    Ett elektroniskt filter är en elektrisk komponent som används för att filtrera bort oönskade frekvenser från signaler. ~\cite{wiki:Electronic-filter} 
+    En typ av elektroniskt filter är aktiva filter, där aktiva komponenter används såsom operationsförstärkare används för att förbättra prestanda och förutsägbarhet för filtret samt för att sänka priset. 
+    Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper. ~\cite{wiki:Active-filter}
+    För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas. ~\cite{wiki:Band-pass-filter}
+
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
     På grund av spolars och kondensatorers upp- och urladdningsförmåga kan dessa användas, i olika kombinationer för att göra en krets där strömmen och spänningen svänger (blir svagare/starkare, och byter riktning) med en viss frekvens.
