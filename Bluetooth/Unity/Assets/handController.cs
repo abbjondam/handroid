@@ -26,21 +26,34 @@ public class handController : MonoBehaviour
     {
         Debug.Log(bluetoothScript.subscribeText.text);
         Debug.Log("___");
-        orientation = Array.ConvertAll<string, int>(bluetoothScript.subscribeText.text.Split(','),int.Parse);
+        orientation = Array.ConvertAll<string, int>(
+            bluetoothScript.subscribeText.text.Split(','),int.Parse);
 
         if (orientation[0] == 100)
         {
             Quaternion toRotation = Quaternion.Euler(0, 0, 0);
-            index_a.transform.localRotation = Quaternion.Lerp(index_a.transform.localRotation, toRotation, Time.time * speed);
-            index_b.transform.localRotation = Quaternion.Lerp(index_b.transform.localRotation, toRotation, Time.time * speed);
-            index_c.transform.localRotation = Quaternion.Lerp(index_c.transform.localRotation, toRotation, Time.time * speed);
+            index_a.transform.localRotation = 
+                Quaternion.Lerp(index_a.transform.localRotation,
+                toRotation, Time.time * speed);
+            index_b.transform.localRotation =
+                Quaternion.Lerp(index_b.transform.localRotation,
+                toRotation, Time.time * speed);
+            index_c.transform.localRotation =
+                Quaternion.Lerp(index_c.transform.localRotation,
+                toRotation, Time.time * speed);
         }
         if (orientation[0] == 1000)
         {
-            Quaternion toRotation = Quaternion.Euler(0, 0, -90);
-            index_a.transform.localRotation = Quaternion.Lerp(index_a.transform.localRotation, toRotation, Time.time * speed);
-            index_b.transform.localRotation = Quaternion.Lerp(index_b.transform.localRotation, toRotation, Time.time * speed);
-            index_c.transform.localRotation = Quaternion.Lerp(index_c.transform.localRotation, toRotation, Time.time * speed);
+            Quaternion toRotation = Quaternion.Euler(0, 0, -85);
+            index_a.transform.localRotation =
+                Quaternion.Lerp(index_a.transform.localRotation,
+                toRotation, Time.time * speed);
+            index_b.transform.localRotation =
+                Quaternion.Lerp(index_b.transform.localRotation,
+                toRotation, Time.time * speed);
+            index_c.transform.localRotation =
+                Quaternion.Lerp(index_c.transform.localRotation,
+                toRotation, Time.time * speed);
         }
 
     }

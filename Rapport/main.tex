@@ -53,7 +53,7 @@
     \section{Inledning}
     \subsection{Syfte}
     Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
-    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser på en människohand.
+    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
     De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
     \subsection{Bakgrund}
@@ -160,38 +160,37 @@
     \subsubsection{Unity}
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
-    
+
     \section{Metod och material}
 
     \subsection{Val av metod}
     Metoden som valdes var att spåra fingrarna med hjälp av spolar på finertopparna som
     sänder ut ett magnetfält som genom att läsas av skulle kunna ge finrarnas rotation
-    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält 
-    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller 
-    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan 
-    ge data på hur hela handen rör på sig. 
+    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
+    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
+    flertalet IMU-sensorer som genom att mäta röreslerna på olika delar av handen kan
+    ge data på hur hela handen rör på sig.
     Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
     dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
     sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
-    igång bedömdes den icke-länplig för projektet. 
+    igång bedömdes den icke-länplig för projektet.
     Metoden med flexsenorer var den metod som bedömdes som lättast att genomföra. Metoden
-    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna 
+    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna
     endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
     skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
-    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare. 
-    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att 
-    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.   
+    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare.
+    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att
+    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.
     Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
-    används till största delen för att spåra grövre rörelser men bedömdes ha potential 
+    används till största delen för att spåra grövre rörelser men bedömdes ha potential
     att mäta även finare röresler. Metoden var även den som var minst beprövad vilket
-    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning. 
+    innebar att gruppen skulle behöva ägna sig åt mera testning och utforkning.
 
     \subsection{Konstruktion}
 
     \subsubsection{3D-hand}
-    En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
-    Designen bestod av servon som med hjälp av trådar styr fingrarna
-    och 3d-modeller av fingersegment som kunde skrivas ut med en 3D-skrivare.
+    En 3D-printad fysisk hand designades som skulle imitera den rörelse som spårats med sensorsystemet.
+    Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna.
 
     \subsubsection{Spolar}
     Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
@@ -202,9 +201,9 @@
     Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
     var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
-    koppartråd som hade lindats runt spolen.    
+    koppartråd som hade lindats runt spolen.
     När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
-    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare} 
+    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
 
     \begin{figure}[h]
         \centering
@@ -284,9 +283,12 @@
     För att åstadkomma kommunikation används biblioteket ArduinoBLE.
 
     \subsubsection{Renderingsprogram}
-    Renderingsprogrammet som används är Unity.
-    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
-    Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
+    Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
+    Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
+    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
+    och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
+    Unity programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
+    Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
 
     \section{Resultat}
 
@@ -352,7 +354,15 @@
 
     \section{Kod Spolsnurrare}
     \label{bilaga:Kod_Spolsnurrare}
-    \inputminted[]{cpp}{./Code/Spolsnurrare.cpp}
+    \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
+
+    \section{Kod Arduino Peripheral}
+    \label{bilaga:Kod_Arduino_Peripheral}
+    \inputminted[breaklines]{cpp}{./Code/peripheral.cpp}
+
+    \section{Kod Rendering}
+    \label{bilaga:Kod_Rendering}
+    \inputminted[breaklines]{csharp}{./Code/handController.cs}
     \newpage
 \end{sloppypar}
 

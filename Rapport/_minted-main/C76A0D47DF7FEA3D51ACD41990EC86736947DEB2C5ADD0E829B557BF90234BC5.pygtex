@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using} \PYG{n+nn}{System.Collections}\PYG{p}{;}
+\PYG{k}{using} \PYG{n+nn}{System.Collections.Generic}\PYG{p}{;}
+\PYG{k}{using} \PYG{n+nn}{UnityEngine}\PYG{p}{;}
+\PYG{k}{using} \PYG{n+nn}{System}\PYG{p}{;}
+
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{handController} \PYG{p}{:} \PYG{n}{MonoBehaviour}
+\PYG{p}{\PYGZob{}}
+
+    \PYG{k}{public} \PYG{n}{Demo} \PYG{n}{bluetoothScript}\PYG{p}{;}
+    \PYG{k+kt}{float} \PYG{n}{speed} \PYG{p}{=} \PYG{l+m}{0.1f}\PYG{p}{;}
+    \PYG{k+kt}{int}\PYG{p}{[]} \PYG{n}{orientation}\PYG{p}{;}
+
+    \PYG{k}{public} \PYG{n}{GameObject} \PYG{n}{index\PYGZus{}a}\PYG{p}{;}
+    \PYG{k}{public} \PYG{n}{GameObject} \PYG{n}{index\PYGZus{}b}\PYG{p}{;}
+    \PYG{k}{public} \PYG{n}{GameObject} \PYG{n}{index\PYGZus{}c}\PYG{p}{;}
+
+    \PYG{k}{void} \PYG{n+nf}{Start}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{GameObject} \PYG{n}{bluetoothGameObject} \PYG{p}{=} \PYG{n}{GameObject}\PYG{p}{.}\PYG{n}{Find}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Demo\PYGZdq{}}\PYG{p}{);}
+        \PYG{n}{bluetoothScript} \PYG{p}{=} \PYG{n}{bluetoothGameObject}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{p}{\PYGZlt{}}\PYG{n}{Demo}\PYG{p}{\PYGZgt{}();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{void} \PYG{n+nf}{Update}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{orientation} \PYG{p}{=} \PYG{n}{Array}\PYG{p}{.}\PYG{n}{ConvertAll}\PYG{p}{\PYGZlt{}}\PYG{k+kt}{string}\PYG{p}{,} \PYG{k+kt}{int}\PYG{p}{\PYGZgt{}(}\PYG{n}{bluetoothScript}\PYG{p}{.}\PYG{n}{subscribeText}\PYG{p}{.}\PYG{n}{text}\PYG{p}{.}\PYG{n}{Split}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{},\PYGZsq{}}\PYG{p}{),}\PYG{k+kt}{int}\PYG{p}{.}\PYG{n}{Parse}\PYG{p}{);}
+
+        \PYG{c+c1}{// Test to verify that Arduino Nano 33 BLE can control Unity hand model}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{orientation}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{]} \PYG{p}{==} \PYG{l+m}{100}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Quaternion} \PYG{n}{toRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Euler}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{orientation}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{]} \PYG{p}{==} \PYG{l+m}{1000}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Quaternion} \PYG{n}{toRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Euler}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{p}{\PYGZhy{}}\PYG{l+m}{85}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+            \PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation} \PYG{p}{=} \PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,} \PYG{n}{toRotation}\PYG{p}{,} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{time} \PYG{p}{*} \PYG{n}{speed}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

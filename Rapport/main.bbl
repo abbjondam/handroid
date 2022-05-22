@@ -126,6 +126,28 @@
       \field{title}{Fysik för gymnasieskolan 1 och 2 Digital}
       \field{year}{2019}
     \endentry
+    \entry{MeasureInductor}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=128edc25f721776af27733d3e479bfeb}{%
+           family={Dekker},
+           familyi={D\bibinitperiod},
+           given={Ronald},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{128edc25f721776af27733d3e479bfeb}
+      \strng{fullhash}{128edc25f721776af27733d3e479bfeb}
+      \strng{bibnamehash}{128edc25f721776af27733d3e479bfeb}
+      \strng{authorbibnamehash}{128edc25f721776af27733d3e479bfeb}
+      \strng{authornamehash}{128edc25f721776af27733d3e479bfeb}
+      \strng{authorfullhash}{128edc25f721776af27733d3e479bfeb}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.dos4ever.com/inductor/inductor.html}}
+      \field{note}{Hämtad 2022-05-10}
+      \field{title}{A Simple Method to Measure Unknown Inductors}
+    \endentry
     \entry{WienBridge}{misc}{}
       \name{author}{1}{}{%
         {{hash=927288e7f8923f2bf03395643e0cd255}{%
@@ -138,11 +160,12 @@
       \strng{authorbibnamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authornamehash}{927288e7f8923f2bf03395643e0cd255}
       \strng{authorfullhash}{927288e7f8923f2bf03395643e0cd255}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.electronics-tutorials.ws/oscillator/wien_bridge.html}}
+      \field{note}{Hämtad 2022-05-10}
       \field{title}{The Wien Bridge Oscillator}
     \endentry
     \entry{555_sine}{misc}{}
@@ -157,19 +180,20 @@
       \strng{authorbibnamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authornamehash}{d4150b67e3e556d7867e84cc0ed89b54}
       \strng{authorfullhash}{d4150b67e3e556d7867e84cc0ed89b54}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.learningaboutelectronics.com/Articles/Sine-wave-generator-circuit-with-a-555-timer.php}}
+      \field{note}{Hämtad 2022-05-10}
       \field{title}{How to Build a Sine Wave Generator with a 555 Timer Chip}
     \endentry
     \entry{Arduino:ABX00030}{manual}{}
       \list{organization}{1}{%
         {Arduino}%
       }
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{month}{4}
       \field{note}{Rev. 1}
