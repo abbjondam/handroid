@@ -163,7 +163,14 @@
 
     \subsection{Tidigare lösningar}
     För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
+    
     \subsubsection{Computer vision}
+    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera som sensor kan 
+    handen filmas och sedan används filmen för att ta fram olika rörelser. För att ta fram fingerrörelserna från 
+    filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad. Dock kräver den att 
+    händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
+    i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projekten \textit{On-Device, Real-Time Hand Tracking with MediaPipe} 
+    av Google Research \cite{google:Hand_Tracking}.
 
     \subsubsection{Inertial measurement unit (IMU)}
     Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att

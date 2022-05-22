@@ -201,6 +201,36 @@
       \field{title}{Arduino® Nano 33 BLE}
       \field{year}{2021}
     \endentry
+    \entry{google:Hand_Tracking}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ead83cd68f4fe23b48d555e53603ca22}{%
+           family={Valentin\bibnamedelima Bazarevsky},
+           familyi={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Fan\bibnamedelima Zhang},
+           giveni={F\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Google}%
+      }
+      \strng{namehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{fullhash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{bibnamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authorbibnamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authornamehash}{ead83cd68f4fe23b48d555e53603ca22}
+      \strng{authorfullhash}{ead83cd68f4fe23b48d555e53603ca22}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On-Device, Real-Time Hand Tracking with MediaPipe}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://ai.googleblog.com/2019/08/on-device-real-time-hand-tracking-with.html
+      \endverb
+      \verb{url}
+      \verb https://ai.googleblog.com/2019/08/on-device-real-time-hand-tracking-with.html
+      \endverb
+    \endentry
     \entry{wiki:Finger_tracking}{misc}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
