@@ -1,0 +1,46 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using}\PYG{+w}{ }\PYG{n+nn}{System.Collections}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n+nn}{System.Collections.Generic}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n+nn}{UnityEngine}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n+nn}{System}\PYG{p}{;}
+
+\PYG{k}{public}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{handController}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{n}{MonoBehaviour}
+\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{Demo}\PYG{+w}{ }\PYG{n}{bluetoothScript}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{speed}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m}{0.1f}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{orientation}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{GameObject}\PYG{+w}{ }\PYG{n}{index\PYGZus{}a}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{GameObject}\PYG{+w}{ }\PYG{n}{index\PYGZus{}b}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{+w}{ }\PYG{n}{GameObject}\PYG{+w}{ }\PYG{n}{index\PYGZus{}c}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{Start}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{GameObject}\PYG{+w}{ }\PYG{n}{bluetoothGameObject}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{GameObject}\PYG{p}{.}\PYG{n}{Find}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Demo\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{bluetoothScript}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{bluetoothGameObject}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{p}{\PYGZlt{}}\PYG{n}{Demo}\PYG{p}{\PYGZgt{}();}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{Update}\PYG{p}{()}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{orientation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Array}\PYG{p}{.}\PYG{n}{ConvertAll}\PYG{p}{\PYGZlt{}}\PYG{k+kt}{string}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{\PYGZgt{}(}\PYG{n}{bluetoothScript}\PYG{p}{.}\PYG{n}{subscribeText}\PYG{p}{.}\PYG{n}{text}\PYG{p}{.}\PYG{n}{Split}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{},\PYGZsq{}}\PYG{p}{),}\PYG{k+kt}{int}\PYG{p}{.}\PYG{n}{Parse}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{c+c1}{// Test to verify that Arduino Nano 33 BLE can control Unity hand model}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{orientation}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{==}\PYG{+w}{ }\PYG{l+m}{100}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Quaternion}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Euler}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{orientation}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{==}\PYG{+w}{ }\PYG{l+m}{1000}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Quaternion}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Euler}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{\PYGZhy{}}\PYG{l+m}{85}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}a}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}b}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{n}{index\PYGZus{}c}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{localRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{toRotation}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{p}{*}\PYG{+w}{ }\PYG{n}{speed}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

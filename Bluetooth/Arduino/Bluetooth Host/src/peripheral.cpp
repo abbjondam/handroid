@@ -1,18 +1,4 @@
 #include <Arduino.h>
-
-/*
-  BLE_Peripheral.ino
-
-  This program uses the ArduinoBLE library to set-up an Arduino Nano 33 BLE
-  as a peripheral device and specifies a service and a characteristic. Depending
-  of the value of the specified characteristic, an on-board LED gets on.
-
-  The circuit:
-  - Arduino Nano 33 BLE.
-
-  This example code is in the public domain.
-*/
-
 #include <ArduinoBLE.h>
 #include <functions.h>
 
@@ -56,7 +42,6 @@ void loop()
 {
   BLEDevice central = BLE.central();
   Serial.println("- Discovering central device...");
-  // delay(500);
 
   if (central)
   {
