@@ -53,7 +53,7 @@
     \section{Inledning}
     \subsection{Syfte}
     Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
-    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
+    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser på en människohand.
     De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
     \subsection{Bakgrund}
@@ -95,7 +95,14 @@
     För att dimensionera en krets kan det vara viktigt att veta vilka värden ens komponenter har.
     Till restistorer och kondensatorer är detta oftast enkelt, då de flesta moderna multimetrarna kan mäta resistans och kapacitans.
     Verktyg för att mäta spolars induktans (som mäts i enheten 1 Henry) är sällsyntare, och därför finns olika metoder för att själv mäta spolar utan specialverktyg.
-    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man med hjälp av matematiska formler approximera spolens induktans.~\cite{MeasureInductor}
+    För detta kan exempelvis en funktionsgenerator och ett oscilloskop användas, och genom att utnyttja spolens upp- och urladdningsförmåga kan man approximera spolens induktans.
+    En sinusformad spänning med amplituden 0,5~V utan något annat inkopplat kommer minska när en spole kopplas parallellt med mätverktyget. Genom att ändra frekvensen kan man uppnå signalen med 0,5~V amplitud. Denna frekvens $f$ tillsammans med resistansen $R$, som mäts med multimeter när ingen spänning ligger över den, kan användas för att räkna ut induktansen $L$ enligt formel \ref{eq-inductance}.~\cite{MeasureInductor}
+
+    \begin{equation}
+        \label{eq-inductance}
+        L = \frac{\sqrt{\frac{2500+100R-3R^2}{3(2\pi)^2}}}{f}
+    \end{equation}
+
 
     \subsubsection{Kondensatorer}
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
@@ -110,11 +117,6 @@
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
 
-
-    \subsubsection{Flexsensorer}
-    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd.
-    Flexsensorer kan användas för att mätta gur mycket ett finger är böjd och de har använts i projekt och produkter som ... .
-    \subsubsection{Accelerometer}
     \subsubsection{Arduino Nano 33 BLE}
     Arduino Nano 33 BLE är en mikrokontroller baserad på kretsen Nordic nRF52480 producerad av företaget Arduino.
     Arduino Nano 33 BLE är en fysiskt liten mikrokontroller. Nordic nRF52480 är bestyckad med en Cortex M4F processor
@@ -150,7 +152,6 @@
             \end{tabular}
         \end{center}
     \end{table}
-    \subsubsection{555-timer}
     \subsection{Bluetooth Low Energy}
     Bluetooth Low Energy liknar traditionell Bluetooth, men är mer energieffektiv.
     \subsubsection{Peripheral}
@@ -160,6 +161,29 @@
     \subsubsection{Unity}
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. https://unity.com/our-company.
 
+    \subsection{Tidigare lösningar}
+    För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
+    \subsubsection{Computer vision}
+
+    \subsubsection{Inertial measurement unit (IMU)}
+    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att
+    placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
+    dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
+    handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
+    där där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
+
+    \subsubsection{Flexsensor}
+    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd \cite{wiki:Flex_sensor}.
+    Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
+
+    \subsubsection{Magnetfält}
+    Att mäta avtånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
+    Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
+    Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
+    Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
+    De använder sig av både maskininlärning och en mer traditionell iterativ metod för att uppnå sin mätning.
+    Ett annat projekt, \textit{MagIK}~\cite{article:MagIK}, använder spolar på fingrarna samt en rad spolar på handryggen för att kunna räkna ut position utan AI, men använder sig av kamera för att verifiera den uppmätta positionen.
+    Detta är alltså något som inte är vanligt inom industrin, och en metod som kan tillämpas och utforskas på olika sätt.
 
     \section{Metod och material}
 
@@ -189,8 +213,9 @@
     \subsection{Konstruktion}
 
     \subsubsection{3D-hand}
-    En 3D-printad fysisk hand designades som skulle imitera den rörelse som spårats med sensorsystemet.
-    Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna.
+    En design för en fysisk 3D-hand skapades som skulle kontrolleras av fingerdetektionen.
+    Designen bestod av servon som med hjälp av trådar styr fingrarna
+    och 3d-modeller av fingersegment som kunde skrivas ut med en 3D-skrivare.
 
     \subsubsection{Spolar}
     Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
@@ -205,9 +230,9 @@
     När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
     Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\textwidth]{spolsnurrare1.png}
+        \includegraphics[width=0.6\textwidth]{spolsnurrare1.png}
         \caption{Bild från när en spole lindades med hjälp av Spolsnurraren.}
         \label{fig:Spolsnurrare}
     \end{figure}
@@ -220,9 +245,9 @@
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.75\textwidth]{spole-vs-spole.jpg}
+        \includegraphics[width = 0.6\textwidth]{spole-vs-spole.jpg}
         \caption{En spole med endast hatt, kärna och lindning (överst) och en spole med kablar fastlödda (underst).}
         \label{fig:SpoleVsSpole}
     \end{figure}
@@ -258,23 +283,6 @@
     Två oscillatorer byggdes i verkligheten: en med frekvensen 100 kHz och en med frekvensen 117 kHz.
     I 117 kilohertz-kretsen användes ett 556-chip, som har samma funktioner som två stycken 555:or; en på varje sida av komponenten, och som drar mindre effekt. Se bilaga för kretsschema.
 
-    % Kanske ska vara bilaga istället?
-    % \begin{figure}[h]
-    %     \centering
-    %     \begin{minipage}{.5\textwidth}
-    %         \centering
-    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
-    %         \captionof{figure}{Schema över 100kHz-kretsen.}
-    %         \label{fig:circuit-100k}
-    %     \end{minipage}%
-    %     \begin{minipage}{.5\textwidth}
-    %         \centering
-    %         \includegraphics[width=.9\linewidth]{spole-vs-spole.jpg} %Placeholder
-    %         \captionof{figure}{Schema äver 117kHz-kretsen.}
-    %         \label{fig:circuit-117k}
-    %     \end{minipage}
-    % \end{figure}
-
     \subsection{Rendering}
     \subsubsection{Mikrokontroller}
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
@@ -283,12 +291,9 @@
     För att åstadkomma kommunikation används biblioteket ArduinoBLE.
 
     \subsubsection{Renderingsprogram}
-    Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
-    Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
-    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
-    och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
-    Unity programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
-    Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
+    Renderingsprogrammet som används är Unity.
+    För att kommunicera med mikrokontrollen används BleWinrtDll och hand modellen kommer från Ultraleaps Unity Plugin.
+    Programmet översätter värdena från sensorerna till rotationer i fingrarnas leder.
 
     \section{Resultat}
 
@@ -299,19 +304,50 @@
     Störningar från omgivningen var dock något större, enligt resultaten som kunde ses i oscilloskop.
 
     Första mätningen av de första tre spolarnas induktans gav en genomsnittlig induktans på 3,3 mH vilket användes vid dimensionering av oscillatorer.
-    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om.
+    Vid en andra omgång mätningar mättes fem andra spolar, där den genomsnittliga induktansen var runt 7,0 mH, vilket ledde till att oscillatorkretsarna dimensionerades om. Se tabell \ref{table:inductance}
+
+    \begin{table}
+        \begin{center}
+            \caption{Uppmätta induktanser i egensnurrade spolar. Värdena från första mätningarna är runt 3,3~mH och de från andra mätningen är runt 7,0~mH.}
+            \label{table:inductance}
+            \begin{tabular}{| l | l |}
+                \hline
+                Spolnummer & Induktans (mH) \\
+                \hline
+                1          & 3,3            \\
+                2          & 3,3            \\
+                3          & 3,53           \\
+                4          & 6,86           \\
+                5          & 7,03           \\
+                6          & 7,12           \\
+                7          & 7,03           \\
+                8          & 7,23           \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
 
     Under testning gick vissa spolar sönder, och lödningen släppte på två av fyra lödda spolar under laborationer och tester.
 
     \subsubsection{Oscillatorkrets}
-    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 4~V till 5~V.
+    I simuleringar gav oscillatorkretsarna signaler med amplituder (maxvärden) från 3~V till 5~V. Se figur \ref{fig:sim-117kHz}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{multisim-signal-555-117kHz.png}
+        \caption{Bild av simulerad oscillator med dimensionerad frekvens 117 kHz, tagen i Multisim.}
+        \label{fig:sim-117kHz}
+    \end{figure}
+
     Kretsen som dimensionerades för 100~kHz, som använde ett 555-chip, gav signaler som endast skiljde sig från omgivningens störningar med någon millivolt, och vars frekvens rimligtvis kunde antas vara ungefär 10 gånger större än 100 kilohertz.
     Då spolen som ingick i kretsen gick sönder kunde fler tester inte utföras.
 
+    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz.
+    Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
 
-    Kretsen som skulle ge 117~kHz, med 556-chippet, gav en signal med amplitud på cirka 5,5~mV, och frekvens som varierade mellan 115~kHz och 130~kHz. Signalen var inte helt sinusformad men oscillerade mellan positiv och negativ spänning i sågtandsliknande vågor. Se figur \ref{fig:signal-117kHz}.
+    De komponenter som användes hade inte exakta värden enligt mätningar som gjordes vid kopplingen. Resistorerna hade felmarginaler mellan 1 och 5\%, medan kondensatorerna hade felmarginaler från 10 till 30\%.
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width = 0.9\textwidth]{signal-555-117kHz.jpg}
         \caption{Oscillatorbild av signal från 117~kHz-oscillatorkretsen. Nere till vänster kan man se spänningens maxvärde, och hur stor frekvens signalen har (med störningar).}
@@ -322,6 +358,19 @@
     %\subsection{Diskussion}
     \subsection{Spårning}
     \subsubsection{Oscillator}
+    % Lägg till mer
+    Oscillatorerna fungerade inte som planerat, och gav andra resultat än de som hade simulerats.
+    100~kHz-oscillatorns svaga och knappt urskiljbara signaler var svåra att tolka, då de påminde om kondensatorers upp- och urladdnigscykler när systemet var av (ingen matningsspänning) och blev mer fyrkantsformade när kretsen hade matningsspänning.
+    Den svaga signalen antogs kunna filtrerats och sedan förstärkts, när filterkretsen väl hade blivit byggd.
+    Felet kan ha berott på många faktorer, exempelvis att komponenterna var tvungna att ha mer exakta värden.
+    I simuleringar behövde kondensatorerna vara väldigt exakta för att spänningen i kretsen skulle ge upphov till resonans och bli starkare.
+    Att kondesatorerna hade så stora felmarginaler kan ha gjort att kretsen inte fungerade som den skulle, men enligt nya simuleringar bör det inte ha påverkat resultatet så mycket.
+
+    En annan felkälla kan vara att spolarnas induktans mättes felaktigt. Resultaten från mätningarna har ännu inte verifierats med andra verktyg eller metoder, vilket innebär att mätningarna kan vara felaktiga.
+    Detta upptäckte vi redan vid den andra gångens mätningar, där induktansen drastiskt ändrades från 3,3~mH till 7~mH, trots att spolarna var mycket lika i varvtal, material och storlek. Om den första mätningen var fel finns en större risk att andra mätningen också är fel, och det skulle innebära att kretsens andra komponenter var feldimensionerade.
+
+    Ännu en potentiell felkälla som kan förklara signalens låga maxvärden jämfört med simuleringarna kan vara att respektive 555 och 556 ger för svaga spänningar. Enligt databladen, de guider som följdes och simuleringarna som gjordes skulle 555:an ha en utspänning runt 4 till 5~V, medan den här låg på bara några millivolt.
+    Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
     \subsubsection{Filter}
 
     \subsection{Visualisering}
@@ -345,24 +394,21 @@
     {\normalfont\Large\bfseries}{\appendixname\enspace\thesection}{.5em}{} %ny rad efter bilaga x
     \section{Renderingskod}
 
-    \section{Oscillatorkrets}
-    images/555-117kHz (Bild läggs in senare)
-    bild på själva breadborden kanske?
+    \section{Oscillatorkretsar}
+    Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
+
+    \label{bilaga:Schema-Oscillatorkretsar}
+    \includegraphics[width = 0.8\textwidth]{555-100kHz-circuit.png}
+    \includegraphics[width = 0.8\textwidth]{555-117kHz-circuit.png}
+
+
 
 
     \section{Filterkrets}
 
     \section{Kod Spolsnurrare}
     \label{bilaga:Kod_Spolsnurrare}
-    \inputminted[breaklines]{cpp}{./Code/Spolsnurrare.cpp}
-
-    \section{Kod Arduino Peripheral}
-    \label{bilaga:Kod_Arduino_Peripheral}
-    \inputminted[breaklines]{cpp}{./Code/peripheral.cpp}
-
-    \section{Kod Rendering}
-    \label{bilaga:Kod_Rendering}
-    \inputminted[breaklines]{csharp}{./Code/handController.cs}
+    \inputminted[]{cpp}{./Code/Spolsnurrare.cpp}
     \newpage
 \end{sloppypar}
 

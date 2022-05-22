@@ -2360,13 +2360,19 @@
     <bcf:citekey order="10">Arduino:ABX00030</bcf:citekey>
     <bcf:citekey order="11">Arduino:ABX00030</bcf:citekey>
     <bcf:citekey order="12">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="13">KTHhand</bcf:citekey>
-    <bcf:citekey order="14">EthoHand</bcf:citekey>
-    <bcf:citekey order="15">digilar</bcf:citekey>
-    <bcf:citekey order="16">MeasureInductor</bcf:citekey>
-    <bcf:citekey order="17">WienBridge</bcf:citekey>
-    <bcf:citekey order="18">555_sine</bcf:citekey>
-    <bcf:citekey order="19">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="13">wiki:Finger_tracking</bcf:citekey>
+    <bcf:citekey order="14">wiki:Flex_sensor</bcf:citekey>
+    <bcf:citekey order="15">wiki:Wired_glove</bcf:citekey>
+    <bcf:citekey order="16">KTHhand</bcf:citekey>
+    <bcf:citekey order="17">EthoHand</bcf:citekey>
+    <bcf:citekey order="18">digilar</bcf:citekey>
+    <bcf:citekey order="19">MeasureInductor</bcf:citekey>
+    <bcf:citekey order="20">WienBridge</bcf:citekey>
+    <bcf:citekey order="21">555_sine</bcf:citekey>
+    <bcf:citekey order="22">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="23">wiki:Finger_tracking</bcf:citekey>
+    <bcf:citekey order="24">wiki:Flex_sensor</bcf:citekey>
+    <bcf:citekey order="25">wiki:Wired_glove</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
