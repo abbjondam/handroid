@@ -86,6 +86,38 @@
     \subsection{Frågeställning}
     Frågeställningen i projekt Handroid är om det går att mäta finmotoriska kroppsrörelser såsom fingerrörelser med magnetfält, och i så fall hur stor precision metoden har.
 
+    \subsection{Bakgrund}
+    För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
+
+    \subsubsection{Computer vision}
+    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera som sensor kan
+    handen filmas och sedan används filmen för att ta fram olika rörelser. För att ta fram fingerrörelserna från
+    filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad. Dock kräver den att
+    händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
+    i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projekten \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
+    av Google Research \cite{google:Hand_Tracking}.
+
+    \subsubsection{Inertial measurement unit (IMU)}
+    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att
+    placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
+    dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
+    handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
+    där där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
+
+    \subsubsection{Flexsensor}
+    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd \cite{wiki:Flex_sensor}.
+    Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
+
+    \subsubsection{Magnetfält}
+    Att mäta avstånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
+    Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
+    Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
+    Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
+    De använder sig av både maskininlärning och en mer traditionell iterativ metod för att uppnå sin mätning.
+    Ett annat projekt, \textit{MagIK}~\cite{article:MagIK}, använder spolar på fingrarna samt en rad spolar på handryggen för att kunna räkna ut position utan AI, men använder sig av kamera för att verifiera den uppmätta positionen.
+    Detta är alltså något som inte är vanligt inom industrin, och en metod som kan tillämpas och utforskas på olika sätt.
+
+
     \newpage
     \section{Teori}
     För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
@@ -186,37 +218,6 @@
 
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
-
-    \subsection{Tidigare lösningar}
-    För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
-
-    \subsubsection{Computer vision}
-    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera som sensor kan
-    handen filmas och sedan används filmen för att ta fram olika rörelser. För att ta fram fingerrörelserna från
-    filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad. Dock kräver den att
-    händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
-    i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projekten \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
-    av Google Research \cite{google:Hand_Tracking}.
-
-    \subsubsection{Inertial measurement unit (IMU)}
-    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att
-    placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
-    dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
-    handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
-    där där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
-
-    \subsubsection{Flexsensor}
-    En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd \cite{wiki:Flex_sensor}.
-    Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
-
-    \subsubsection{Magnetfält}
-    Att mäta avstånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
-    Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
-    Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
-    Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
-    De använder sig av både maskininlärning och en mer traditionell iterativ metod för att uppnå sin mätning.
-    Ett annat projekt, \textit{MagIK}~\cite{article:MagIK}, använder spolar på fingrarna samt en rad spolar på handryggen för att kunna räkna ut position utan AI, men använder sig av kamera för att verifiera den uppmätta positionen.
-    Detta är alltså något som inte är vanligt inom industrin, och en metod som kan tillämpas och utforskas på olika sätt.
 
     \newpage
     \section{Metod och material}
@@ -406,13 +407,6 @@
     Att bygga en fysisk hand valdes sedan bort, i och med att en annan spårningsmetod valdes, delvist eftersom konstruktionen blir mer komplicerad när fler riktningar skulle mätas
     men framförallt eftersom sensor metod inte är lika beprövad som flexsensorer och att eliminera möjlig felkällor med den fysiska handen och istället skapa en digital hand underlättar testning av sensorsystemet.
 
-
-    \subsection{Bluetooth Low Energy}
-    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
-
-    \subsection{Unity}
-    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
-
     \subsection{Arduino Nano 33 BLE}
 
     Mikrokontrollen Arduino Nano 33 BLE används för att kommunicera med renderingsprogrammet.
@@ -454,6 +448,14 @@
     Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
     läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
+
+
+
+    \subsection{Bluetooth Low Energy}
+    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
+
+    \subsection{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
     \subsection{Digital visualisering}
     Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
