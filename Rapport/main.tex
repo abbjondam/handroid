@@ -483,6 +483,7 @@
 
 
     \newpage
+
     \section{Resultat}
     Resultaten av de olika processerna som beskrivits redovisas här objektivt, och diskussion av resultatet följer i nästa del.
     \subsection{Oscillator}
@@ -553,7 +554,22 @@
         \label{fig:sim-117kHz-filter}
     \end{figure}
     \noindent
-    Filterkretsen gav vid test i verkligheten en oigenkännbar signal.
+    Filterkretsen gav vid test en utsignal som hade flertalet störningar och vissa likheter med insignalen. I figur \ref{fig:signal-99kHz-Filter-100kHz} 
+    ses insignalen i gult och utsignalen i blått för ett filter dimensionerat för $99$~kHz med en insignal på $96$~kHz. I bild \ref{fig:signal-99kHz-Filter-200kHz} 
+    syns utsignal från samma filter där insignalen istället är $200$~kHz.  
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Filter-100kHz.jpg}
+        \caption{Bild av oscilloskopavläsning av filter. Gul signal är ingång, blå signal är utgång. Filtret ska filtrera $99$~kHz och insignalen är på $96$~kHz.}
+        \label{fig:signal-99kHz-Filter-100kHz}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Filter-200kHz.jpg}
+        \caption{Bild av oscilloskopavläsning av filter. Gul signal är ingång, blå signal är utgång. Filtret ska filtrera $99$~kHz och insignalen är på $203$~kHz.}
+        \label{fig:signal-99kHz-Filter-200kHz}
+    \end{figure}
 
     \newpage
     \section{Diskussion och Slutsats}
