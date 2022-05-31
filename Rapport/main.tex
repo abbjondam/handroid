@@ -242,33 +242,8 @@
     och den andra processes var att representera den data som mäts in av sensorsystemet.
 
     \subsection{Process 1 - Sensor}
+    Olika spårningsmetoder övervägdes, spårning med hjälp av flexsensorer valdes först, men projektet gick sedan över till att använda magnetfält.
     De egenbyggda sensorerna bestod av spolar, oscillatorkretsar, och filter, som skräddarsyddes för varje finger.
-    \subsubsection{Val av metod}
-    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna som
-    sänder ut ett magnetfält som genom att läsas av skulle kunna ge fingrarnas rotation
-    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
-    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
-    flertalet IMU-sensorer som genom att mäta rörelserna på olika delar av handen kan
-    ge data på hur hela handen rör på sig.
-    \\\\
-    Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
-    dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
-    sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
-    igång bedömdes den icke-lämplig för projektet.
-    \\\\
-    Metoden med flexsensorer var den metod som bedömdes som lättast att genomföra. Den
-    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna
-    endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
-    skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
-    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare.
-    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att
-    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.
-    \\\\
-    Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
-    används till största delen för att spåra grövre rörelser men bedömdes ha potential
-    att mäta även finare rörelser. Metoden var även den som var minst beprövad vilket
-    innebar att gruppen skulle behöva ägna sig åt mera testning och utforskning.
-
 
 
 
@@ -499,11 +474,11 @@
 
     \newpage
     \section{Resultat}
-    Resultaten av de olika processerna som beskrivits redovisas här objektivt, och diskussion av resultatet följer i nästa del.
+    Resultaten av process 1 redovisas här medans resultat för process 2 saknas.
 
     \subsection{Test av metod}
-    Flera rotationer prövades för att ge en översiktlig bild, och varje rotation hade en motrotation. De rotationer på sändarspolen som valdes var: framåt, bakåt, vänster, höger, uppåt och nedåt.
-    De två rotationerna framåt och bakåt gav vad som verkade vara olika relation mellan signalerna från mottagarspolarna på spolhubben. För en jämförelse av dessa se figurer \ref{fig:demo-framåt} och \ref{fig:demo-bakåt}.
+    Flera olika rotationer av spolar prövades. De rotationer på sändarspolen som valdes var: framåt, bakåt, vänster, höger, uppåt och nedåt.
+    De två rotationerna framåt och bakåt gav  olika relation mellan signalerna från mottagarspolarna på spolhubben. För en jämförelse av dessa se figurer \ref{fig:demo-framåt} och \ref{fig:demo-bakåt}.
 
     \begin{figure}[H]
         \centering
@@ -545,7 +520,6 @@
     \end{figure}
 
     \noindent
-
     Tester med vänster/höger gav liknande resultat, kan ses i figurer \ref{fig:demo-vänster} och \ref{fig:demo-höger}.
 
     \begin{figure}[H]
@@ -588,7 +562,6 @@
     \end{figure}
 
     \noindent
-
     Mätningarna för rotation uppåt och nedåt redovisas i figurer \ref{fig:demo-uppåt} och \ref{fig:demo-nedåt} och visar en ändring av amplituder.
 
     \begin{figure}[H]
@@ -721,6 +694,34 @@
     \newpage
     \section{Diskussion och Slutsats}
     Metoden och resultaten kommer här utvärderas och diskuteras, för att försöka komma till en slutsats.
+
+    \subsubsection{Metod diskussion}
+    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna som
+    sänder ut ett magnetfält som genom att läsas av skulle kunna ge fingrarnas rotation
+    och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
+    från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
+    flertalet IMU-sensorer som genom att mäta rörelserna på olika delar av handen kan
+    ge data på hur hela handen rör på sig.
+    \\\\
+    Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
+    dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
+    sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
+    igång bedömdes den icke-lämplig för projektet.
+    \\\\
+    Metoden med flexsensorer var den metod som bedömdes som lättast att genomföra. Den
+    valdes bort på grund av att flexsensorer ansågs för begränsande då flexsensorerna
+    endast fanns i specifika storlekar som gjorde att vissa positioner och rotationer
+    skulle vara svåra att mäta. Flex-sensorerna som sensorer var även väldigt dyra och
+    metoden bedömdes vara aningen enkel och hade redan gjorts många gånger tidigare.
+    Dessutom kan en flexsensor endast mäta rörelse i en riktning vilket innebar att
+    precis mätning av alla fingrars rörelser skulle kräva ett stort antal sensorer.
+    \\\\
+    Slutligen valdes magnetfält eftersom det verkade som en lovande metod. Magnetfält
+    används till största delen för att spåra grövre rörelser men bedömdes ha potential
+    att mäta även finare rörelser. Metoden var även den som var minst beprövad vilket
+    innebar att gruppen skulle behöva ägna sig åt mera testning och utforskning.
+
+
 
     \subsection{Spårning}
     Att storleken på signalen från spolarna berodde på dess avstånd från spolen som sände ut magnetfältet tyder på att metoden kan användas för att mäta avstånd.
