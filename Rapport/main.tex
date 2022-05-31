@@ -66,13 +66,13 @@
         The technology is still relatively limited and uses mostly gross motor control as input and loses the precision that can be achieved with fine motor skill movements.
         This report describes a degree project executed by three student at ABB-Gymnasiet that has been investigating how the human body
         can be used as an input tool for digital systems. The project's main focus has been how the human hand and finger motions
-        can be read and represented in a digital environment. Initially the projekt aimed at reading human finger motions
+        can be read and represented in a digital environment. Initially the project aimed at reading human finger motions
         and representing them with a mechanical model of a human hand that would imitate the finger motions carried out by the human
         using the sensor. The project then changed directions and decided to represent the finger motions
         digitally in the game engine Unity. The technology used to read the hand and finger movements was self-built sensors that
         utilised and measured magnetic fields.
 
-        Due to time limitations and other unexpected issues the measurement part of the project was not able to be completed to a point where a finger could be measured,
+        Due to time limitations and other unexpected issues the measurement part of the project was not able to be completed to a point where a finger's movement could be measured,
         but tests were made to see if the method is feasible.
         Tests to send and receive wireless AC signals from one inductor to an array of three inductors in different orientations showed
         that the relation between the signals of the three inductor receivers varied when moving and rotating the transmitting inductor.
@@ -105,7 +105,7 @@
     Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera filmas handen in och filmen kan sedan användas som indata till ett fingerspårningsprogram.
     För att ta fram fingerrörelserna från filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad, men kräver  att
     händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
-    i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projekten \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
+    i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projektet \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
     av Google Research \cite{google:Hand_Tracking}.
 
     \subsubsection{Inertial measurement unit (IMU)}
@@ -285,8 +285,8 @@
     \subsubsection{Montering på hand} %3d prints,  etc. bättre titel
     För att montera spolar på handen monterades de tre mottagarspolarna på ett kretskort som agerade spolhubb.
     De tre spolarna monterades i varsin riktning så att de kan ta upp fingerrörelser i tre dimensioner.
-    Kretskortet modellerades i Ultiboard och frästes sedan ut på skolan kretskortsfräs.
-    På kretskortet monterades spolarna genom att limmas fast i kretskorten och koppartråden löddes fast på kortets undersida.
+    Kretskortet modellerades i Ultiboard och frästes sedan ut på skolans kretskortsfräs.
+    På kretskortet monterades spolarna genom att limmas fast i kretskortet och koppartråden löddes fast på kortets undersida.
     För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet.
 
     \subsubsection{Test av metod}
@@ -747,9 +747,11 @@
     \subsubsection{Filter}
     Filterkretsens syfte var att isolera signalen från ett finger samtidigt som den skulle reducera störningar. Vid första testet
     visades det sig att filtret introducerade flera störningar till signalen istället för att filtrera ut störningar. Signalen
-    som passerade genom filtret hade vissa likheter med insignalen men var svår att känna igen. När insignalen sedan förändrades till den högre frekvensen
-    $203$~kHz observerades minimal skillnad i utsignalen vilket är ett tecken på att filtret inte filtrerade ordentligt då en signal med den frekvensen bör
-    ha filtrerats bort helt. En felkälla som
+    som passerade genom filtret hade vissa likheter med insignalen men var svår att känna igen. När insignalen sedan förändrades till den högre frekvensen 
+    $203$~kHz observerades minimal skillnad i utsignalen vilket är ett tecken på att filtret inte filtrerade ordentligt då en signal med den frekvensen bör 
+    ha filtrerats bort helt. 
+    \\\\
+    En felkälla som
     kunde kopplas till de ökade störningarna var att vi hade en instabil matningsspänning som störde operationsförstärkaren.
     Försök att stabilisera matningsspänningen gjordes genom att byta strömförsörjning och koppla in frikopplingskondensatorer.
     Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra.
@@ -799,7 +801,7 @@
     När signalerna från sensorerna är ordnade skulle de behöva översättas från en spänning till data som kan representeras
     av den digitala handen i Unity-programmet. Metoden är generellt skalbar vilket innebär att om spårning av ett finger
     fungerar kan det enkelt skalas upp till spårning av samtliga fingrar. Om fullständig spårning av en hand ska uppnås bör
-    även system för att spåra handledens rörelser. Exempelvis rotation.
+    även system för att spåra handledens rörelser, exempelvis rotation implementeras. 
     \subsection{Slutsats}
     Projektets mål att kunna läsa av hand och fingerrörelser uppnåddes inte. Däremot har en grund lagts där en stor del av
     teorin för att kunna läsa av fingerrörelser finns. Deltester och laborationer visar på att metoden att mäta magnetfält
