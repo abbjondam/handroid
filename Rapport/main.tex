@@ -71,7 +71,10 @@
         digitally in the game engine Unity. The technology used to read the hand and finger movements was self-built sensors that
         utilised and measured magnetic fields.
 
-        Due to time limitations and other unexpected issues the measurement part of the project was not able to be completed to a point where a finger could be measured, but tests were made to see if the method is feasible. Tests to send and receive wireless AC signals from one inductor to an array of three inductors in different orientations showed that the relation between the signals of the three inductor receivers varied when moving and rotating the transmitting inductor.
+        Due to time limitations and other unexpected issues the measurement part of the project was not able to be completed to a point where a finger could be measured,
+        but tests were made to see if the method is feasible.
+        Tests to send and receive wireless AC signals from one inductor to an array of three inductors in different orientations showed
+        that the relation between the signals of the three inductor receivers varied when moving and rotating the transmitting inductor.
     \end{abstract}
 \end{otherlanguage}
 \newpage
@@ -312,9 +315,10 @@
 
 
     \subsubsection{Filter}
-    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens.
+    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens med ett bestämt avstånd från andra fingrar, för att göra det möjligt att filtrera bort alla förutom ett finger.
     Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
-    Filterkretsen designades genom att räkna ut värden på resistorer genom att välja en bandbredd, värde på kondensatorerna och en centerfrekvens med ett avstånd på cirka $15$~kHz från fingret innan där första fingrets centerfrekvens var $100$~kHz.
+    Filterkretsen designades genom att räkna ut värden på resistorer genom att välja en bandbredd, värde på kondensatorerna och en centerfrekvens.
+    Efter rådgivning med elektronikläraren Daniel Åkerlund bestämdes att varje finger skulle ha ett avstånd på cirka $15$~kHz till nästa finger och att det första fingrets centerfrekvens skulle vara $100$~kHz.
     Se bilaga \ref{bilaga:Kretsschema-filter} för kretsdesign.
 
     \begin{table}[H]
@@ -473,7 +477,7 @@
     Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
     \subsection{Digital visualisering}
-    Ursprungligen skulle ett CSharp program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
+    Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
     Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
     och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
