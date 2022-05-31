@@ -287,7 +287,15 @@
     De tre spolarna monterades i varsin riktning så att de kan ta upp fingerrörelser i tre dimensioner.
     Kretskortet modellerades i Ultiboard och frästes sedan ut på skolans kretskortsfräs.
     På kretskortet monterades spolarna genom att limmas fast i kretskortet och koppartråden löddes fast på kortets undersida.
-    För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet.
+    För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet. Spolhubben kan ses i 
+    figur \ref{fig:Spolhubb}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.2]{framsida.png}
+        \caption{Spolhubben med spolar fastlimmade och stiftlist kopplad till kablar. }
+        \label{fig:Spolhubb}
+    \end{figure}
 
     \subsubsection{Test av metod}
     Utöver de tester som utfördes för att kontrollera om spolarna hade de funktioner som eftertraktats, gjordes också en grundläggande laboration för att se hur förhållandet mellan signalerna ändrades när fingrets rotation ändrades.
@@ -378,10 +386,12 @@
     Ursprungligen beslöts att en fysisk hand skulle designas för att visualisera data från sensorerna.
     Den starkaste motiveringen för valet att använda en fysisk hand var att en fysisk hand fungerar väldigt bra som ett utställningsobjekt
     och visar att fingerspårning inte enbart kan användas i digitala applikationer.
-    När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort,
-    vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att rekonstruerar en hands alla funktioner eftersom
-    endast ett fåtal rotationer skulle mätas.
+    När detta beslut togs var projektet inriktat på att använda flexsensorer. 
+    Metoden med flexsensorer valdes sedan bort på grund av att flexsensorer var begränsade till att endast mäta en rotation. 
+    Då flexsensorerna var begränsade i vad de kunde mäta kunde en fysisk modell av en hand som var begränsad till de rörelser som 
+    flexsensorerna kunde mäta av vara tillräckligt för att visualisera sensordatan. 
+    När flexsensor valdes bort till förmån för magnetfält som kunde mäta många flera rörelser ändrades kraven på visualiseringen vilket skulle 
+    kräva en långt mer avancerad handkonstruktion. Därför beslutades det mitt i projektet att ingen fysisk hand skulle konstrueras. 
     \\\\
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
@@ -696,8 +706,8 @@
     Metoden och resultaten kommer här utvärderas och diskuteras, för att försöka komma till en slutsats.
 
     \subsection{Metoddiskussion}
-    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna som
-    sänder ut ett magnetfält som genom att läsas av skulle kunna ge fingrarnas rotation
+    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna. Spolarna 
+    sänder ut ett magnetfält som genom att läsas av kan ge fingrarnas rotation
     och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
     från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
     flertalet IMU-sensorer som genom att mäta rörelserna på olika delar av handen kan
