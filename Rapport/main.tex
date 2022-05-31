@@ -66,7 +66,7 @@
         For example the possibility of using the human body as a tool to generate inputs for computer programs and different machines.
         This technology is most developed in virtual and augmented reality since it is within these sectors the technology today has most use.
         The technology is still relatively limited and uses mostly gross motor control as input and loses the precision that can be achieved with fine motor skill movements.
-        This report describes a degree project executed by three student at ABB-Gymnasiet that has been investigating how the human body
+        This report describes a degree project executed by three students at ABB-Gymnasiet that has been investigating how the human body
         can be used as an input tool for digital systems. The project's main focus has been how the human hand and finger motions
         can be read and represented in a digital environment. Initially the project aimed at reading human finger motions
         and representing them with a mechanical model of a human hand that would imitate the finger motions carried out by the human
@@ -94,7 +94,7 @@
     \subsection{Syfte}
     Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
     och utveckla en prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
-    De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
+    De finmotoriska rörelserna kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
 
     \subsection{Frågeställning}
@@ -104,7 +104,7 @@
     För att få bättre uppfattning av hur fingerspårningstekniken ser ut idag beskrivs här olika fingerspårningsmetoder som undersöktes under projektets planering.
 
     \subsubsection{Computer vision}
-    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera filmas handen in och filmen kan sedan användas som indata till ett fingerspårningsprogram.
+    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera filmas handen och filmen kan sedan användas som indata till ett fingerspårningsprogram.
     För att ta fram fingerrörelserna från filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad, men kräver  att
     händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
     i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projektet \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
@@ -115,7 +115,7 @@
     placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
     dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
     handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
-    där där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
+    där övriga positioner antas utifrån de positioner som läses in.\cite{wiki:Finger_tracking}
 
     \subsubsection{Flexsensor}
     En flexsensor är en sensor som ändrar resistans proportionerligt med hur mycket den är böjd \cite{wiki:Flex_sensor}.
@@ -136,12 +136,12 @@
     \section{Teori}
     För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
     Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, samt
-    idéer för hur fingrar kan roteras och hur en tumme kan kontrolleras på en fysiska hand kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
+    idéer för hur fingrar kan roteras och hur en tumme kan kontrolleras på en fysisk hand kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
     vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
 
 
     \subsection{Elektromagnetism}
-    Eftersom detta projekt utnyttjar magnetfält och elektromagnetiska egenskaper förklaras här några koncept som bör kännas till för att förstå hur spårningen med hjälp av magnetfält fungerar.
+    Eftersom detta projekt utnyttjar magnetfält och elektromagnetiska egenskaper förklaras här några koncept som bör kännas till för att förstå hur spårning med hjälp av magnetfält fungerar.
     \subsubsection{Magnetfält}
     Magnetfält är fält som rör sig i en riktning från nord- till sydpolen på en magnet eller runt en strömförande elektrisk ledare.
     Den magnetiska flödestätheten, ekvivalent med magnetfältets \textit{styrka}, kring en ledare med ström, avtar med avstånd från ledaren.~\cite{digilar}
@@ -241,7 +241,7 @@
     Projektet började med att undersöka hur spårning av handrörelser har gjorts tidigare.
     Därefter följde undersökningar i hur en människohand fungerar och hur en fysisk hand kan konstrueras.
     Projektet delades sedan in i två processer som arbetades på parallellt. Den första processen var att skapa ett sensorsystem som kunde spåra fingerrörelser
-    och den andra processes var att representera den data som mäts in av sensorsystemet.
+    och den andra processen var att representera den data som mäts in av sensorsystemet.
 
     \subsection{Process 1 - Sensor}
     Olika spårningsmetoder övervägdes, spårning med hjälp av flexsensorer valdes först, men projektet gick sedan över till att använda magnetfält.
@@ -271,7 +271,7 @@
     De färdiga spolarnas induktans mättes med ett oscilloskop och en funktionsgenerator, så att de kan användas i oscillatorkretsen med rätt komponenter.
     Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktionalitet.
     Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal,
-    och den andra var kopplad till ett oscilloskop för att läsas av det uppmätta magnetfältet.
+    och den andra var kopplad till ett oscilloskop för att läsa av det uppmätta magnetfältet.
     En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen även kunde skickas och tas emot av dessa.
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
@@ -417,7 +417,7 @@
         \label{fig:Ringfinger}
     \end{figure}
     \noindent
-    Att bygga en fysisk hand valdes sedan bort i och med att en annan spårningsmetod valdes och en digitalt renderingsprogram skulle istället skapas.
+    Att bygga en fysisk hand valdes sedan bort i och med att en annan spårningsmetod valdes och ett digitalt renderingsprogram skulle istället skapas.
     Spårning med hjälp av magnetfält är inte lika beprövad som spårning med flexsensorer
     och att eliminera möjlig felkällor med den fysiska handen genom att istället skapa en digital hand skulle underlätta testningen av sensorsystemet.
 
@@ -478,7 +478,7 @@
     Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen och renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
     Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som går att direkt integrera med Unity.
-    En färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
+    En färdigkonstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
     Unity-programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingermodellens leder.
     Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
     Kod för test av BLE kommunikation finns i bilaga \ref{bilaga:Kod_Rendering}.
