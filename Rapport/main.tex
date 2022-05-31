@@ -43,14 +43,14 @@
 
 \begin{abstract}
     Det finns ett ökat intresse och en ökad efterfrågan på olika sätt för människan att interagera med datorer och robotar.
-    Bland annat hur männi-skokroppen kan användas för inmatning till datorprogram och till olika maskiner.
-    Den här tekniken är som mest utvecklad inom virtual reality och augmented reality och det är inom dessa områden som tekniken i nuläget har störst användning.
+    Bland annat hur männi-skokroppen kan användas för inmatning till olika datorprogram och maskiner.
+    Den här tekniken är som mest utvecklad inom virtual reality och augmented reality eftersom det är inom dessa områden som tekniken i nuläget har störst användning.
     Tekniken är dock fortfarande relativt begränsad och använder mestadels grövre motorik som inmatning och förlorar den precision som kan ges av finmotoriska rörelser.
     Den här rapporten beskriver ett gymnasiearbete utfört av tre elever på ABB-Gymnasiet som har undersökt hur människokroppen
     kan användas som inmatningsverktyg till digitala system. Projektet har framförallt fokuserat på hur människans hand och
     fingerrörelser kan läsas av och representeras i en digital miljö. Ursprungligen syftade projektet att läsa av
     människans fingerrörelser för att sedan representera det med en fysisk robothand som skulle imitera de rörelser som
-    människan utförde. Projektet bytte sedan inriktning fokuserade på att läsa av handrörelser och representera de digitalt i
+    människan utförde. Projektet bytte sedan inriktning och valde att representera fingerrörelserna digitalt i
     spelmotorn Unity istället. Tekniken som undersöktes för att läsa av handrörelser var egenbyggda sensorer som
     mätte av magnetfält.
 
@@ -61,13 +61,13 @@
     \begin{abstract}
         In recent time the interest and demand for different ways for the human to interact with computers and robots has increased.
         For example the possibility of using the human body as a tool to generate inputs for computer programs and different machines.
-        This technology is most developed in virtual and augmented reality and it is within these sectors the technology today has most use.
+        This technology is most developed in virtual and augmented reality since it is within these sectors the technology today has most use.
         The technology is still relatively limited and uses mostly gross motor control as input and loses the precision that can be achieved with fine motor skill movements.
         This report describes a degree project executed by three student at ABB-Gymnasiet that has been investigating how the human body
-        kan be used as an input tool for digital systems. The project's main focus has been how the human hand and finger motions
-        kan be read and represented in a digital environment. Initially the projekt aimed at reading human finger motions
+        can be used as an input tool for digital systems. The project's main focus has been how the human hand and finger motions
+        can be read and represented in a digital environment. Initially the projekt aimed at reading human finger motions
         and representing them with a mechanical model of a human hand that would imitate the finger motions carried out by the human
-        using the sensor. The project then changed directions and focused on reading the hand an finger motions and representing them
+        using the sensor. The project then changed directions and decided to represent the finger motions
         digitally in the game engine Unity. The technology used to read the hand and finger movements was self-built sensors that
         utilised and measured magnetic fields.
 
@@ -90,7 +90,7 @@
     I denna del följer en beskrivning av projektets mål och syfte, samt en bakgrund för att se hur syftet uppnås med olika metoder.
     \subsection{Syfte}
     Syftet med projektet är att undersöka hur människan finmotoriska rörelser kan detekteras, hur rörelserna såsom fingerrörelse kan användas som inmatning till olika system
-    och utveckla ett prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
+    och utveckla en prototyp som kan både detektera och återskapa fingerrörelser från en människohand.
     De finmotoriska rörelser kan återskapas antingen med en digital representation av rörelsen eller med en fysisk robothand.
     % De detekterade rörelserna ska sedan översättas till data som går att visualisera exempelvis genom att kontrollera en fysisk robothand eller digitalt i ett datorprogram.
 
@@ -98,18 +98,17 @@
     Frågeställningen i projekt Handroid är om det går att mäta finmotoriska kroppsrörelser såsom fingerrörelser med magnetfält, och i så fall hur stor precision metoden har.
 
     \subsection{Bakgrund}
-    För att få bättre uppfattning av hur industrin för fingerspårning ser ut idag beskrivs här de metoder som undersöktes under projektets planering.
+    För att få bättre uppfattning av hur fingerspårningstekniken ser ut idag beskrivs här olika fingerspårningsmetoder som undersöktes under projektets planering.
 
     \subsubsection{Computer vision}
-    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera som sensor kan
-    handen filmas och sedan används filmen för att ta fram olika rörelser. För att ta fram fingerrörelserna från
-    filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad. Dock kräver den att
+    Computer vision är en idag vanlig metod för att spåra hand och fingerrörelser. Med hjälp av en kamera filmas handen in och filmen kan sedan användas som indata till ett fingerspårningsprogram.
+    För att ta fram fingerrörelserna från filmen används olika computer vision-verktyg tillsammans med maskininlärning. Metoden är välbeprövad, men kräver  att
     händerna är inom synhåll för kameran och i rätt vinkel för att fungera. Det här innebär att lösningen endast fungerar
     i kontrollerade miljöer. Ett exempel som använder sig utav computer vision är projekten \textit{On-Device, Real-Time Hand Tracking with MediaPipe}
     av Google Research \cite{google:Hand_Tracking}.
 
     \subsubsection{Inertial measurement unit (IMU)}
-    Inertial measurement unit är en slags sensor som mäter av rörelser. Genom att
+    Inertial measurement unit är en slags sensor som mäter rörelse. Genom att
     placera sensorer på de olika fingersegmenten på handen kan rörelser i tre
     dimensioner spåras. Precis spårning kräver minst 16 sensorer placerade på
     handen. Det finns även lösningar med IMU-sensorer som använder 7 sensorer
@@ -120,7 +119,8 @@
     Flexsensorer kan användas för att mäta hur mycket ett finger är böjt och de har använts i projekt och produkter för att spåra böjning, till exempel genom att integrera flexsenorer i en handske för att styra olika applikationer. Ett exempel är datahandsken \cite{wiki:Wired_glove}, som används bland annat för att känna igen teckenspråk.
 
     \subsubsection{Magnetfält}
-    Att mäta avstånd och rotation av fingrar och händer är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
+    Magnetfält kan användas för att mäta rotation och avstånd av fingrar och händer.
+    Denna metod är något ovanligare inom industrin, men många exempel kan hittas som examensprojekt på olika högskolor i flera länder.
     Många av dessa projekt liknar detta gymnasiearbete, med liknande syfte och grundläggande metod, men med lite annorlunda tillvägagångssätt.
     Ett projekt använder sig av maskininlärning för att bättre kunna förutspå fingerposition~\cite{article:sci-rep-mag-ind}.
     Projektet \textit{AuraRing}~\cite{article:AuraRing} använder sig av en ring runt fingret som skickar ut magnetfält, som sedan kan plockas upp av fem spolar på handleden för att få en bättre bild av fingrets position.
@@ -132,17 +132,16 @@
     \newpage
     \section{Teori}
     För att få en bättre bild av hur en robothand kan skapas och styras med hjälp av olika sensorer undersöktes andra, liknande projekt.
-    Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, och
-    idéer för rotation av fingrar och tummens funktion på den fysiska handen kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
+    Projektet drog inspiration från en kandidatexamen från två KTH-studenter~\cite{KTHhand} med ett liknande syfte, samt
+    idéer för hur fingrar kan roteras och hur en tumme kan kontrolleras på en fysiska hand kom från ett projekt som hette \textit{Etho Hand}~\cite{EthoHand}
     vars syfte var att utveckla en hand som kunde utföra komplexa rörelser.
 
 
     \subsection{Elektromagnetism}
-    Eftersom detta projekt utnyttjar magnetfält och elektromagnetiska egenskaper förklaras här några koncept som bör kännas till för att förstå hur mätningen i projektet fungerar.
+    Eftersom detta projekt utnyttjar magnetfält och elektromagnetiska egenskaper förklaras här några koncept som bör kännas till för att förstå hur spårningen med hjälp av magnetfält fungerar.
     \subsubsection{Magnetfält}
     Magnetfält är fält som rör sig i en riktning från nord- till sydpolen på en magnet eller runt en strömförande elektrisk ledare.
-    Den magnetiska flödestätheten, ekvivalent med magnetfältets \textit{styrka}, kring en ledare med ström, avtar med avstånd från ledaren,
-    vilket är relevant för detta projekt.~\cite{digilar}
+    Den magnetiska flödestätheten, ekvivalent med magnetfältets \textit{styrka}, kring en ledare med ström, avtar med avstånd från ledaren.~\cite{digilar}
     \subsubsection{Induktion}
     Inducerad spänning är spänning som alstras när en ledare befinner sig i ett magnetfält, på grund av att de laddade partiklarna hamnar på motsatta sidor av ledaren.
     Det skapar en skillnad i laddning, vilket korrelerar med spänning.
@@ -152,7 +151,7 @@
     ~\cite{digilar}
 
     \subsection{Elektronik}
-    Här följer en beskrivning av de viktigaste elektriska komponenterna och kretsarna som använts i det här projektet, för att få en grundläggande förståelse om man inte redan är bekant med elektronik.
+    Här följer en beskrivning av de viktigaste elektriska komponenterna och kretsarna som använts i det här projektet.
     \subsubsection{Spolar}
     En spole är en ledare som lindats i varv på ett sådant sätt att magnetfältet som skapas när ström flödar igenom har en nord- och en sydpol.
     Spolar kan lindas runt ett material, en \textit{kärna} som förstärker magnetfältet, eller bara med luft i mitten.
@@ -175,17 +174,17 @@
     Kondensatorn är en elektrisk komponent som kan lagra elektrisk energi, genom att laddas upp och laddas ur med spänning, vilket ger upphov till en förskjutning mellan ström och spänning, i en växelströmskrets.~\cite{digilar}
 
     \subsubsection{Operationsförstärkare}
-    En operationsförstärkare är en förstärkare som förstärker spänningsskillnaden mellan operationsförstärkarens ingångar enligt formel \ref{eq-Op-Amp} där $A_{OL}$ är amplifikationen i en öppen loop.~\cite{wiki:Operational-amplifier}
+    En operationsförstärkare är en förstärkare som förstärker spänningsskillnaden mellan operationsförstärkarens ingångar enligt formel \ref{eq-Op-Amp} där $A_{\textrm{OL}}$ är förstärkningen i en öppen loop.~\cite{wiki:Operational-amplifier}
     \begin{equation}
         \label{eq-Op-Amp}
-        V_{out} = A_{OL}(V_+ - V_-)
+        V_{\textrm{out}} = A_{\textrm{OL}}(V_+ - V_-)
     \end{equation}
 
 
     \subsubsection{Filter}
-    Ett elektroniskt filter är en elektrisk komponent som används för att filtrera bort oönskade frekvenser från signaler.~\cite{wiki:Electronic-filter}
-    En typ av elektroniskt filter är aktiva filter, där aktiva komponenter används såsom operationsförstärkare används för att förbättra prestanda och förutsägbarhet för filtret samt för att sänka priset.
-    Operationsförstärkaren förhindrar också följande krets belastning från att påverka filtrets egenskaper.~\cite{wiki:Active-filter}
+    Ett elektroniskt filter används för att filtrera bort oönskade frekvenser från signaler.~\cite{wiki:Electronic-filter}
+    En typ av elektroniskt filter är aktiva filter, där aktiva komponenter som operationsförstärkare används för att förbättra filtrets prestanda och förutsägbarhet, samt för att sänka priset.
+    Operationsförstärkaren förhindrar också komponenter efter filtret från att påverka filtrets egenskaper.~\cite{wiki:Active-filter}
     För att filtrera alla signaler förutom signaler med en frekvens inom ett visst intervall kan ett band-pass filter användas.
     Bandpassfilter har en bandbredd som är skillnaden mellan den övre frekvensen och lägre frekvensen som motsvarar en förstärkning på $-3$~dB.~\cite{wiki:Band-pass-filter}
 
@@ -227,7 +226,7 @@
     \subsubsection{Oscillatorer}
     En oscillator är en elektrisk krets eller en del av en elektrisk krets där växelström, ström som regelbundet byter riktning, skapas.
     På grund av spolars och kondensatorers upp- och urladdningsförmåga kan dessa användas, i olika kombinationer för att göra en krets där strömmen och spänningen svänger (blir svagare/starkare, och byter riktning) med en viss frekvens.
-    Oscillatorer är användbara om man vill skapa växelström med en likströmskälla, vilket för det här projektet är mycket relevant för att kunna alstra ett varierande magnetfält i spolarna.
+    Oscillatorer är användbara om man vill skapa växelström med en likströmskälla.
     \\\\
     En sorts oscillator är en Wien-bryggeoscillator (\textit{Wien Bridge Oscillator})~\cite{WienBridge} där resistorer, kondensatorer och en operationsförstärkare används för att skapa en vågformad växelströmssignal, där frekvensen bestäms av resistorernas och kondensatorernas värden.
     En annan sorts oscillator är en 555-oscillator~\cite{555_sine}, som bygger på ett chip med en integrerad krets (\textit{IC}) vid namn 555. 555-chippet kan ge fyrkantsformade utsignaler om de sätts i ett visst värde, och där frekvensen bestäms med hjälp av restistorer och kondensatorer. Det går också att filtrera signalen så att den liknar en sinusvåg, med hjälp av en spole och kondensatorer.
