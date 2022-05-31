@@ -2369,10 +2369,10 @@
     <bcf:citekey order="19">Band-Pass-Filter</bcf:citekey>
     <bcf:citekey order="20">WienBridge</bcf:citekey>
     <bcf:citekey order="21">555_sine</bcf:citekey>
-    <bcf:citekey order="22">Arduino:ABX00030</bcf:citekey>
+    <bcf:citekey order="22">Bluetooth</bcf:citekey>
     <bcf:citekey order="23">Arduino:ABX00030</bcf:citekey>
     <bcf:citekey order="24">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="25">Bluetooth</bcf:citekey>
+    <bcf:citekey order="25">Arduino:ABX00030</bcf:citekey>
     <bcf:citekey order="26">Unity</bcf:citekey>
     <bcf:citekey order="27">google:Hand_Tracking</bcf:citekey>
     <bcf:citekey order="28">wiki:Finger_tracking</bcf:citekey>
@@ -2392,8 +2392,8 @@
     <bcf:citekey order="42">Band-Pass-Filter</bcf:citekey>
     <bcf:citekey order="43">WienBridge</bcf:citekey>
     <bcf:citekey order="44">555_sine</bcf:citekey>
-    <bcf:citekey order="45">Arduino:ABX00030</bcf:citekey>
-    <bcf:citekey order="46">Bluetooth</bcf:citekey>
+    <bcf:citekey order="45">Bluetooth</bcf:citekey>
+    <bcf:citekey order="46">Arduino:ABX00030</bcf:citekey>
     <bcf:citekey order="47">Unity</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->

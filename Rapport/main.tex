@@ -389,23 +389,23 @@
 
     \subsection{Process 2 - Representation}
 
-    För att verifiera att sensorsystemet fungerar och för att kunna visa att systemet går att använda till någon form av applikation.
-    Målet var att visualisera sensordata på ett sätt som gör det lätt att se om systemet fungerar och för att sedan kunna utvärdera hur väl sensorerna har lyckats mäta fingerrörelser.
+    För att verifiera att sensorsystemet fungerar och för att kunna visa att systemet går att använda till någon form av applikation skulle fingerspårningen på något sätt representeras.
+    Målet var att visualisera sensordata på ett sätt som gör verifieringen enkel och som gör det möjligt att utvärdera hur väl sensorerna har lyckats mäta fingerrörelser.
 
 
     \subsubsection{Fysisk hand}
     Ursprungligen beslöts att en fysisk hand skulle designas för att visualisera data från sensorerna.
     Den starkaste motiveringen för valet att använda en fysisk hand var att en fysisk hand fungerar väldigt bra som ett utställningsobjekt
-    och visar att fingerspårning inte enbart kan användas i digitala applikationer utan också användas för att kontrollera något fysiskt.
+    och visar att fingerspårning inte enbart kan användas i digitala applikationer.
     När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort,
     vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom
-    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning.
+    Konstruktionen skulle på grund av detta bli betydligt enklare än att rekonstruerar en hands alla funktioner eftersom
+    endast ett fåtal rotationer skulle mätas.
     \\\\
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
-    När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga en snöret och förkorta andra snöret lika mycket kommer fingretsrotation förändras. Se figur \ref{fig:flexion-extension}.
-    Tummens böjning skulle på ett liknande sätt kontrolleras men skulle också med hjälp av ett kullager och två par snören kontrollera rotation kring tummens fäste.
+    När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga ena snöret och förkorta andra snöret lika mycket kommer fingrets rotation förändras. Se figur \ref{fig:flexion-extension}.
+    Tummens böjning skulle på ett liknande sätt kunna kontrolleras men skulle också med hjälp av ett kullager och två par snören kunna kontrollera rotationen kring tummens fäste.
 
 
     \begin{figure}[H]
@@ -424,8 +424,14 @@
         \label{fig:Ringfinger}
     \end{figure}
     \noindent
-    Att bygga en fysisk hand valdes sedan bort, i och med att en annan spårningsmetod valdes, delvist eftersom konstruktionen blir mer komplicerad när fler riktningar skulle mätas
-    men framförallt eftersom sensor metod inte är lika beprövad som flexsensorer och att eliminera möjlig felkällor med den fysiska handen och istället skapa en digital hand underlättar testning av sensorsystemet.
+    Att bygga en fysisk hand valdes sedan bort i och med att en annan spårningsmetod valdes och en digitalt renderingsprogram skulle istället skapas.
+    Spårning med hjälp av magnetfält är inte lika beprövad som spårning med flexsensorer
+    och att eliminera möjlig felkällor med den fysiska handen genom att istället skapa en digital hand skulle underlätta testningen av sensorsystemet.
+
+
+    \subsection{Bluetooth Low Energy}
+    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
+    BLE används för att kommunicera mellan spårningen och visualiseringen.
 
     \subsection{Arduino Nano 33 BLE}
 
@@ -466,24 +472,21 @@
         \end{center}
     \end{table}
     \noindent
-    Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
+    Mikrokontrollen använder Bluetooth Low Energy för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
     läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
 
 
 
-    \subsection{Bluetooth Low Energy}
-    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
-
     \subsection{Unity}
-    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för exempel spel och film. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
     \subsection{Digital visualisering}
-    Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
+    Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen och renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
-    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
-    och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
-    Unity-programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
+    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som går att direkt integrera med Unity.
+    En färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
+    Unity-programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingermodellens leder.
     Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
     Kod för test av BLE kommunikation finns i bilaga \ref{bilaga:Kod_Rendering}.
 
