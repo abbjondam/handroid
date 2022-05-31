@@ -287,7 +287,7 @@
     De tre spolarna monterades i varsin riktning så att de kan ta upp fingerrörelser i tre dimensioner.
     Kretskortet modellerades i Ultiboard och frästes sedan ut på skolans kretskortsfräs.
     På kretskortet monterades spolarna genom att limmas fast i kretskortet och koppartråden löddes fast på kortets undersida.
-    För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet. Spolhubben kan ses i 
+    För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet. Spolhubben kan ses i
     figur \ref{fig:Spolhubb}.
 
     \begin{figure}[H]
@@ -386,12 +386,12 @@
     Ursprungligen beslöts att en fysisk hand skulle designas för att visualisera data från sensorerna.
     Den starkaste motiveringen för valet att använda en fysisk hand var att en fysisk hand fungerar väldigt bra som ett utställningsobjekt
     och visar att fingerspårning inte enbart kan användas i digitala applikationer.
-    När detta beslut togs var projektet inriktat på att använda flexsensorer. 
-    Metoden med flexsensorer valdes sedan bort på grund av att flexsensorer var begränsade till att endast mäta en rotation. 
-    Då flexsensorerna var begränsade i vad de kunde mäta kunde en fysisk modell av en hand som var begränsad till de rörelser som 
-    flexsensorerna kunde mäta av vara tillräckligt för att visualisera sensordatan. 
-    När flexsensor valdes bort till förmån för magnetfält som kunde mäta många flera rörelser ändrades kraven på visualiseringen vilket skulle 
-    kräva en långt mer avancerad handkonstruktion. Därför beslutades det mitt i projektet att ingen fysisk hand skulle konstrueras. 
+    När detta beslut togs var projektet inriktat på att använda flexsensorer.
+    Metoden med flexsensorer valdes sedan bort på grund av att flexsensorer var begränsade till att endast mäta en rotation.
+    Då flexsensorerna var begränsade i vad de kunde mäta kunde en fysisk modell av en hand som var begränsad till de rörelser som
+    flexsensorerna kunde mäta av vara tillräckligt för att visualisera sensordatan.
+    När flexsensor valdes bort till förmån för magnetfält som kunde mäta många flera rörelser ändrades kraven på visualiseringen vilket skulle
+    kräva en långt mer avancerad handkonstruktion. Därför beslutades det mitt i projektet att ingen fysisk hand skulle konstrueras.
     \\\\
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
@@ -687,7 +687,7 @@
     Filterkretsen gav vid test en utsignal som hade flertalet störningar och vissa likheter med insignalen. I figur \ref{fig:signal-99kHz-Filter-100kHz}
     ses insignalen i gult och utsignalen i blått för ett filter dimensionerat för $99$~kHz med en insignal på $96$~kHz. I bild \ref{fig:signal-99kHz-Filter-200kHz}
     syns utsignal från samma filter där insignalen istället är $203$~kHz.
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{Filter-100kHz.jpg}
         \caption{Bild av oscilloskopavläsning av filter. Gul signal är ingång, blå signal är utgång. Filtret ska filtrera $99$~kHz och insignalen är på $96$~kHz.}
@@ -706,14 +706,14 @@
     Metoden och resultaten kommer här utvärderas och diskuteras, för att försöka komma till en slutsats.
 
     \subsection{Metoddiskussion}
-    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna. Spolarna 
+    Metoden som valdes var att spåra fingrarna med hjälp av spolar på fingertopparna. Spolarna
     sänder ut ett magnetfält som genom att läsas av kan ge fingrarnas rotation
     och position. Valet av metod stod mellan tre huvudkandidater. Avläsning av magnetfält
     från spolar på fingertopparna, flexsensorer för att ta fram fingrarnas rotation, eller
     flertalet IMU-sensorer som genom att mäta rörelserna på olika delar av handen kan
     ge data på hur hela handen rör på sig.
     \\\\
-    Metoden med accelerometrar valdes bort tidigt eftersom det var en väldigt avancerad och
+    Metoden med accelerometrar (IMU-sensorer) valdes bort tidigt eftersom det var en väldigt avancerad och
     dyr metod som skulle kräva minst 7 stycken sensorer för att fungera och minst 16 stycken
     sensorer för att kunna spåra hela handen. Då metoden krävde mycket för att komma
     igång bedömdes den icke-lämplig för projektet.
@@ -750,7 +750,8 @@
     Att kondensatorerna hade så stora felmarginaler kan ha gjort att kretsen inte fungerade som den skulle, men enligt nya simuleringar bör det inte ha påverkat resultatet så mycket.
     \\\\
     En annan felkälla kan vara att spolarnas induktans mättes felaktigt. Resultaten från mätningarna har ännu inte verifierats med andra verktyg eller metoder, vilket innebär att mätningarna kan vara felaktiga.
-    Detta upptäckte vi redan vid den andra gångens mätningar, där induktansen drastiskt ändrades från 3,3~mH till 7~mH, trots att spolarna var mycket lika i varvtal, material och storlek. Om den första mätningen var fel finns en större risk att andra mätningen också är fel, och det skulle innebära att kretsens andra komponenter var feldimensionerade.
+    Detta upptäckte vi redan vid den andra gångens mätningar, där induktansen drastiskt ändrades från 3,3~mH till 7~mH, trots att spolarna hade samma antal lindade varv, material och storlek.
+    Om den första mätningen var fel skulle andra mätningen också kunna vara fel, och det skulle innebära att kretsens andra komponenter var feldimensionerade.
     \\\\
     Ännu en potentiell felkälla som kan förklara signalens låga maxvärden jämfört med simuleringarna kan vara att respektive 555 och 556 ger för svaga spänningar. Enligt databladen, de guider som följdes och simuleringarna som gjordes skulle 555:an ha en utspänning runt 4 till 5~V, medan den här låg på bara några millivolt.
     Vad detta beror på är för tillfället okänt, men det är tydligt att 555:an och 556:an har haft stor inverkan på projektets resultat, och speciellt oscillatordelens resultat.
@@ -764,13 +765,13 @@
     En felkälla som
     kunde kopplas till de ökade störningarna var att vi hade en instabil matningsspänning som störde operationsförstärkaren.
     Försök att stabilisera matningsspänningen gjordes genom att byta strömförsörjning och koppla in frikopplingskondensatorer.
-    Märkbara förbättringar observerades men signalen var fortfarande inte tillräckligt bra.
+    Inga märkbara förbättringar observerades.
 
     \subsection{Visualisering}
     Visualiseringen var så pass färdigställd att det enda som behövdes var att sensorsystem skulle ge någon utsignal samt att skapa en översättnings från sensordata till handposition.
 
     \subsection{Planering}
-    En stor del av projektet under de första månaderna bestod av planering, som undersökningen av de olika andra metoderna som används idag, och den övergripande tidsplaneringen som gjordes för att dela upp arbetsuppgifter och tid.
+    En stor del av projektet under de första månaderna bestod av planering och undersökning av de olika metoder som används idag för fingerspårning.
     \subsubsection{Undersökning och val av metod}
     Som beskrivet tidigare gick vi i grupp igenom olika metoder för att mäta och spåra fingerrörelser, samt hur man kan representera rörselserna på en fysisk eller digital hand.
     Undersökningen gav gruppen insikt om vad som är möjligt, hur svåra metoderna verkade vara, och vad som används idag.
@@ -778,12 +779,16 @@
     Brist på tid är något genomgående i detta projekt, då många delar tog längre tid än planerat eller, som i den fysiska handens fall, inte användes för projektet, annat än i testsyfte.
     \\\\
     Valet av metod kan också diskuteras, då planen var att börja med att använda flexsensorer. Denna plan ändrades fort när vi fick förslag om att försöka använda oscillerande magnetfält och filtrera ut deras signaler istället.
-    Alternativet verkade väldigt spännande för oss i gruppen eftersom denna metod inte var lika beprövad som de andra metoderna, vilket gav projektet en ny riktning: istället för att bygga en robothand som kan styras med egna handrörelser, något som hobbyister gjort i flera år, skulle vi utforska om det är möjligt att mäta finare rörelser, såsom fingrar, med magnetfält.
+    Alternativet verkade väldigt spännande för oss i gruppen eftersom denna metod inte var lika beprövad som de andra metoderna,
+    vilket gav projektet en ny riktning: istället för att bygga en robothand som kan styras med egna handrörelser,
+    något som hobbyister gjort i flera år, skulle vi utforska om det är möjligt att mäta fingerrörelser med magnetfält.
     Visualiseringen blev mindre viktig, men fanns fortfarande kvar för att kunna visa resultatet och hjälpa oss komma till slutsatser om metoden.
-    Eftersom detta var något som inte hade några tutorials eller guider online att följa innebar detta också att vi i gruppen fick använda det vi lärt oss under vår gymmnasieutbildnig angående elektronik, programmering, samt källkritik.
-    Från ett visst perspektiv kan detta beslut ha varit lite förhastat, just eftersom metoden är så pass okänd och outnyttjad av industrin. Det innebar att vi riskerade att inte hinna klart projektet i tid, eller att konceptet inte skulle fungera alls.
-    Hade vi i gruppen haft ett annat syfte i åtanke, till exempel bara att styra en hand, hade vi valt en annan, mer beprövad metod, för att få ett bra resultat.
-    Att projektets syfte ändrades gjorde dock att detta inte var lika viktigt, även om gruppen fortfarande jobbade mot att få ett resultat i tid till projektets slut.
+    Eftersom detta var något som var en metod som var ovanligare fanns det väldigt lite hjälp material, vilket innebar att vi i gruppen
+    var tvungna att använda det vi lärt oss under vår gymnasieutbildning angående elektronik, fysik och programmering.
+    Detta beslut kan dock ha varit lite förhastat, just eftersom metoden är så pass okänd och outnyttjad av industrin.
+    Det innebar att vi riskerade att inte hinna klart projektet i tid, eller att konceptet inte skulle fungera alls.
+    Hade vi i gruppen haft ett annat syfte i åtanke, till exempel bara att styra en hand, hade vi kanske valt en annan, mer beprövad metod, för att få ett bättre resultat.
+    Projektets syfte var dock att undersöka hur fingerrörelser kan spåras och att testa en ovanligare metod är därav lämpligt.
 
     \subsubsection{Dimensionering av kretsar}
     % Problem att dimensionera kretsar, ideala komponenter, mätfel osv.
@@ -791,31 +796,32 @@
     Som tidigare diskuterat dimensionerades flera olika oscillatorkretsar, först wienbryggor, sen 555 med induktanser runt 3,3~mH, och till sist 555 med induktanser runt 7~mH.
     Problem med dimensioneringen där handlade om att hitta rätt kondensator och resistorvärden för att kretsen skulle uppnå resonans, vilket tog mycket tid att räkna ut.
     När spolarnas induktans korrigerades dimensionerades alla 5 kretsar om med helt nya värden, vilket i sin tur tog mycket tid, som i annat fall kunde använts för att bygga kretsarna på riktigt för att hitta och korrigera fel.
-    Detta till trots lyckades alla kretsar dimensioneras, men väldigt mycket senare än planerat.
+    Detta till trots lyckades alla kretsar dimensioneras, men mycket senare än planerat.
     \\\\
-    Filterkretsarna hade också sina problem och svårigheter. Att hitta ett filter som samtidigt kan förstärka signalen den filtrerar var svårt, men lyckades efter mycket kort tid. Något som upptäcktes förhållandevis sent in i projektets gång var, som tidigare nämnt, att den operationsförstärkare som använts i kretsen varit ideal, och att hela kretsen endast fungerar med en ideal operationsförstärkare.
+    Filterkretsarna hade också sina problem och svårigheter. Att hitta ett filter som samtidigt kan förstärka signalen den filtrerar var svårt, men lyckades efter en tid. Något som upptäcktes förhållandevis sent in i projektets gång var, som tidigare nämnt, att den operationsförstärkare som använts i kretsen varit ideal, och att hela kretsen endast fungerar med en ideal operationsförstärkare.
     Även här lyckades vi ändå lösa problemet genom Texas Instruments egna verktyg, och kunde utgå från kretsen vi fick därifrån istället.
     \\\\
-    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter, och försöka säkerställa att dimensioneringen också fungerar med icke-ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
+    Lärdomar vi drar från dessa kretsdimensioneringar är att inte använda sig av ideala komponenter. Att också se till att ens komponenter har rätt värden, genom att göra flera separata mätningar kan spara mycket tid, så att man snabbt kan gå vidare till att utföra det man planerat, så att man har tid att åtgärda problem.
 
     \subsubsection{Tid}
-    Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytt metod och syfte. Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
+    Mycket mer tid gick åt det här projektet än planerat, på grund av oväntade fel eller för att vi bytte spår under projektets gång.
+    Att planera in mer tid för att lösa problem behövs när man gör projekt som angår teknik, speciellt när det kommer till något som inte gjorts av andra. Ändå är projektet på god väg att bli färdigt, även om det inte är helt klart.
 
     \subsubsection{Framtida undersökningar}
     Om det här projektet skulle tas vidare skulle man fortsätta att arbeta för att få en helhetslösning som kan spåra
     rörelser för ett finger. För att uppnå detta skulle filter och oscillatorkrets behöva förbättras. Komponenter med
     bättre precision skulle behöva användas för att eliminera flera störningar. Om projektet ska föras vidare bör även
     spolarna som agerar sändare optimeras för att skapa en så stark och störningsfri signal som möjligt.
-    Att rotation kan mätas konkret skulle också behöva påvisas, genom att fullborda spårningskretsen och använda mikrokontrollerna för att läsa av signalerna, och tolka dem på ett hållbart sätt.
+    Att rotation kan mätas konkret skulle också behöva påvisas, genom att fullborda spårningskretsen och använda mikrokontrollerna för att läsa av signalerna, och översätta spårningsdata till fingerpositioner och rotationer.
     \\\\
     När signalerna från sensorerna är ordnade skulle de behöva översättas från en spänning till data som kan representeras
     av den digitala handen i Unity-programmet. Metoden är generellt skalbar vilket innebär att om spårning av ett finger
     fungerar kan det enkelt skalas upp till spårning av samtliga fingrar. Om fullständig spårning av en hand ska uppnås bör
-    även system för att spåra handledens rörelser, exempelvis rotation implementeras.
+    även system för att spåra handledens rörelser.
     \subsection{Slutsats}
-    Projektets mål att kunna läsa av hand och fingerrörelser uppnåddes inte. Däremot har en grund lagts där en stor del av
-    teorin för att kunna läsa av fingerrörelser finns. Deltester och laborationer visar på att metoden att mäta magnetfält
-    kan vara en möjlig metod för att läsa in fingerrörelserna. Flera tester och en fungerande prototyp krävs för att dra
+    Projektets mål att kunna mäta av hand och fingerrörelser uppnåddes inte. Däremot har en grund lagts där en stor del av
+    teorin för mätningen finns. Deltester och laborationer visar på att metoden att mäta magnetfält
+    skulle kunna vara en möjlig metod för ändamålet. Flera tester och en fungerande prototyp krävs för att dra
     en avgörande slutsats. Däremot är det en avancerad metod vars funktion liknar IMU-sensor. Till skillnad från IMU-sensorer
     kräver dock den här metoden mera plats och flera delsystem som bygger upp helheten vilket introducerar flera felkällor.
     Det här innebär att metoden med magnetfält hittills verkar som en fungerande metod men metoden med IMU-sensorer är
