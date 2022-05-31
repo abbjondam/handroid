@@ -11,6 +11,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage[document]{ragged2e}
 
 
@@ -272,17 +273,17 @@
 
 
     \subsubsection{Spolar}
-    Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
-    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar
+    Spolar användes för att skapa och läsa av magnetfältet och användes för att detektera fingrets position och rotation.
+    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar.
     För att få lämplig storlek och funktion från spolarna valdes ett varvtal på 1000 varv.
     Spolarna konstruerades genom att limma fast hattar i ändarna på järnkärnan.
     Sedan lindades spolarna med koppartråd.
-    Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
-    var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
+    Lindningen gjordes genom att fästa koppartråden i den icke lindade spolen och sedan rotera den spolen, med hjälp av en motor,
+    samtidigt som koppartråd hölls fast.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
     koppartråd som hade lindats runt spolen.
-    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
-    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
+    När mikrokontrollen räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare} för lindning av spole och bilaga \ref{bilaga:Kod_Spolsnurrare}.
+    för kod till Spolsnurraren.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{spolsnurrare1.png}
@@ -290,10 +291,11 @@
         \label{fig:Spolsnurrare}
     \end{figure}
     \noindent
-    De färdiga spolarna mättes med oscilloskop och funktionsgenerator för att säkerställa dess induktans, så att den kan användas i oscillatorkretsen med rätt komponenter.
-    Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
-    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
-    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
+    De färdiga spolarnas induktans mättes med ett oscilloskop och en funktionsgenerator, så att de kan användas i oscillatorkretsen med rätt komponenter.
+    Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktionalitet.
+    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal,
+    och den andra var kopplad till ett oscilloskop för att läsas av det uppmätta magnetfältet.
+    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen även kunde skickas och tas emot av dessa.
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
@@ -312,10 +314,16 @@
     På kretskortet monterades spolarna genom att limmas fast i kretskortet och koppartråden löddes fast på kortets undersida.
     För att kunna skicka vidare signalen som spolarna plockar upp löddes även en stiftlist fast på kretskortet.
 
+    \subsubsection{Test av metod}
+    Utöver de tester som utfördes för att kontrollera om spolarna hade de funktioner som eftertraktats, gjordes också en grundläggande laboration för att se hur förhållandet mellan signalerna ändrades när fingrets rotation ändrades.
+    Laborationen var mycket lik tidigare laborationer då funktionsgenerator och oscilloskop användes för att skapa en signal genom en av de färdiga spolarna, och för att läsa av signalen som plockades upp av spolhubben.
+    På så sätt skulle storleken (amplituden) på signalerna kunna säga om det går att urskilja mellan olika rotationer av fingret, eller om magnetfälten inte fungerade alls för att pålitligt mäta rotation, och endast kunna mäta avstånd.
+
 
     \subsubsection{Filter}
-    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens med ett bestämt avstånd från andra fingrar, för att göra det möjligt att filtrera bort alla förutom ett finger.
-    Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
+    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens med ett bestämt avstånd från andra fingrar, för att göra det möjligt att filtrera bort alla fingrar förutom ett.
+    Filtret skulle filtrera frekvenser som inte var inom ett visst frekvensområde.
+    Ett aktivt bandpassfilter valdes som filtertyp.
     Filterkretsen designades genom att räkna ut värden på resistorer genom att välja en bandbredd, värde på kondensatorerna och en centerfrekvens.
     Efter rådgivning med elektronikläraren Daniel Åkerlund bestämdes att varje finger skulle ha ett avstånd på cirka $15$~kHz till nästa finger och att det första fingrets centerfrekvens skulle vara $100$~kHz.
     Se bilaga \ref{bilaga:Kretsschema-filter} för kretsdesign.
@@ -342,13 +350,14 @@
         \end{center}
     \end{table}
     \noindent
-    Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
+    Kretsen testades sedan i simulering för att säkerställa att kretsens fungerade som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
-    Det visade sig att dimensioneringen av resistorerna
+    Det visade sig att dimensioneringen
     krävde en ideal, eller i alla fall näst intill ideal, operationsförstärkare för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filterdesignverktyg av Texas Instruments
-    eftersom verktyget också räknade med icke-ideala operationsförstärkare. Avståndet mellan varje finger ökades också.
+    eftersom verktyget räknade med att operationsförstärkare var icke-ideala, samt att verktyget gav förslag på lämpliga operationsförstärkare.
+    Avståndet mellan varje fingers frekvens ökades också eftersom filtrets kvalitetsfaktor tvingades minska för att kunna hitta en operationsförstärkare.
 
     \begin{table}[H]
         \begin{center}
@@ -386,23 +395,23 @@
 
     \subsection{Process 2 - Representation}
 
-    För att verifiera att sensorsystemet fungerar och för att kunna visa att systemet går att använda till någon form av applikation.
-    Målet var att visualisera sensordata på ett sätt som gör det lätt att se om systemet fungerar och för att sedan kunna utvärdera hur väl sensorerna har lyckats mäta fingerrörelser.
+    För att verifiera att sensorsystemet fungerar och för att kunna visa att systemet går att använda till någon form av applikation skulle fingerspårningen på något sätt representeras.
+    Målet var att visualisera sensordata på ett sätt som gör verifieringen enkel och som gör det möjligt att utvärdera hur väl sensorerna har lyckats mäta fingerrörelser.
 
 
     \subsubsection{Fysisk hand}
     Ursprungligen beslöts att en fysisk hand skulle designas för att visualisera data från sensorerna.
     Den starkaste motiveringen för valet att använda en fysisk hand var att en fysisk hand fungerar väldigt bra som ett utställningsobjekt
-    och visar att fingerspårning inte enbart kan användas i digitala applikationer utan också användas för att kontrollera något fysiskt.
+    och visar att fingerspårning inte enbart kan användas i digitala applikationer.
     När detta beslut togs var projektet dessutom inriktat på att använda flexsensorer, som tidigare nämns valdes bort,
     vilket på grund av den begränsade möjligheten att en flexsensor endast kan mäta en rotation skulle innebära att endast ett fåtal rotationer mätes.
-    Konstruktionen skulle på grund av detta bli betydligt enklare än att perfekt rekonstruerar en hand eftersom
-    endast ett fåtal rotationer skulle mätas kunde konstruktionen förenklas genom att enbart tillåta likformig rotation av varje finger i endast en riktning.
+    Konstruktionen skulle på grund av detta bli betydligt enklare än att rekonstruerar en hands alla funktioner eftersom
+    endast ett fåtal rotationer skulle mätas.
     \\\\
     Designen bestod av fingersegment som kunde skrivas ut med en 3D-skrivare och 7 servon som med hjälp av trådar skulle böja fingrarna. Se bilaga \ref{bilaga:Kretsschema-servo} för kretsschema.
     Till varje finger används två trådar. Trådarna dras i kanaler på motsatta sida som de fäst.
     När snörena sedan sätts i spänn kommer de att förhindra rotation åt varsitt håll och genom att förlänga ena snöret och förkorta andra snöret lika mycket kommer fingrets rotation förändras. Se figur \ref{fig:flexion-extension}.
-    Tummens böjning skulle på ett liknande sätt kontrolleras men skulle också med hjälp av ett kullager och två par snören kontrollera rotation kring tummens fäste.
+    Tummens böjning skulle på ett liknande sätt kunna kontrolleras men skulle också med hjälp av ett kullager och två par snören kunna kontrollera rotationen kring tummens fäste.
 
 
     \begin{figure}[H]
@@ -421,8 +430,14 @@
         \label{fig:Ringfinger}
     \end{figure}
     \noindent
-    Att bygga en fysisk hand valdes sedan bort, i och med att en annan spårningsmetod valdes, delvist eftersom konstruktionen blir mer komplicerad när fler riktningar skulle mätas
-    men framförallt eftersom sensor metod inte är lika beprövad som flexsensorer och att eliminera möjlig felkällor med den fysiska handen och istället skapa en digital hand underlättar testning av sensorsystemet.
+    Att bygga en fysisk hand valdes sedan bort i och med att en annan spårningsmetod valdes och en digitalt renderingsprogram skulle istället skapas.
+    Spårning med hjälp av magnetfält är inte lika beprövad som spårning med flexsensorer
+    och att eliminera möjlig felkällor med den fysiska handen genom att istället skapa en digital hand skulle underlätta testningen av sensorsystemet.
+
+
+    \subsection{Bluetooth Low Energy}
+    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
+    BLE används för att kommunicera mellan spårningen och visualiseringen.
 
     \subsection{Arduino Nano 33 BLE}
 
@@ -463,32 +478,161 @@
         \end{center}
     \end{table}
     \noindent
-    Mikrokontrollen använder bluetooth för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
+    Mikrokontrollen använder Bluetooth Low Energy för att skicka iväg data, först väntar mikrokontrollen på att renderingsprogrammet ska ansluta via Bluetooth Low Energy och
     läser sedan av värdena från de olika sensorerna och publicerar sensorvärdena.
     För att åstadkomma kommunikation används biblioteket ArduinoBLE. Kod för mikrokontrollens BLE kommunikation finns i bilaga \ref{bilaga:Kod_Arduino_Peripheral}.
 
 
 
-    \subsection{Bluetooth Low Energy}
-    Bluetooth är ett protokoll för att trådlöst skicka data mellan olika enheter. Bluetooth Low Energy liknar traditionell Bluetooth men är mer energieffektiv.~\cite{Bluetooth}
-
     \subsection{Unity}
-    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för spel, film etc. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
+    Unity är en programvara som möjliggör skapandet av real-time 3d-miljöer för exempel spel och film. Programmet används framförallt för att skapa spel och kan skapa 2D, 3D, VR och AR spel.~\cite{Unity}
 
     \subsection{Digital visualisering}
-    Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen som sedan också skulle renderar fingerrörelserna.
+    Ursprungligen skulle ett C\# program skapas som kunde kommunicera med mikrokontrollen och renderar fingerrörelserna.
     Istället för att skapa ett eget renderingsprogram beslutades det att spelmotorn Unity skulle användas.
-    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som är går att direkt integrera med Unity
-    och en färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
-    Unity-programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingrarnas leder.
+    Kommunikationen mellan mikrokontrollen och renderingsprogrammet sköttes därav istället av biblioteket BleWinrtDll som går att direkt integrera med Unity.
+    En färdig konstruerad modell från Ultraleaps Unity Plugin användes för att representera fingerrörelse.
+    Unity-programmet skulle anslutas till mikrokontrollen som sedan skulle översätta värdena från sensorerna till rotationer i fingermodellens leder.
     Programmet testades genom att skicka två specifika värden från mikrokontrollen till Unity-programmet som roterade ett fingers leder till två olika rotationer beroende på vilket värde som skickats.
     Kod för test av BLE kommunikation finns i bilaga \ref{bilaga:Kod_Rendering}.
 
 
     \newpage
-
     \section{Resultat}
     Resultaten av de olika processerna som beskrivits redovisas här objektivt, och diskussion av resultatet följer i nästa del.
+
+    \subsection{Test av metod}
+    Flera rotationer prövades för att ge en översiktlig bild, och varje rotation hade en motrotation. De rotationer på sändarspolen som valdes var: framåt, bakåt, vänster, höger, uppåt och nedåt.
+    De två rotationerna framåt och bakåt gav vad som verkade vara olika relation mellan signalerna från mottagarspolarna på spolhubben. För en jämförelse av dessa se figurer \ref{fig:demo-framåt} och \ref{fig:demo-bakåt}.
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Framåt.jpg}
+            \caption{Spole}
+            \label{fig:spole-framåt}
+
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-framåt-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-framåt}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation framåt.}
+        \label{fig:demo-framåt}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-bakåt.jpg}
+            \caption{Spole}
+            \label{fig:spole-bakåt}
+
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-bakåt-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-bakåt}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation bakåt.}
+        \label{fig:demo-bakåt}
+    \end{figure}
+
+    \noindent
+
+    Tester med vänster/höger gav liknande resultat, kan ses i figurer \ref{fig:demo-vänster} och \ref{fig:demo-höger}.
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-vänster.jpg}
+            \caption{Spole}
+            \label{fig:spole-vänster}
+
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Vänster-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-vänster}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation åt vänster.}
+        \label{fig:demo-vänster}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Höger.jpg}
+            \caption{Spole}
+            \label{fig:spole-höger}
+
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-höger-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-höger}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation åt höger.}
+        \label{fig:demo-höger}
+    \end{figure}
+
+    \noindent
+
+    Mätningarna för rotation uppåt och nedåt redovisas i figurer \ref{fig:demo-uppåt} och \ref{fig:demo-nedåt} och visar en ändring av amplituder.
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Uppåt.jpg}
+            \caption{Spole}
+            \label{fig:spole-uppåt}
+
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Uppåt-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-uppåt}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation uppåt.}
+        \label{fig:demo-uppåt}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-Nedåt.jpg}
+            \caption{Spole}
+            \label{fig:spole-nedåt}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Skjut-nedåt-sig.jpg}
+            \caption{Signal}
+            \label{fig:signal-nedåt}
+        \end{subfigure}
+        \caption{Demonstration av och signaler från rotation nedåt.}
+        \label{fig:demo-nedåt}
+    \end{figure}
+    \noindent
+
+
+
+
     \subsection{Oscillator}
     En del av sensorerna bestod av oscillatorerna, som skulle skapa och skicka en signal genom en spole.
     \subsubsection{Spolar}
@@ -557,9 +701,9 @@
         \label{fig:sim-117kHz-filter}
     \end{figure}
     \noindent
-    Filterkretsen gav vid test en utsignal som hade flertalet störningar och vissa likheter med insignalen. I figur \ref{fig:signal-99kHz-Filter-100kHz} 
-    ses insignalen i gult och utsignalen i blått för ett filter dimensionerat för $99$~kHz med en insignal på $96$~kHz. I bild \ref{fig:signal-99kHz-Filter-200kHz} 
-    syns utsignal från samma filter där insignalen istället är $203$~kHz.  
+    Filterkretsen gav vid test en utsignal som hade flertalet störningar och vissa likheter med insignalen. I figur \ref{fig:signal-99kHz-Filter-100kHz}
+    ses insignalen i gult och utsignalen i blått för ett filter dimensionerat för $99$~kHz med en insignal på $96$~kHz. I bild \ref{fig:signal-99kHz-Filter-200kHz}
+    syns utsignal från samma filter där insignalen istället är $203$~kHz.
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{Filter-100kHz.jpg}
@@ -579,7 +723,12 @@
     Metoden och resultaten kommer här utvärderas och diskuteras, för att försöka komma till en slutsats.
 
     \subsection{Spårning}
-    Att storleken på signalen från spolarna berodde på dess avstånd från spolen som sände ut magnetfältet tyder på att metoden kan användas för att mäta avstånd. Detta kan användas för att mäta förhållande mellan de olika mottagarspolarnas signalers storlek (amplitud). Om detta kan användas för att få fram fingrarnas rotation har ännu inte testats, och inget matematiskt samband har hittats ännu. För att få reda på detta skulle behövas fler tester och fler färdiga delar av spårningen.
+    Att storleken på signalen från spolarna berodde på dess avstånd från spolen som sände ut magnetfältet tyder på att metoden kan användas för att mäta avstånd.
+    Detta kan användas för att mäta förhållande mellan de olika mottagarspolarnas signalers storlek (amplitud).
+    Om detta kan användas för att, på ett pålitligt sätt, få fram fingrarnas rotation har ännu inte bevisats, och inget matematiskt samband har hittats ännu.
+    För att få reda på detta skulle behövas fler tester och fler färdiga delar av spårningen.
+    De tester som redovisats här tyder dock på att rotation \textit{kan} vara möjlig att mäta med denna metod.
+
     \subsubsection{Oscillator}
     % Lägg till mer
     Oscillatorerna fungerade inte som planerat, och gav andra resultat än de som hade simulerats.
@@ -646,6 +795,7 @@
     rörelser för ett finger. För att uppnå detta skulle filter och oscillatorkrets behöva förbättras. Komponenter med
     bättre precision skulle behöva användas för att eliminera flera störningar. Om projektet ska föras vidare bör även
     spolarna som agerar sändare optimeras för att skapa en så stark och störningsfri signal som möjligt.
+    Att rotation kan mätas konkret skulle också behöva påvisas, genom att fullborda spårningskretsen och använda mikrokontrollerna för att läsa av signalerna, och tolka dem på ett hållbart sätt.
     \\\\
     När signalerna från sensorerna är ordnade skulle de behöva översättas från en spänning till data som kan representeras
     av den digitala handen i Unity-programmet. Metoden är generellt skalbar vilket innebär att om spårning av ett finger
@@ -655,16 +805,17 @@
     Projektets mål att kunna läsa av hand och fingerrörelser uppnåddes inte. Däremot har en grund lagts där en stor del av
     teorin för att kunna läsa av fingerrörelser finns. Deltester och laborationer visar på att metoden att mäta magnetfält
     kan vara en möjlig metod för att läsa in fingerrörelserna. Flera tester och en fungerande prototyp krävs för att dra
-    en avgörande slutsats. Däremot är det en avancerad metod vars funktion liknar IMU-sensor. Till skillnad från IMU-sensorer 
-    kräver dock den här metoden mera plats och flera delsystem som bygger upp helheten vilket introducerar flera felkällor. 
-    Det här innebär att metoden med magnetfält hittills verkar som en fungerande metod men metoden med IMU-sensorer är 
-    förmodligen bättre. 
+    en avgörande slutsats. Däremot är det en avancerad metod vars funktion liknar IMU-sensor. Till skillnad från IMU-sensorer
+    kräver dock den här metoden mera plats och flera delsystem som bygger upp helheten vilket introducerar flera felkällor.
+    Det här innebär att metoden med magnetfält hittills verkar som en fungerande metod men metoden med IMU-sensorer är
+    förmodligen bättre.
 
 
     \newpage
 
     \section{Källor}
     \printbibliography[heading=none]
+
 
     \newpage
     \appendices
@@ -680,12 +831,17 @@
     \newpage
     \section{Filterkrets}
     \label{bilaga:Kretsschema-filter}
-    Krets för filter 117kHz. Kretsen är gjord i Multisim.
+    \begin{FlushLeft}
+        Krets för filter 117kHz. Kretsen är gjord i Multisim.
+    \end{FlushLeft}
     \includegraphics[width = 0.8\textwidth]{filter117kHz-circuit.png}
 
     \newpage
     \section{Oscillatorkretsar}
-    Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
+    \begin{FlushLeft}
+        Kretsar för 100 kHz (överst) respektive 117 kHz (underst). Kretsarna är gjorda i Multisim.
+    \end{FlushLeft}
+
 
     \label{bilaga:Schema-Oscillatorkretsar}
     \includegraphics[width = \textwidth]{555-100kHz-circuit.png}
@@ -694,7 +850,9 @@
     \newpage
     \section{Servokrets}
     \label{bilaga:Kretsschema-servo}
-    Krets för servo. Kretsen är gjord i Multisim.
+    \begin{FlushLeft}
+        Krets för servo. Kretsen är gjord i Multisim.
+    \end{FlushLeft}
     \includegraphics[width = 0.8\textwidth]{servo.png}
 
     \newpage

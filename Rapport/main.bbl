@@ -516,19 +516,6 @@
       \field{note}{(Hämtad 2022-05-31)}
       \field{title}{How to Build a Sine Wave Generator with a 555 Timer Chip}
     \endentry
-    \entry{Arduino:ABX00030}{manual}{}
-      \list{organization}{1}{%
-        {Arduino}%
-      }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{month}{4}
-      \field{note}{Rev. 1}
-      \field{number}{ABX00030}
-      \field{title}{Arduino® Nano 33 BLE}
-      \field{year}{2021}
-    \endentry
     \entry{Bluetooth}{misc}{}
       \name{author}{1}{}{%
         {{hash=7deff39593c9cecd401b795d6e1ae04b}{%
@@ -549,6 +536,19 @@
       \field{note}{(Hämtad 2022-05-31)}
       \field{title}{Bluetooth Wireless Technology}
       \field{year}{2022}
+    \endentry
+    \entry{Arduino:ABX00030}{manual}{}
+      \list{organization}{1}{%
+        {Arduino}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Rev. 1}
+      \field{number}{ABX00030}
+      \field{title}{Arduino® Nano 33 BLE}
+      \field{year}{2021}
     \endentry
     \entry{Unity}{misc}{}
       \name{author}{1}{}{%
