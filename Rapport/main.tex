@@ -272,17 +272,17 @@
 
 
     \subsubsection{Spolar}
-    Spolar användes för att skapa och läsa av magnetfältet som används för att läsa av fingrets position och rotation.
-    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar
+    Spolar användes för att skapa och läsa av magnetfältet och användes för att detektera fingrets position och rotation.
+    En spole består av en järnkärna, 0,1 mm koppartråd samt 3D-printade hattar.
     För att få lämplig storlek och funktion från spolarna valdes ett varvtal på 1000 varv.
     Spolarna konstruerades genom att limma fast hattar i ändarna på järnkärnan.
     Sedan lindades spolarna med koppartråd.
-    Lindningen gjordes genom att fästa den olindade spolen i en motor som genom att snurra samtidigt som koppartråd
-    var fäst i den olindade spolen gjorde att järnkärnan lindades med koppartråden.
+    Lindningen gjordes genom att fästa koppartråden i den icke lindade spolen och sedan rotera den spolen, med hjälp av en motor,
+    samtidigt som koppartråd hölls fast.
     Motorn var kopplad till en Arduino mikrokontroller som med hjälp av en varvmätare kunde läsa av hur många varv
     koppartråd som hade lindats runt spolen.
-    När mikrokontrollern räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare}.
-    Kod för spolsnurraren finns i bilaga \ref{bilaga:Kod_Spolsnurrare}
+    När mikrokontrollen räknat att motorn roterat 1000 varv stängdes motorn automatiskt av. Se figur \ref{fig:Spolsnurrare} för lindning av spole och bilaga \ref{bilaga:Kod_Spolsnurrare}.
+    för kod till Spolsnurraren.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{spolsnurrare1.png}
@@ -290,10 +290,11 @@
         \label{fig:Spolsnurrare}
     \end{figure}
     \noindent
-    De färdiga spolarna mättes med oscilloskop och funktionsgenerator för att säkerställa dess induktans, så att den kan användas i oscillatorkretsen med rätt komponenter.
-    Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktion.
-    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal, och där den andra var kopplad till ett oscilloskop för att läsas av.
-    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen kunde skickas och tas emot av dessa.
+    De färdiga spolarnas induktans mättes med ett oscilloskop och en funktionsgenerator, så att de kan användas i oscillatorkretsen med rätt komponenter.
+    Den första spolen som färdigställdes jämfördes också med spolar som används i utbildningssyfte inom fysik, för att säkerställa att de hade samma funktionalitet.
+    Detta genom att använda två fysik-spolar för att skicka och ta emot signaler, där en spole var kopplad i serie med en funktionsgenerator som genererade en sinusformad signal,
+    och den andra var kopplad till ett oscilloskop för att läsas av det uppmätta magnetfältet.
+    En av fysik-spolarna byttes sedan ut mot den egensnurrade spolen, för att se om signalen även kunde skickas och tas emot av dessa.
     För att få bättre kontakt med andra kablar och komponenter valdes ett antal spolar ut för att lödas fast i kablar av större tjocklek.
     Jämförelsen mellan en spole med fastlödd kabel och en spole utan fastlödd kabel kan ses i figur \ref{fig:SpoleVsSpole}.
 
@@ -314,8 +315,9 @@
 
 
     \subsubsection{Filter}
-    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens med ett bestämt avstånd från andra fingrar, för att göra det möjligt att filtrera bort alla förutom ett finger.
-    Filtret ska filtrera frekvenser som inte är inom ett visst frekvensområde och ett aktivt bandpassfilter valdes som filtertyp.
+    För att särskilja på olika fingrar skulle varje finger ha en egen frekvens med ett bestämt avstånd från andra fingrar, för att göra det möjligt att filtrera bort alla fingrar förutom ett.
+    Filtret skulle filtrera frekvenser som inte var inom ett visst frekvensområde.
+    Ett aktivt bandpassfilter valdes som filtertyp.
     Filterkretsen designades genom att räkna ut värden på resistorer genom att välja en bandbredd, värde på kondensatorerna och en centerfrekvens.
     Efter rådgivning med elektronikläraren Daniel Åkerlund bestämdes att varje finger skulle ha ett avstånd på cirka $15$~kHz till nästa finger och att det första fingrets centerfrekvens skulle vara $100$~kHz.
     Se bilaga \ref{bilaga:Kretsschema-filter} för kretsdesign.
@@ -342,13 +344,14 @@
         \end{center}
     \end{table}
     \noindent
-    Kretsen testades sedan i simulering för att säkerställa att kretsens fungerar som förväntat,
+    Kretsen testades sedan i simulering för att säkerställa att kretsens fungerade som förväntat,
     dock användes en ideal operationsförstärkare under simuleringen.
     När kretsen sedan simulerades med icke-ideal operationsförstärkare kunde kretsen inte längre filtrera signalen.
-    Det visade sig att dimensioneringen av resistorerna
+    Det visade sig att dimensioneringen
     krävde en ideal, eller i alla fall näst intill ideal, operationsförstärkare för att kretsen skulle fungera.
     Kretsen designades sedan om med hjälp av ett filterdesignverktyg av Texas Instruments
-    eftersom verktyget också räknade med icke-ideala operationsförstärkare. Avståndet mellan varje finger ökades också.
+    eftersom verktyget räknade med att operationsförstärkare var icke-ideala, samt att verktyget gav förslag på lämpliga operationsförstärkare.
+    Avståndet mellan varje fingers frekvens ökades också eftersom filtrets kvalitetsfaktor tvingades minska för att kunna hitta en operationsförstärkare.
 
     \begin{table}[H]
         \begin{center}
@@ -486,7 +489,6 @@
 
 
     \newpage
-
     \section{Resultat}
     Resultaten av de olika processerna som beskrivits redovisas här objektivt, och diskussion av resultatet följer i nästa del.
     \subsection{Oscillator}
@@ -557,22 +559,7 @@
         \label{fig:sim-117kHz-filter}
     \end{figure}
     \noindent
-    Filterkretsen gav vid test en utsignal som hade flertalet störningar och vissa likheter med insignalen. I figur \ref{fig:signal-99kHz-Filter-100kHz} 
-    ses insignalen i gult och utsignalen i blått för ett filter dimensionerat för $99$~kHz med en insignal på $96$~kHz. I bild \ref{fig:signal-99kHz-Filter-200kHz} 
-    syns utsignal från samma filter där insignalen istället är $200$~kHz.  
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{Filter-100kHz.jpg}
-        \caption{Bild av oscilloskopavläsning av filter. Gul signal är ingång, blå signal är utgång. Filtret ska filtrera $99$~kHz och insignalen är på $96$~kHz.}
-        \label{fig:signal-99kHz-Filter-100kHz}
-    \end{figure}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{Filter-200kHz.jpg}
-        \caption{Bild av oscilloskopavläsning av filter. Gul signal är ingång, blå signal är utgång. Filtret ska filtrera $99$~kHz och insignalen är på $203$~kHz.}
-        \label{fig:signal-99kHz-Filter-200kHz}
-    \end{figure}
+    Filterkretsen gav vid test i verkligheten en oigenkännbar signal.
 
     \newpage
     \section{Diskussion och Slutsats}
